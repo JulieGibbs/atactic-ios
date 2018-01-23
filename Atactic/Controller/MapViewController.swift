@@ -14,36 +14,10 @@ class MapViewController: UIViewController {
 
     // Reference to the Map View
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var infoTabView: UIView!
     
     // LocationManager single instance
     let locationManager = CLLocationManager()
-    
-    func setupUserTrackingButton() {
-        mapView.showsUserLocation = true
-        
-        let button = MKUserTrackingButton(mapView: mapView)
-        button.layer.backgroundColor = UIColor.darkGray.cgColor
-        button.layer.borderColor = UIColor.darkGray.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
-        button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
-        
-        /*
-        let scale = MKScaleView(mapView: mapView)
-        scale.legendAlignment = .trailing
-        scale.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scale)
-        
-        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 10),
-                                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-                                     scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
-                                     scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
-         */
-        
-        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 10),
-                                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)])
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +31,6 @@ class MapViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
-        
         mapView.delegate = self
         
         // Display user's location
@@ -67,21 +40,14 @@ class MapViewController: UIViewController {
 
         setupUserTrackingButton()
 
+        // Adjust some look & feel params for the infor tab
+        self.infoTabView.layer.borderColor = UIColor.lightGray.cgColor
+        self.infoTabView.layer.borderWidth = 0.5
+        
         // Add Annotations
-        let annot1 = AccountAnnotation(mainText: "Cliente Prioritario 1",
-                                       secondaryText: "Fidelización estratégica, Venta cruzada Q2",
-                                       latitude: 41.6563397, longitude: -0.875566, highlight: true)
-        let annot2 = AccountAnnotation(mainText: "Cliente Normal 1",
-                                       secondaryText: "",
-                                       latitude: 41.6463397, longitude: -0.876566, highlight: false)
-        let annot3 = AccountAnnotation(mainText: "Cliente Normal 2",
-                                       secondaryText: "",
-                                       latitude: 41.6363397, longitude: -0.879566, highlight: false)
-        let annot4 = AccountAnnotation(mainText: "Cliente Prioritario 2",
-                                       secondaryText: "Fidelización estratégica, Venta cruzada Q2",
-                                       latitude: 41.6263397, longitude: -0.873266, highlight: true)
+        let mapAnnotations = createAnnotations()
 
-        self.mapView.addAnnotations([annot1, annot2, annot3, annot4])
+        self.mapView.addAnnotations(mapAnnotations)
         
     }
 
@@ -91,26 +57,80 @@ class MapViewController: UIViewController {
     }
 
     
-    // This intenal class extends MKPointAnnotation and will contain a flag indicating
-    // whether each object must be painted on the map as a priority target or as
-    // a "normal" account
-    final internal class AccountAnnotation: MKPointAnnotation {
+    func createAnnotations() -> [AccountAnnotation] {
+        let annot1 = AccountAnnotation(accountName: "Farmacia Vázquez",
+                                       activeQuests: "Fidelización estratégica, Venta cruzada Q2",
+                                       latitude: 41.6563397, longitude: -0.875566, highlight: true)
+        let annot2 = AccountAnnotation(accountName: "Farmalis",
+                                       activeQuests: "",
+                                       latitude: 41.6463397, longitude: -0.876566, highlight: false)
+        let annot3 = AccountAnnotation(accountName: "Open Farma",
+                                       activeQuests: "",
+                                       latitude: 41.6363397, longitude: -0.879566, highlight: false)
+        let annot4 = AccountAnnotation(accountName: "Botica de Medicina General",
+                                       activeQuests: "Fidelización estratégica",
+                                       latitude: 41.6453397, longitude: -0.883266, highlight: true)
         
-        var isPriorityTarget: Bool
-        
-        init(mainText: String, secondaryText: String, latitude: Double, longitude: Double, highlight: Bool) {
-            isPriorityTarget = highlight
-            super.init()
-            title = mainText
-            subtitle = secondaryText
-            let lat = CLLocationDegrees(exactly: latitude)
-            let lon = CLLocationDegrees(exactly: longitude)
-            coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
-        }
-        
+        return [annot1, annot2, annot3, annot4]
     }
     
-
+    
+    func setupUserTrackingButton() {
+        mapView.showsUserLocation = true
+        
+        let button = MKUserTrackingButton(mapView: mapView)
+        button.layer.backgroundColor = UIColor.darkGray.cgColor
+        button.layer.borderColor = UIColor.darkGray.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        
+        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 10),
+                                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)])
+    }
+    
+    @IBAction func directionsButtonPressed(_ sender: UIButton) {
+        if let acc = mapView.selectedAnnotations[0] as? AccountAnnotation {
+            print("Directions button pressed - Account \(acc.title!)")
+            
+            let destinationLocation = acc.coordinate
+            let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+            let destination = MKMapItem(placemark: destinationPlacemark)
+            destination.name = acc.title
+            
+            let options = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+            
+            print("Launching Maps app...")
+            destination.openInMaps(launchOptions: options)
+        }
+    }
+    
+    /*
+    func launchMapsAppWithWaypoints(){
+        
+        let startLocation = mapView.userLocation.coordinate
+        let startPlacemark = MKPlacemark(coordinate: startLocation, addressDictionary: nil)
+        let start = MKMapItem(placemark: startPlacemark)
+        start.name = "Tu posición"
+        
+        let waypoint1Location = CLLocationCoordinate2D(latitude: 41.6393397, longitude: -0.865566)
+        let waypoint1Placemark = MKPlacemark(coordinate: waypoint1Location, addressDictionary: nil)
+        let waypoint1 = MKMapItem(placemark: waypoint1Placemark)
+        waypoint1.name = "Parada 1"
+        
+        let destinationLocation = CLLocationCoordinate2D(latitude: 41.6493397, longitude: -0.885566)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        let destination = MKMapItem(placemark: destinationPlacemark)
+        destination.name = "Destino"
+        
+        let options = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        
+        MKMapItem.openMaps(with: [start, waypoint1, destination], launchOptions: options)
+    }
+     */
+    
+    
     /*
     // MARK: - Navigation
 
@@ -126,6 +146,9 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
+    /*
+     * Executed when DISPLAYING an Annotation.
+     */
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation {
@@ -154,24 +177,43 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         }
         return marker
     }
- 
+    
+    /*
+     * Executed when SELECTING an Annotation
+     */
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let acc = view.annotation as? AccountAnnotation {
+            
+            // Set info tab data to display
+            let accountNameLabel = infoTabView.subviews[1] as! UILabel
+            let activeQuestsLabel = infoTabView.subviews[2] as! UILabel
+            
+            accountNameLabel.text = acc.title!
+            activeQuestsLabel.text = acc.subtitle!
+            
+            // Show account info tab with an animation
+            infoTabView.isHidden = false
+            UIView.animate(withDuration: 0.5, animations: {
+                self.infoTabView.frame.origin.y -= 200
+            })
+        }
+    }
+    
+    
+    /*
+     * Excuted when deselecting an annotation
+     */
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        // print("ACCOUNT ANNOTATION view DESELECTED")
+        
+        // Hide account info tab with an animation
+        UIView.animate(withDuration: 0.5, animations: {
+            self.infoTabView.frame.origin.y += 200
+        })
+    }
+    
 }
 
-
-
-
-/*
- func openMapInTransitMode() {
- let startLocation = CLLocationCoordinate2D(latitude: 51.50722, longitude: -0.12750)
- let startPlacemark = MKPlacemark(coordinate: startLocation, addressDictionary: nil)
- let start = MKMapItem(placemark: startPlacemark)
- let destinationLocation = CLLocationCoordinate2D(latitude: 51.5149001, longitude: -0.1118255)
- let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
- let destination = MKMapItem(placemark: destinationPlacemark)
- let options = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeTransit]
- MKMapItem.openMapsWithItems([start, destination], launchOptions: options)
- }
- */
 
 
 

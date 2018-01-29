@@ -10,32 +10,64 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
 
-    let fullname = "Jaime Lucea Quiñones"
-    let position = "Delegado Comercial"
-    let score = 139
-    let rank = 4
-
     @IBOutlet var fullNameLabel: UILabel!
     @IBOutlet var positionLabel: UILabel!
     @IBOutlet var scoreIndicator: UILabel!
     @IBOutlet var rankIndicator: UILabel!
     
+    struct Profile : Codable {
+        let userId : Int
+        let email : String
+        let firstName : String
+        let lastName : String
+        let position : String
+        let score : Int
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Fill views with data
-        fullNameLabel.text = fullname
-        positionLabel.text = position
-        scoreIndicator.text = "\(score)"
-        rankIndicator.text = "\(rank)"
+        print("User Profile View Controler loaded")
         
+        // Request profile data to the server and fill UI views
+        loadUserData()
     }
+    
+    
+    func loadUserData() {
+        
+        let requestForProfileData = ProfileRequest(userId: 57)
+        
+        // Asynchronous request for user data
+        let task = URLSession.shared.dataTask(with: requestForProfileData.request,
+                                              completionHandler: { (data, response, error) in
+                                                
+            if let httpStatus = response as? HTTPURLResponse {              // There is a response from the server
+                print("Response Status Code : \(httpStatus.statusCode)")
+                if httpStatus.statusCode == 200 {
+                    
+                    let decoder = JSONDecoder()
+                    let profileData = try! decoder.decode(Profile.self, from: data!)
+                    
+                    // Perform UI updates in the main queue
+                    DispatchQueue.main.async { () -> Void in
+                        self.fullNameLabel.text = profileData.firstName + " " + profileData.lastName
+                        self.positionLabel.text = profileData.position
+                        self.scoreIndicator.text = "\(profileData.score)"
+                    }
+                }
+            }
+        })
+        task.resume()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "logoutSegue" {
@@ -44,15 +76,5 @@ class UserProfileViewController: UIViewController {
             UserDefaults.standard.removeObject(forKey: "password")
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

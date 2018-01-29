@@ -10,7 +10,7 @@ import UIKit
 
 class QuestDetailViewController: UIViewController {
 
-    var quest : Quest!
+    var quest : QuestParticipationStruct!
     
     @IBOutlet var questTitleLabel: UILabel!
     @IBOutlet var questBriefingLabel: UILabel!
@@ -23,11 +23,11 @@ class QuestDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        questTitleLabel.text = quest.title
-        questBriefingLabel.text = quest.briefing
+        questTitleLabel.text = quest.campaign.name
+        questBriefingLabel.text = quest.campaign.summary
         
         // Set progress values for progress label text and circular indicator angle
-        let prgr = Double(quest.currentStep!) / Double(quest.totalSteps!)
+        let prgr = Double(quest.currentStep) / Double(quest.totalSteps)
         progressLabel.text = String(format: "%.0f", prgr * 100) + "%"
         
         progressIndicator.angle = prgr * 360.0
@@ -41,13 +41,13 @@ class QuestDetailViewController: UIViewController {
         let remainingDaysLabel: UILabel =
             containerViewA.subviews[0].subviews[5] as! UILabel
         
-        adminNameLabel.text = quest.administratorName
-        adminTitleLabel.text = quest.administratorTitle
-        endDateLabel.text = quest.deadline.description
+        adminNameLabel.text = quest.campaign.owner.firstName + " " + quest.campaign.owner.lastName
+        adminTitleLabel.text = quest.campaign.owner.position
+        endDateLabel.text = quest.campaign.endDate
         remainingDaysLabel.text = "Faltan X días"
         
         let longDescriptionTextField = containerViewB.subviews[0].subviews[0] as! UITextView
-        longDescriptionTextField.text = quest.longDescription
+        longDescriptionTextField.text = quest.campaign.description
         
     }
 
@@ -71,15 +71,5 @@ class QuestDetailViewController: UIViewController {
         }
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

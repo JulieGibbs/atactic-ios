@@ -19,7 +19,7 @@ import MapKit
  * The class contains a flag indicating wether this object is a priority target, as well as
  * the account's name, location data (address & coordinates) and the active quests that make it
  * a relevant target.
- 
+ *
  */
 class AccountAnnotation: MKPointAnnotation {
 

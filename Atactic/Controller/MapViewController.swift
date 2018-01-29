@@ -38,16 +38,17 @@ class MapViewController: UIViewController {
         self.mapView.userTrackingMode = .follow
         // self.mapView.setCenter(mapView.userLocation.coordinate, animated: true)
 
+        // Set up tracking button (button for centering view on user's location
         setupUserTrackingButton()
 
-        // Adjust some look & feel params for the infor tab
+        // Adjust some look & feel params for the info tab view
         self.infoTabView.layer.borderColor = UIColor.lightGray.cgColor
         self.infoTabView.layer.borderWidth = 0.5
         
-        // Add Annotations
-        let mapAnnotations = createAnnotations()
-
-        self.mapView.addAnnotations(mapAnnotations)
+        // Recover user's ID
+        let recoveredUserId = UserDefaults.standard.integer(forKey: "uid")
+        loadTargetAccounts(userId: recoveredUserId)
+        loadNonTargetAccounts(userId: recoveredUserId)
         
     }
 
@@ -55,25 +56,6 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-    func createAnnotations() -> [AccountAnnotation] {
-        let annot1 = AccountAnnotation(accountName: "Farmacia Vázquez",
-                                       activeQuests: "Fidelización estratégica, Venta cruzada Q2",
-                                       latitude: 41.6563397, longitude: -0.875566, highlight: true)
-        let annot2 = AccountAnnotation(accountName: "Farmalis",
-                                       activeQuests: "",
-                                       latitude: 41.6463397, longitude: -0.876566, highlight: false)
-        let annot3 = AccountAnnotation(accountName: "Open Farma",
-                                       activeQuests: "",
-                                       latitude: 41.6363397, longitude: -0.879566, highlight: false)
-        let annot4 = AccountAnnotation(accountName: "Botica de Medicina General",
-                                       activeQuests: "Fidelización estratégica",
-                                       latitude: 41.6453397, longitude: -0.883266, highlight: true)
-        
-        return [annot1, annot2, annot3, annot4]
-    }
-    
     
     func setupUserTrackingButton() {
         mapView.showsUserLocation = true
@@ -130,16 +112,6 @@ class MapViewController: UIViewController {
     }
      */
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -147,7 +119,7 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     /*
-     * Executed when DISPLAYING an Annotation.
+     * Executed when DISPLAYING an Annotation
      */
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -215,7 +187,95 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 }
 
 
-
+//
+// This extension adds network functionality by defining two functions:
+// loadNonTargetAccounts(userId) and loadTargetAccounts(userId),
+// which send a request to ATACTIC's server in order to load the accounts
+// to be displayed on the map
+//
+extension MapViewController {
+    
+    /*
+     * Ideally, JSON decoder would directly decode MKAnnotation objects.
+     *
+     * This could be accomplished via using a custom decoder.
+     */
+    func loadNonTargetAccounts(userId: Int) {
+        
+        let request = AccountsRequest(userId: userId, nonTargetOnly: true).request
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let serverResponse = response as? HTTPURLResponse {
+                print("AccountService response received - \(serverResponse.statusCode)")
+                if (serverResponse.statusCode == 200) {
+                    // DECODE JSON response
+                    print("Decoding Account List from JSON response")
+                    //print(String(data: data!, encoding: .utf8)!)
+                    //print()
+                    let decoder = JSONDecoder()
+                    let accounts = try! decoder.decode([AccountStruct].self, from: data!)
+                    print("MapViewController - Loaded \(accounts.count) non-target accounts from the server")
+                    
+                    // Add account annotations to the Map View in the main queue
+                    DispatchQueue.main.async { () -> Void in
+                        accounts.forEach { acc in
+                            let accountAnnotation = AccountAnnotation(accountName: acc.name, activeQuests: "",
+                                                                      latitude: acc.latitude, longitude: acc.longitude,
+                                                                      highlight: false)
+                            self.mapView.addAnnotation(accountAnnotation)
+                        }
+                    }
+                } else {
+                    print("Error code \(serverResponse.statusCode)")
+                }
+            } else {
+                print("No response from server")
+            }
+        }
+        task.resume()
+    }
+    
+    
+    func loadTargetAccounts(userId: Int) {
+        
+        let request = RequestFactory.buildTargetAccountsRequest(userId: userId)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let serverResponse = response as? HTTPURLResponse {
+                print("TargetService response received - \(serverResponse.statusCode)")
+                if (serverResponse.statusCode == 200) {
+                    // DECODE JSON response
+                    print("Decoding Target List from JSON response")
+                    //print(String(data: data!, encoding: .utf8)!)
+                    //print()
+                    let decoder = JSONDecoder()
+                    let targets = try! decoder.decode([ParticipationTargetStruct].self, from: data!)
+                    print("MapViewController - Loaded \(targets.count) target accounts from the server")
+                    
+                    // Add account annotations to the Map View in the main queue
+                    DispatchQueue.main.async { () -> Void in
+                        targets.forEach { ptgt in
+                            
+                            let accountAnnotation = AccountAnnotation(accountName: ptgt.account.name, activeQuests: "",
+                                                                      latitude: ptgt.account.latitude, longitude: ptgt.account.longitude,
+                                                                      highlight: true)
+                            self.mapView.addAnnotation(accountAnnotation)
+                        }
+                    }
+                } else {
+                    print("Error code \(serverResponse.statusCode)")
+                }
+            } else {
+                print("No response from server")
+            }
+        }
+        task.resume()
+    }
+    
+    
+}
 
 
 

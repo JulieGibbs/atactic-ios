@@ -140,12 +140,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-999.20000000000005" y="806.44677661169419"/>
+            <point key="canvasLocation" x="-908" y="806"/>
         </scene>
         <!--Quest List-->
         <scene sceneID="nL7-ib-CeW">
             <objects>
-                <viewController title="Quest List" id="Nyg-mP-2p8" customClass="CampaignListViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Quest List" id="Nyg-mP-2p8" customClass="QuestListViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SGn-Bc-hBk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ji-ly-QLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1466.25" y="120.4225352112676"/>
+            <point key="canvasLocation" x="1500" y="36"/>
         </scene>
         <!--Quest Detail-->
         <scene sceneID="Ys9-nj-3BE">
@@ -371,6 +371,9 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lre-nF-BiS" userLabel="Segment Control">
                                 <rect key="frame" x="0.0" y="292" width="375" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lre-nF-BiS" secondAttribute="height" multiplier="375:28" id="oTV-wl-SSv"/>
+                                </constraints>
                                 <segments>
                                     <segment title="General"/>
                                     <segment title="Descripción"/>
@@ -397,7 +400,7 @@
                             <constraint firstItem="lre-nF-BiS" firstAttribute="centerX" secondItem="ra5-Ib-Get" secondAttribute="centerX" id="2Cg-cj-dYr"/>
                             <constraint firstItem="WrN-R4-14N" firstAttribute="centerY" secondItem="ql9-uE-u6r" secondAttribute="centerY" id="3Lv-2j-Qvf"/>
                             <constraint firstItem="lre-nF-BiS" firstAttribute="top" secondItem="SXm-7v-jGT" secondAttribute="bottom" constant="30" id="3mD-hn-XBf"/>
-                            <constraint firstItem="SXm-7v-jGT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rwe-gj-37g" secondAttribute="leading" constant="45" id="6Y6-Vt-wXD"/>
+                            <constraint firstItem="SXm-7v-jGT" firstAttribute="left" relation="greaterThanOrEqual" secondItem="Rwe-gj-37g" secondAttribute="left" constant="45" id="6Y6-Vt-wXD"/>
                             <constraint firstItem="agC-hk-yVa" firstAttribute="top" secondItem="Rwe-gj-37g" secondAttribute="top" constant="15" id="8qk-so-Ltl"/>
                             <constraint firstItem="ql9-uE-u6r" firstAttribute="leading" secondItem="Rwe-gj-37g" secondAttribute="leading" id="Gr1-rt-hSE"/>
                             <constraint firstItem="agC-hk-yVa" firstAttribute="centerX" secondItem="ra5-Ib-Get" secondAttribute="centerX" id="He8-hY-870"/>
@@ -407,13 +410,11 @@
                             <constraint firstItem="2ez-pz-OpC" firstAttribute="centerX" secondItem="ra5-Ib-Get" secondAttribute="centerX" id="Nbx-Oz-6M5"/>
                             <constraint firstItem="Rwe-gj-37g" firstAttribute="trailing" secondItem="ql9-uE-u6r" secondAttribute="trailing" id="Pzx-3J-0Kt"/>
                             <constraint firstItem="SXm-7v-jGT" firstAttribute="top" secondItem="2ez-pz-OpC" secondAttribute="bottom" constant="10" id="QBe-iz-ao0"/>
-                            <constraint firstItem="lre-nF-BiS" firstAttribute="leading" secondItem="Rwe-gj-37g" secondAttribute="leading" id="SZS-mi-xjy"/>
                             <constraint firstItem="2ez-pz-OpC" firstAttribute="top" secondItem="agC-hk-yVa" secondAttribute="bottom" id="Vdp-GA-jdH"/>
                             <constraint firstItem="WrN-R4-14N" firstAttribute="height" secondItem="ql9-uE-u6r" secondAttribute="height" id="aj3-cz-1Lm"/>
                             <constraint firstItem="WrN-R4-14N" firstAttribute="width" secondItem="ql9-uE-u6r" secondAttribute="width" id="alA-V0-2kg"/>
                             <constraint firstItem="Rwe-gj-37g" firstAttribute="bottom" secondItem="ql9-uE-u6r" secondAttribute="bottom" id="gdW-rm-pxR"/>
-                            <constraint firstItem="Rwe-gj-37g" firstAttribute="trailing" secondItem="lre-nF-BiS" secondAttribute="trailing" id="hZ4-KZ-ayy"/>
-                            <constraint firstItem="Rwe-gj-37g" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SXm-7v-jGT" secondAttribute="trailing" constant="45" id="x7B-A8-DnW"/>
+                            <constraint firstItem="Rwe-gj-37g" firstAttribute="right" relation="greaterThanOrEqual" secondItem="SXm-7v-jGT" secondAttribute="right" constant="45" id="x7B-A8-DnW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rwe-gj-37g"/>
                     </view>
@@ -428,12 +429,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGg-uj-KGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2261.5999999999999" y="120.98950524737631"/>
+            <point key="canvasLocation" x="2252" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R0y-Sc-z8F">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vaE-ly-vDh" userLabel="Navigation Controller" customClass="NavigationController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vaE-ly-vDh" userLabel="Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Misiones" image="icon_navbar_flag_24" selectedImage="icon_navbar_flag_24" id="VkX-LE-kvO">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
@@ -450,12 +451,11 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Nyg-mP-2p8" kind="relationship" relationship="rootViewController" id="3ce-a7-dqi"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="redirectToLoginSegue" id="Uf3-N7-gh9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vw6-qI-MwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="36"/>
+            <point key="canvasLocation" x="664" y="36"/>
         </scene>
         <!--Map-->
         <scene sceneID="kY7-zC-wpE">
@@ -558,7 +558,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoU-Np-6GU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="659.5" y="805.5"/>
+            <point key="canvasLocation" x="825" y="870"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="cel-vq-e2Y">
@@ -674,12 +674,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2e3-xy-0Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="1576"/>
+            <point key="canvasLocation" x="-114" y="1603"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Central Controller-->
         <scene sceneID="d97-vT-QzV">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8nK-P1-7f2" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8nK-P1-7f2" customClass="CentralController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="H4H-Q2-LiP">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -691,11 +691,12 @@
                         <segue destination="vaE-ly-vDh" kind="relationship" relationship="viewControllers" id="1k7-Pc-hJ6"/>
                         <segue destination="47q-Jk-qEs" kind="relationship" relationship="viewControllers" id="0d0-rO-nGA"/>
                         <segue destination="SO6-pB-8ey" kind="relationship" relationship="viewControllers" id="yJX-2Q-fTI"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginSegue" customClass="TabBarController" customModule="Atactic" customModuleProvider="target" id="eLw-zD-lPt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj1-iP-ZWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-124" y="807"/>
+            <point key="canvasLocation" x="-114" y="806"/>
         </scene>
         <!--Quest Info-->
         <scene sceneID="yrq-Gx-aEo">
@@ -770,7 +771,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Dc-BS-gjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1894" y="750"/>
+            <point key="canvasLocation" x="1886" y="663"/>
         </scene>
         <!--Quest Description-->
         <scene sceneID="F94-UF-NZm">
@@ -801,7 +802,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6L-Xy-AEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2576.8000000000002" y="749.7751124437782"/>
+            <point key="canvasLocation" x="2650" y="663"/>
         </scene>
     </scenes>
     <resources>
@@ -814,7 +815,7 @@
         <image name="icon_office_512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Llg-Kl-CXw"/>
+        <segue reference="eLw-zD-lPt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

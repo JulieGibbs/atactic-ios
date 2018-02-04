@@ -19,10 +19,20 @@ class QuestDetailViewController: UIViewController {
     @IBOutlet var containerViewA: UIView!
     @IBOutlet var containerViewB: UIView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        printQuestData()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func printQuestData() {
+        
         questTitleLabel.text = quest.campaign.name
         questBriefingLabel.text = quest.campaign.summary
         
@@ -31,8 +41,7 @@ class QuestDetailViewController: UIViewController {
         progressLabel.text = String(format: "%.0f", prgr * 100) + "%"
         
         progressIndicator.angle = prgr * 360.0
-        progressIndicator.animate(fromAngle: 0, toAngle: prgr * 360.0, duration: 1) { (completed) in
-        }
+        progressIndicator.animate(fromAngle: 0, toAngle: prgr * 360.0, duration: 1) { (completed) in }
         
         let adminNameLabel: UILabel = containerViewA.subviews[0].subviews[1] as! UILabel
         let adminTitleLabel: UILabel = containerViewA.subviews[0].subviews[2] as! UILabel
@@ -43,19 +52,37 @@ class QuestDetailViewController: UIViewController {
         
         adminNameLabel.text = quest.campaign.owner.firstName + " " + quest.campaign.owner.lastName
         adminTitleLabel.text = quest.campaign.owner.position
-        endDateLabel.text = quest.campaign.endDate
-        remainingDaysLabel.text = "Faltan X días"
+        
+        let endDateStr = quest.campaign.endDate
+        
+        // Format date
+        let endDateSubstr = String(endDateStr.split(separator: "T")[0])
+        let sourceFormatter = DateFormatter()
+        sourceFormatter.dateFormat = "yyyy-MM-dd"
+        let parsedEndDate = sourceFormatter.date(from: endDateSubstr)
+        let printableFormatter = DateFormatter()
+        printableFormatter.dateFormat = "dd'/'M'/'yyyy"
+        
+        endDateLabel.text = printableFormatter.string(from: parsedEndDate!)
+        
+        // Get current date
+        let currentDate = Date()
+        
+        // Calculate days of difference between the two dates
+        let calendar = Calendar.current
+        let date1 = calendar.startOfDay(for: currentDate)
+        let date2 = calendar.startOfDay(for: parsedEndDate!)
+        let daysOfDiff = calendar.dateComponents([.day], from: date1, to: date2).day
+        
+        remainingDaysLabel.text = "Faltan \(daysOfDiff!) días"
         
         let longDescriptionTextField = containerViewB.subviews[0].subviews[0] as! UITextView
         longDescriptionTextField.text = quest.campaign.description
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    //
+    // Segmented control management
+    //
     @IBAction func showView(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {

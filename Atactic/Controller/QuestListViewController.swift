@@ -66,6 +66,27 @@ extension QuestListViewController: UITableViewDataSource {
         cell.questSummaryLabel.text = participation.campaign.summary
         cell.currentStepLabel.text = "\(participation.currentStep)"
         cell.totalStepsLabel.text = "\(participation.totalSteps)"
+        cell.scoreLabel.text = "\(participation.campaign.visitScore)"
+        
+        // Parse the campaign's end date
+        let endDateStr = participation.campaign.endDate
+        let endDateSubstr = String(endDateStr.split(separator: "T")[0])
+        // print("Will parse String-to-date: " + endDateSubstr)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let endDate = formatter.date(from: endDateSubstr)
+        
+        // Get current date
+        let currentDate = Date()
+        
+        // Calculate days of difference between the two dates
+        let calendar = Calendar.current
+        let date1 = calendar.startOfDay(for: currentDate)
+        let date2 = calendar.startOfDay(for: endDate!)
+        let daysOfDiff = calendar.dateComponents([.day], from: date1, to: date2).day
+        
+        cell.deadlineLabel.text = "Faltan \(daysOfDiff!) días"
         
         // Set progress values for progress label text and circular indicator angle
         let prgr = Double(participation.currentStep) / Double(participation.totalSteps)

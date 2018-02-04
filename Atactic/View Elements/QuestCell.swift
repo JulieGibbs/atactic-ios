@@ -12,12 +12,15 @@ class QuestCell: UITableViewCell {
     
     @IBOutlet var questNameLabel: UILabel!
     @IBOutlet var questSummaryLabel: UILabel!
+
+    @IBOutlet var deadlineLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
+    
     @IBOutlet var currentStepLabel: UILabel!
     @IBOutlet var totalStepsLabel: UILabel!
 
     @IBOutlet var progressLabel: UILabel!
     @IBOutlet var progressCircle: KDCircularProgress!
-    
     
 }
 

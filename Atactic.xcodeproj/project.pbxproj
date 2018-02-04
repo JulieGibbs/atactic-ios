@@ -17,6 +17,8 @@
 		6F8F31BB201A4AB100216070 /* CentralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BA201A4AB100216070 /* CentralController.swift */; };
 		6F8F31BD201A5D7500216070 /* QuestListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BC201A5D7500216070 /* QuestListRequest.swift */; };
 		6F8F31BF201A7B2700216070 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BE201A7B2700216070 /* ProfileRequest.swift */; };
+		6FB79FC020272676003F5BC4 /* TargetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */; };
+		6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FC1202729DB003F5BC4 /* TargetCell.swift */; };
 		6FBBF4AB1FFAC8FA00CAFBE9 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */; };
 		6FDCFDA9201F814B009BF9E2 /* AccountsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDCFDA8201F814B009BF9E2 /* AccountsRequest.swift */; };
 		6FDCFDAB201F9741009BF9E2 /* JSONStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDCFDAA201F9741009BF9E2 /* JSONStructs.swift */; };
@@ -42,6 +44,8 @@
 		6F8F31BA201A4AB100216070 /* CentralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralController.swift; sourceTree = "<group>"; };
 		6F8F31BC201A5D7500216070 /* QuestListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListRequest.swift; sourceTree = "<group>"; };
 		6F8F31BE201A7B2700216070 /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetListViewController.swift; sourceTree = "<group>"; };
+		6FB79FC1202729DB003F5BC4 /* TargetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCell.swift; sourceTree = "<group>"; };
 		6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		6FDCFDA8201F814B009BF9E2 /* AccountsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsRequest.swift; sourceTree = "<group>"; };
 		6FDCFDAA201F9741009BF9E2 /* JSONStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStructs.swift; sourceTree = "<group>"; };
@@ -75,11 +79,12 @@
 			isa = PBXGroup;
 			children = (
 				6FF1C9D41FF4273E00837460 /* LoginViewController.swift */,
+				6F8F31BA201A4AB100216070 /* CentralController.swift */,
 				6FE55E951FF500E900945171 /* QuestListViewController.swift */,
 				6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */,
-				6F33BC761FFA996C00BC4789 /* UserProfileViewController.swift */,
+				6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */,
 				6FF7CF102006807A009E6062 /* MapViewController.swift */,
-				6F8F31BA201A4AB100216070 /* CentralController.swift */,
+				6F33BC761FFA996C00BC4789 /* UserProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			children = (
 				6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */,
 				6FE55E971FF50E4E00945171 /* QuestCell.swift */,
+				6FB79FC1202729DB003F5BC4 /* TargetCell.swift */,
 			);
 			path = "View Elements";
 			sourceTree = "<group>";
@@ -249,10 +255,12 @@
 				6F8F31BD201A5D7500216070 /* QuestListRequest.swift in Sources */,
 				6FE55E961FF500E900945171 /* QuestListViewController.swift in Sources */,
 				6FDCFDAB201F9741009BF9E2 /* JSONStructs.swift in Sources */,
+				6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */,
 				6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */,
 				6F8F31BB201A4AB100216070 /* CentralController.swift in Sources */,
 				6FF1C9D31FF4273E00837460 /* AppDelegate.swift in Sources */,
 				6F35E3CB2017445F005BCB88 /* ServerVersionRequest.swift in Sources */,
+				6FB79FC020272676003F5BC4 /* TargetListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

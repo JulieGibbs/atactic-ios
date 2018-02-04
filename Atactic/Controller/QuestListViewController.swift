@@ -18,16 +18,9 @@ class QuestListViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print()
-        print("Campaign List View Controller loaded")
+        print("Quest List View Controller loaded")
         
-        // createSampleQuests()
-        
-        // Recover user's Id from UserDefault and send a requiest to the server to load his quest list
-        // TODO change User ID with Authentication TOKEN
-        let recoveredUserId = UserDefaults.standard.integer(forKey: "uid")
-        loadQuestList(uid: recoveredUserId)
-        
-        print("Quest List controller loaded")
+        loadQuestParticipations()
     }
     
     
@@ -89,9 +82,13 @@ extension QuestListViewController: UITableViewDataSource {
 //
 extension QuestListViewController {
     
-    func loadQuestList(uid: Int) {
+    func loadQuestParticipations() {
         
-        let questListRequest = QuestListRequest(userId: uid)
+        // Recover user's Id from UserDefault and send a requiest to the server to load his quest list
+        // TODO change User ID with Authentication TOKEN
+        let recoveredUserId = UserDefaults.standard.integer(forKey: "uid")
+        
+        let questListRequest = QuestListRequest(userId: recoveredUserId)
         
         let task = URLSession.shared.dataTask(with: questListRequest.getRequest()) { (data, response, error) in
             
@@ -108,7 +105,7 @@ extension QuestListViewController {
                     let questList = try! decoder.decode([QuestParticipationStruct].self, from: data!)
                     print("QuestListViewController - Loaded \(questList.count) quests from the server")
                     
-                    // Run UI updates on main queue
+                    // Run UI updates in the main queue
                     DispatchQueue.main.async { () -> Void in
                         print("QuestListViewController: reloading table view data")
                         self.questParticipationList = questList

@@ -17,18 +17,24 @@ class QuestListViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print()
         print("Quest List View Controller loaded")
-        
-        loadQuestParticipations()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("Quest List View controller did appear")
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("QuestListViewController - view will appear")
+        loadQuestParticipations()
+        super.viewWillAppear(animated)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     // Prepare for the showQuestDetail segue
     // by setting the quest data in the destination QuestDetailViewController

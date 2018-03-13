@@ -74,7 +74,7 @@ class CentralController : UITabBarController {
                     print("User ID = \(userId)")
                     
                 } else {
-                    print("Authentication response NOT ok: \(httpStatus.statusCode)")
+                    print("Central Controller: Authentication response NOT ok: \(httpStatus.statusCode)")
                     
                     // Run in the main queue
                     DispatchQueue.main.async { () -> Void in

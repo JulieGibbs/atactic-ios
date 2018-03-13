@@ -10,7 +10,8 @@ import Foundation
 
 class QuestListRequest {
     
-    var resourceURLString = AtacticServers.DevelopmentAPIBaseURL + AtacticAPIResources.QuestResource
+    var resourceURLString = NetworkConstants.AtacticAPIResourceURL.QuestResource
+    
     var request: URLRequest
     
     init(userId: Int){
@@ -20,7 +21,6 @@ class QuestListRequest {
         
         request = URLRequest(url: myurl)
         request.httpMethod = "GET"
-        
     }
     
     func getRequest() -> URLRequest {

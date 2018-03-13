@@ -9,12 +9,10 @@
 import Foundation
 
 class RequestFactory {
-    
-    static let apiUrl = AtacticServers.DevelopmentAPIBaseURL
-    
+        
     static func buildLoginRequest(user: String, pass: String) -> URLRequest {
     
-        let resourceURL = URL(string: apiUrl + AtacticAPIResources.AuthenticationResource)
+        let resourceURL = URL(string: NetworkConstants.AtacticAPIResourceURL.AuthenticationResource)
         var request = URLRequest(url: resourceURL!)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -26,7 +24,7 @@ class RequestFactory {
     
     static func buildTargetAccountsRequest(userId: Int) -> URLRequest {
         
-        let urlStr = apiUrl + AtacticAPIResources.TargetAccountsForUser + "?uid=\(userId)"
+        let urlStr = NetworkConstants.AtacticAPIResourceURL.TargetAccountsForUser + "?uid=\(userId)"
         var request = URLRequest(url: URL(string: urlStr)!)
         request.httpMethod = "GET"
         return request

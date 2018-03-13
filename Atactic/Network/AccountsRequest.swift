@@ -10,7 +10,8 @@ import Foundation
 
 class AccountsRequest {
     
-    var resourceURLString = AtacticServers.DevelopmentAPIBaseURL + AtacticAPIResources.AccountsResource
+    var resourceURLString = NetworkConstants.AtacticAPIResourceURL.AccountsResource
+    
     var request: URLRequest
     
     init(userId: Int, nonTargetOnly: Bool){

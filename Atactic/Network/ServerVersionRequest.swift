@@ -10,15 +10,17 @@ import Foundation
 
 class ServerVersionRequest {
     
-    let versionResourceURL = URL(string: "http://localhost:8080/mobile/rsc/version")
+    let versionResourceURL = URL(string: NetworkConstants.AtacticAPIResourceURL.ServerVersionResource)
     
     func execute(){
         
+        // Define an async task
         let task = URLSession.shared.dataTask(with: versionResourceURL!) { (data, response, error) in
             
             if (error == nil) {
                 print("No errors")
                 
+                // Assign the data from the response to a String
                 let responseString = String(data: data!, encoding: String.Encoding.utf8)
                 print(responseString! as Any)
                 
@@ -27,6 +29,7 @@ class ServerVersionRequest {
             }
         }
         
+        // Execute task
         task.resume()
     }
     

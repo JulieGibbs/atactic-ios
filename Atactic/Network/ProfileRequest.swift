@@ -10,7 +10,8 @@ import Foundation
 
 class ProfileRequest {
     
-    var resourceURLString = AtacticServers.DevelopmentAPIBaseURL + AtacticAPIResources.ProfileResource
+    var resourceURLString = NetworkConstants.AtacticAPIResourceURL.ProfileResource
+    
     internal var request: URLRequest
     
     init(userId: Int){

@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1017" y="930"/>
+            <point key="canvasLocation" x="-890" y="1451"/>
         </scene>
         <!--Quest List-->
         <scene sceneID="nL7-ib-CeW">
@@ -582,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoU-Np-6GU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="806"/>
+            <point key="canvasLocation" x="914" y="780"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="cel-vq-e2Y">
@@ -698,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2e3-xy-0Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="1614"/>
+            <point key="canvasLocation" x="-1772" y="1451"/>
         </scene>
         <!--Target List-->
         <scene sceneID="0pi-5s-dIU">
@@ -816,7 +816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTK-0d-EBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="1572"/>
+            <point key="canvasLocation" x="191" y="1451"/>
         </scene>
         <!--Central Controller-->
         <scene sceneID="d97-vT-QzV">
@@ -830,7 +830,7 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginSegue" customClass="TabBarController" customModule="Atactic" customModuleProvider="target" id="eLw-zD-lPt"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginSegue" id="eLw-zD-lPt"/>
                         <segue destination="vaE-ly-vDh" kind="relationship" relationship="viewControllers" id="1k7-Pc-hJ6"/>
                         <segue destination="aFV-xm-Umg" kind="relationship" relationship="viewControllers" id="9Cw-kL-hTw"/>
                         <segue destination="47q-Jk-qEs" kind="relationship" relationship="viewControllers" id="0d0-rO-nGA"/>
@@ -839,7 +839,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj1-iP-ZWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="806"/>
+            <point key="canvasLocation" x="-114" y="681"/>
         </scene>
         <!--Quest Info-->
         <scene sceneID="yrq-Gx-aEo">

@@ -26,6 +26,35 @@ struct AccountStruct : Codable {
     
 }
 
+struct OwnedAccountStruct : Codable {
+    
+    let address : String
+    let city : String
+    let country : String
+    let distance : Float
+    let externalId : String
+    let id : Int
+    let latitude : Double
+    let longitude : Double
+    let name : String
+    let owner : AccountOwnerStruct
+    let postalCode : String
+    let province : String
+    let segment : String
+    let type : String
+    
+}
+
+struct AccountOwnerStruct : Codable {
+    let email : String
+    let firstName : String
+    let lastName : String
+    let password : String
+    let position : String
+    let score : Int
+    let userId : Int
+}
+
 struct QuestParticipationStruct : Codable {
     
     let participationId: Int

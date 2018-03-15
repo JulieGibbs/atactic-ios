@@ -15,18 +15,30 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwdTextField: UITextField!
     @IBOutlet var errorMessage: UILabel!
     
-    // Local user database
     /*
-    var users : [String : String] = ["jlucea": "jame",
-                                    "merivu": "meri",
-                                    "hconget": "hector"]
+    override var prefersStatusBarHidden: Bool {
+        print("LoginView prefers status bar hidden")
+        return true
+    }
     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Login View Controller loaded")
+        
+        // In case there is a navigation controller with a top bar, hide it.
+        self.navigationController?.navigationBar.isHidden = true
     }
 
+    /*
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("Login View will disappear")
+        // self.navigationController?.navigationBar.isHidden = false
+        // self.tabBarController?.tabBar.isHidden = false
+    } */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,6 +92,7 @@ class LoginViewController: UIViewController {
                         // Redirect to table view
                         print("Performing segue...")
                         self.performSegue(withIdentifier: "doLoginSegue", sender: self)
+                        
                     }
                 } else {
                     print("Authentication response NOT ok: \(httpStatus.statusCode)")

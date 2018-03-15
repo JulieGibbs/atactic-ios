@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkConstants {
     
-    private static let AtacticServerURL = "http://192.168.1.201:8080/mobile/"
+    private static let AtacticServerURL = "http://localhost:8080/mobile/"
 
     private static let APIResourcesURL = AtacticServerURL + "rsc/"
     
@@ -21,6 +21,7 @@ class NetworkConstants {
         static let ProfileResource = APIResourcesURL + "profile"
         static let AccountsResource = APIResourcesURL + "account"
         static let TargetAccountsForUser = APIResourcesURL + "target/u"
+        static let ActivityListResource = APIResourcesURL + "checkin/list"
     }
 
 }

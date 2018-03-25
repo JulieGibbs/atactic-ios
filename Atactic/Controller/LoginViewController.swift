@@ -112,7 +112,7 @@ class LoginViewController: UIViewController {
     }
     
     func checkServerVersion(){
-        let request = ServerVersionRequest()
+        let request = VersionRequest()
         request.execute()
     }
     

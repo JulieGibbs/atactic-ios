@@ -28,7 +28,7 @@ class MapViewController: UIViewController {
         // Setup locationManager
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest   // Best accuracy not needed
             locationManager.startUpdatingLocation()
         }
         mapView.delegate = self

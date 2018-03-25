@@ -36,6 +36,7 @@ class ActivityRegisterDataHandler {
             if let serverResponse = response as? HTTPURLResponse {
                 print("Check-in List response received - \(serverResponse.statusCode)")
                 if (serverResponse.statusCode == 200) {
+                    
                     // DECODE JSON response
                     print("Decoding list of activities from JSON response")
                     // print(String(data: data!, encoding: .utf8)!)

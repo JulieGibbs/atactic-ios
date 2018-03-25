@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkConstants {
+class RequestConstants {
     
     private static let AtacticServerURL = "http://localhost:8080/mobile/"
 

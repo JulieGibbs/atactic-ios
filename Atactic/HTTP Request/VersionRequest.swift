@@ -8,9 +8,9 @@
 
 import Foundation
 
-class ServerVersionRequest {
+class VersionRequest {
     
-    let versionResourceURL = URL(string: NetworkConstants.AtacticAPIResourceURL.ServerVersionResource)
+    let versionResourceURL = URL(string: RequestConstants.AtacticAPIResourceURL.ServerVersionResource)
     
     func execute(){
         

@@ -15,6 +15,10 @@ class CentralController : UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Central Controller loaded")
+        
+        print("Starting Global Location Controller")
+        LocationController.global.start()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

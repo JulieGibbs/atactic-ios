@@ -19,52 +19,23 @@ class TargetListViewController : UIViewController {
         print()
         print("Target List View Controller loaded")
         
-        loadTargets()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let dataHandler = TargetListDataHandler(viewController: self)
+        dataHandler.getData()
     }
     
     //
-    // Sends a request to the API and displays the resulting list of targets
+    // Set the data to display in the view
     //
-    func loadTargets() {
+    func setData(targets: [ParticipationTargetStruct]) {
+        print("TargetListViewController - Received data to display")
+        print("\(targets.count) priority targets will be displayed")
+        self.targets = targets
+        self.tableView.reloadData()
+    }
+    
+    func setError(errorMessage: String) {
+        // TODO display error
         
-        // Recover user's ID
-        let recoveredUserId = UserDefaults.standard.integer(forKey: "uid")
-        
-        // Build the Http request to the TargetAccounts service
-        let request = RequestFactory.buildTargetAccountsRequest(userId: recoveredUserId)
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            if let serverResponse = response as? HTTPURLResponse {
-                print("TargetService response received - \(serverResponse.statusCode)")
-                if (serverResponse.statusCode == 200) {
-                    // DECODE JSON response
-                    print("Decoding Target List from JSON response")
-                    //print(String(data: data!, encoding: .utf8)!)
-                    //print()
-                    let decoder = JSONDecoder()
-                    let targets = try! decoder.decode([ParticipationTargetStruct].self, from: data!)
-                    print("TargetListViewController - Loaded \(targets.count) targets from the server")
-                    
-                    // Run UI updates in the main queue
-                    DispatchQueue.main.async { () -> Void in
-                        print("TargetListViewController: reloading table view data")
-                        self.targets = targets
-                        self.tableView.reloadData()
-                    }
-                } else {
-                    print("Error code \(serverResponse.statusCode)")
-                }
-            } else {
-                print("No response from server")
-            }
-        }
-        task.resume()
     }
     
 }
@@ -90,8 +61,13 @@ extension TargetListViewController: UITableViewDataSource {
         cell.accountNameLabel.text = target.account.name
         cell.accountAddressLabel.text = target.account.address
         cell.targetScore.text = "\(target.participation.campaign.visitScore)"
-        cell.distanceToTargetLabel.text = "\(target.account.distance) m"
-
+        
+        if (target.account.distance == -1) {
+            cell.distanceToTargetLabel.text = ""
+        } else {
+            let roundedValue = Int(round(target.account.distance))
+            cell.distanceToTargetLabel.text = "\(roundedValue)m"
+        }
         return cell
     }
     

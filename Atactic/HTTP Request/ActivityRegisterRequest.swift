@@ -1,24 +1,23 @@
 //
-//  QuestListRequest.swift
+//  ActivityRegisterRequest.swift
 //  Atactic
 //
-//  Created by Jaime on 25/1/18.
+//  Created by Jaime on 15/3/18.
 //  Copyright © 2018 ATACTIC. All rights reserved.
 //
 
 import Foundation
 
-class QuestListRequest {
+class ActivityRegisterRequest {
     
-    var resourceURLString = NetworkConstants.AtacticAPIResourceURL.QuestResource
+    var resourceURLString = RequestConstants.AtacticAPIResourceURL.ActivityListResource
     
     var request: URLRequest
     
     init(userId: Int){
-        
         resourceURLString += "?uid=\(userId)"
-        let myurl = URL(string: resourceURLString)!
         
+        let myurl = URL(string: resourceURLString)!
         request = URLRequest(url: myurl)
         request.httpMethod = "GET"
     }
@@ -26,6 +25,5 @@ class QuestListRequest {
     func getRequest() -> URLRequest {
         return request
     }
-    
     
 }

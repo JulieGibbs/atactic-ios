@@ -1,29 +1,24 @@
 //
-//  OffTargetAccountsRequest.swift
+//  QuestListRequest.swift
 //  Atactic
 //
-//  Created by Jaime on 29/1/18.
+//  Created by Jaime on 25/1/18.
 //  Copyright © 2018 ATACTIC. All rights reserved.
 //
 
 import Foundation
 
-class AccountsRequest {
+class QuestListRequest {
     
-    var resourceURLString = NetworkConstants.AtacticAPIResourceURL.AccountsResource
+    var resourceURLString = RequestConstants.AtacticAPIResourceURL.QuestResource
     
     var request: URLRequest
     
-    init(userId: Int, nonTargetOnly: Bool){
+    init(userId: Int){
         
         resourceURLString += "?uid=\(userId)"
-        if nonTargetOnly {
-            resourceURLString += "&offtgtonly=true"
-        } else {
-            resourceURLString += "&offtgtonly=false"
-        }
-        
         let myurl = URL(string: resourceURLString)!
+        
         request = URLRequest(url: myurl)
         request.httpMethod = "GET"
     }
@@ -32,5 +27,5 @@ class AccountsRequest {
         return request
     }
     
+    
 }
-

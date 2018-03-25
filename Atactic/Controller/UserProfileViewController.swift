@@ -94,7 +94,6 @@ class UserProfileViewController: UIViewController {
         })
         task.resume()
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -12,8 +12,15 @@ class TargetListViewController : UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var targets : [ParticipationTargetStruct] = []
+    var targets : [Target] = []
     
+    /*
+    required init?(coder aDecoder: NSCoder) {
+        targets = []
+        super.init(coder: aDecoder)
+    }
+    */
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         print()
@@ -26,9 +33,9 @@ class TargetListViewController : UIViewController {
     //
     // Set the data to display in the view
     //
-    func setData(targets: [ParticipationTargetStruct]) {
+    func setData(targets: [Target]) {
         print("TargetListViewController - Received data to display")
-        print("\(targets.count) priority targets will be displayed")
+        // print("\(targets.count) priority targets will be displayed")
         self.targets = targets
         self.tableView.reloadData()
     }
@@ -59,8 +66,8 @@ extension TargetListViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: qID, for: indexPath) as! TargetCell
         
         cell.accountNameLabel.text = target.account.name
-        cell.accountAddressLabel.text = target.account.address
-        cell.targetScore.text = "\(target.participation.campaign.visitScore)"
+        cell.accountAddressLabel.text = target.account.address + ", " + target.account.postalCode + ", " + target.account.city
+        cell.targetScore.text = "\(target.score)"
         
         if (target.account.distance == -1) {
             cell.distanceToTargetLabel.text = ""

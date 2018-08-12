@@ -27,54 +27,144 @@ class TargetListDataHandler {
     //
     func getData() {
 
+        // TODO: viewController.showLoading()
+        
         // Recover user's ID
         let recoveredUserId : Int = UserDefaults.standard.integer(forKey: "uid")
         
-        // Get user's last knowns location
-        print("TargetListDataHandler - Requesting user location to LocationController")
+        let httpRequest = buildRequest(userId: recoveredUserId)
         
-        // Build the Http request to the TargetAccounts service
+        // Declare an asynchronous task that sends an HTTP request and handles the response
+        let httpRequestTask = URLSession.shared.dataTask(with: httpRequest.getRequest()) { (data, response, error) in
+            self.handleServerResponse(data: data, response: response, error: error)
+        }
+        // Execute asnychronous task, decoding the response and returning control to the ViewController
+        httpRequestTask.resume()
+    }
+    
+    //
+    // Build the Http request to the TargetAccounts service
+    //
+    private func buildRequest(userId: Int) -> PriorityTargetsRequest {
+
         var request : PriorityTargetsRequest
+        
+        // Get user's last known location
+        print("TargetListDataHandler - Requesting user location to LocationController")
         if let location = LocationController.global.getMostRecentLocation() {
-            request = PriorityTargetsRequest(userId: recoveredUserId,
-                                                 userLocationLatitude: location.coordinate.latitude,
-                                                 userLocationLongitude: location.coordinate.longitude)
+            request = PriorityTargetsRequest(userId: userId,
+                                             userLocationLatitude: location.coordinate.latitude,
+                                             userLocationLongitude: location.coordinate.longitude)
         } else {
             print("TargetListDataHandlar - User location unknown, requesting targets without location parameters")
-            request = PriorityTargetsRequest(userId: recoveredUserId)
+            request = PriorityTargetsRequest(userId: userId)
         }
         // print("TargetListDataHandler - Location: \(location?.coordinate)")
-
-        print("Request ready: " + request.getURLString())
         
-        let task = URLSession.shared.dataTask(with: request.getRequest()) { (data, response, error) in
-            
-            if let serverResponse = response as? HTTPURLResponse {
-                print("TargetListDataHandler - HTTP response received - \(serverResponse.statusCode)")
-                if (serverResponse.statusCode == 200) {
-                    // DECODE JSON response
-                    print("TargetListDataHandler - Decoding JSON response")
-                    //print(String(data: data!, encoding: .utf8)!)
-                    //print()
-                    let decoder = JSONDecoder()
-                    let targetList = try! decoder.decode([ParticipationTargetStruct].self, from: data!)
-                    print("TargetListDataHandler - Loaded \(targetList.count) targets from the server")
-                    
-                    // Run UI updates in the main queue
-                    DispatchQueue.main.async { () -> Void in
-                        print("TargetListDataHandler - Returning data to view controller")
-                        self.viewController.setData(targets: targetList)
-                    }
-                } else {
-                    print("TargetListDataHandler - Response error code \(serverResponse.statusCode)")
-                    // TODO SEND ERROR TO VIEW CONTROLLER
+        print("Request URL: " + request.getURLString())
+        
+        return request
+    }
+    
+    
+    private func handleServerResponse(data: Data?, response: URLResponse?, error: Error?) {
+        // Try cast to HTTP Response
+        if let httpResponse = response as? HTTPURLResponse {
+        
+            print("TargetListDataHandler - HTTP response received - \(httpResponse.statusCode)")
+            if (httpResponse.statusCode == 200) {
+                
+                // Decode JSON response
+                let targetMap = decode(data: data!)
+                
+                // Transform the TargetMap structure type into an Array of Target objects
+                var displayableTargetList : [Target] = transform(targetMap: targetMap)
+                
+                // Calculate distance to each target account
+                displayableTargetList = setDistances(list: displayableTargetList)
+                
+                // Sort by score
+                displayableTargetList = displayableTargetList.sorted(by: {$0.score > $1.score})
+                
+                // Run UI updates in the main queue
+                DispatchQueue.main.async { () -> Void in
+                    print("TargetListDataHandler - Returning data to view controller")
+                    self.viewController.setData(targets: displayableTargetList)
                 }
             } else {
-                print("TargetListDataHandler - No response from server")
+                print("TargetListDataHandler - Response error code \(httpResponse.statusCode)")
                 // TODO SEND ERROR TO VIEW CONTROLLER
             }
+        } else {
+            print("TargetListDataHandler - No response from server")
+            // TODO SEND ERROR TO VIEW CONTROLLER
         }
-        task.resume()
+    }
+    
+    
+    
+    private func setDistances(list : [Target]) -> [Target] {
+        
+        var newList : [Target] = []
+        for tgt in list {
+            var ntgt = tgt
+            ntgt.account.distance = Float(distanceTo(account: tgt.account))
+            newList.append(ntgt)
+        }
+        return newList
+    }
+    
+    private func distanceTo(account : AccountStruct) -> Int {
+        let location = LocationController.global.getMostRecentLocation()
+        let accountLocation = CLLocation(latitude: account.latitude, longitude: account.longitude)
+        let distance = Int(location!.distance(from: accountLocation))
+        return distance
+    }
+    
+    
+    
+    private func transform(targetMap : TargetMap) -> [Target] {
+
+        var targetList : [Target] = []
+        
+        for pt in targetMap.map {
+            // pt points to a participation that targets certain accounts
+            
+            for tgt in pt.targets {
+                var target = Target(acc: tgt)
+                let isRepeated = targetList.contains(where: { $0.account.id == target.account.id })
+                if (isRepeated){
+                    // If target is already found in targetList
+                    // Recalculate lead score and update target in the list
+                    let targetIndex = targetList.index(where: { $0.account.id == target.account.id })!
+                    var target : Target = targetList[targetIndex]
+                    target.score = target.score + pt.stepScore
+                    targetList.remove(at: targetIndex)
+                    targetList.append(target)
+                } else {
+                    // Add new target
+                    target.score = pt.stepScore
+                    targetList.append(target)
+                }
+            }
+        }
+        return targetList
+    }
+    
+    //
+    // DECODE JSON response
+    //
+    private func decode(data: Data) -> TargetMap {
+        
+        print("TargetListDataHandler - Decoding JSON response")
+        //print(String(data: data!, encoding: .utf8)!)
+        //print()
+        let decoder = JSONDecoder()
+        let targetList = try! decoder.decode(TargetMap.self, from: data)
+        
+        // print("TargetListDataHandler - Loaded \(targetList.count) targets from the server")
+        
+        return targetList
     }
     
 }

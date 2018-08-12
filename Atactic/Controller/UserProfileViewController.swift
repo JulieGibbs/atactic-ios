@@ -17,6 +17,7 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet var activityRegisterMenuLine: UIView!
     @IBOutlet var logoutMenuLine: UIView!
+    @IBOutlet var mapMenuLine: UIView!
     
     struct Profile : Codable {
         let userId : Int
@@ -52,16 +53,22 @@ class UserProfileViewController: UIViewController {
         performSegue(withIdentifier: "logoutSegue", sender: self)
     }
     
+    @objc func goToMap() {
+        print("Moving to Google Maps screen")
+        performSegue(withIdentifier: "goToMapSegue", sender: self)
+    }
+    
     func setupMenuActions() {
         
-        // Declare gesture regocnizers
+        // Declare gesture recognizers
         let toActivityRegisterGesture = UITapGestureRecognizer(target: self, action: #selector (self.goToActivityRegister))
-        
         let logoutGesture = UITapGestureRecognizer(target: self, action: #selector (self.logout))
+        let mapTapGesture = UITapGestureRecognizer(target: self, action: #selector (self.goToMap))
         
         // Add gesture recognizers to view elements
         activityRegisterMenuLine.addGestureRecognizer(toActivityRegisterGesture)
         logoutMenuLine.addGestureRecognizer(logoutGesture)
+        mapMenuLine.addGestureRecognizer(mapTapGesture)
     }
     
     

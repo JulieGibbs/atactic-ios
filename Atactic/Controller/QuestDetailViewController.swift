@@ -10,7 +10,7 @@ import UIKit
 
 class QuestDetailViewController: UIViewController {
 
-    var quest : QuestParticipationStruct!
+    var quest : Participation!
     
     @IBOutlet var questTitleLabel: UILabel!
     @IBOutlet var questBriefingLabel: UILabel!
@@ -37,7 +37,8 @@ class QuestDetailViewController: UIViewController {
         questBriefingLabel.text = quest.campaign.summary
         
         // Set progress values for progress label text and circular indicator angle
-        let prgr = Double(quest.currentStep) / Double(quest.totalSteps)
+        // let prgr = Double(quest.currentStep) / Double(quest.totalSteps)
+        let prgr  = Double(quest.currentProgress)
         progressLabel.text = String(format: "%.0f", prgr * 100) + "%"
         
         progressIndicator.angle = prgr * 360.0

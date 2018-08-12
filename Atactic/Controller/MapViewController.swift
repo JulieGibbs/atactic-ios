@@ -251,17 +251,22 @@ extension MapViewController {
                     //print(String(data: data!, encoding: .utf8)!)
                     //print()
                     let decoder = JSONDecoder()
-                    let targets = try! decoder.decode([ParticipationTargetStruct].self, from: data!)
-                    print("MapViewController - Loaded \(targets.count) target accounts from the server")
+                    let targets = try! decoder.decode(TargetMap.self, from: data!)
+                    // print("MapViewController - Loaded \(targets.count) target accounts from the server")
                     
                     // Add account annotations to the Map View in the main queue
                     DispatchQueue.main.async { () -> Void in
-                        targets.forEach { ptgt in
+                        
+                        targets.map.forEach { ptgt in
                             
-                            let accountAnnotation = AccountAnnotation(accountName: ptgt.account.name, activeQuests: "",
-                                                                      latitude: ptgt.account.latitude, longitude: ptgt.account.longitude,
+                            ptgt.targets.forEach { acc in
+                            
+                                let accountAnnotation = AccountAnnotation(accountName: acc.name, activeQuests: "",
+                                                                      latitude: acc.latitude, longitude: acc.longitude,
                                                                       highlight: true)
-                            self.mapView.addAnnotation(accountAnnotation)
+                                self.mapView.addAnnotation(accountAnnotation)
+                            }
+                            
                         }
                     }
                 } else {

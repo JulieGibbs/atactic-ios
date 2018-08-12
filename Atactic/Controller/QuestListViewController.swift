@@ -13,7 +13,7 @@ class QuestListViewController : UIViewController {
     @IBOutlet var tableView: UITableView!
     
     // Variable holding the list of quest participations to display
-    var questParticipationList : [QuestParticipationStruct] = []
+    var questParticipationList : [Participation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +70,9 @@ extension QuestListViewController: UITableViewDataSource {
         
         cell.questNameLabel.text = participation.campaign.name
         cell.questSummaryLabel.text = participation.campaign.summary
-        cell.currentStepLabel.text = "\(participation.currentStep)"
-        cell.totalStepsLabel.text = "\(participation.totalSteps)"
-        cell.scoreLabel.text = "\(participation.campaign.visitScore)"
+        // cell.currentStepLabel.text = "\(participation.currentStep)"
+        // cell.totalStepsLabel.text = "\(participation.totalSteps)"
+        cell.scoreLabel.text = "\(participation.campaign.stepScore)"
         
         // Parse the campaign's end date
         let endDateStr = participation.campaign.endDate
@@ -95,7 +95,8 @@ extension QuestListViewController: UITableViewDataSource {
         cell.deadlineLabel.text = "Faltan \(daysOfDiff!) días"
         
         // Set progress values for progress label text and circular indicator angle
-        let prgr = Double(participation.currentStep) / Double(participation.totalSteps)
+        // let prgr = Double(participation.currentStep) / Double(participation.totalSteps)
+        let prgr = Double(participation.currentProgress)
         cell.progressLabel.text = String(format: "%.0f", prgr * 100) + "%"
         cell.progressCircle.angle = prgr * 360.0
         
@@ -129,7 +130,7 @@ extension QuestListViewController {
                     // print(String(data: data!, encoding: .utf8)!)
                     // print()
                     let decoder = JSONDecoder()
-                    let questList = try! decoder.decode([QuestParticipationStruct].self, from: data!)
+                    let questList = try! decoder.decode([Participation].self, from: data!)
                     print("QuestListViewController - Loaded \(questList.count) quests from the server")
                     
                     // Run UI updates in the main queue

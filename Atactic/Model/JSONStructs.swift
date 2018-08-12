@@ -13,7 +13,7 @@ struct AccountStruct : Codable {
     let address : String
     let city : String
     let country : String
-    let distance : Float
+    var distance : Float
     let externalId : String
     let id : Int
     let latitude : Double
@@ -21,7 +21,6 @@ struct AccountStruct : Codable {
     let name : String
     let postalCode : String
     let province : String
-    let segment : String
     let type : String
     
 }
@@ -40,7 +39,6 @@ struct OwnedAccountStruct : Codable {
     let owner : AccountOwnerStruct
     let postalCode : String
     let province : String
-    let segment : String
     let type : String
     
 }
@@ -55,37 +53,6 @@ struct AccountOwnerStruct : Codable {
     let userId : Int
 }
 
-struct QuestParticipationStruct : Codable {
-    
-    let participationId: Int
-    let campaign: QuestStruct
-    
-    let currentStep : Int
-    let totalSteps : Int
-    let completed : Bool
-}
-
-struct QuestStruct : Codable {
-    let id : Int
-    let name : String
-    let summary : String
-    let description : String
-    
-    let type : String
-    let status : String
-    
-    let startDate : String
-    let endDate : String
-    
-    let owner : UserStruct
-    
-    let visitScore : Int
-    let completionScore : Int
-    
-    let timeCreated : String
-    let lastUpdated: String
-}
-
 struct UserStruct : Codable {
     let userId : Int
     let firstName : String
@@ -94,11 +61,59 @@ struct UserStruct : Codable {
     let score : Int
 }
 
-struct ParticipationTargetStruct : Codable {
+struct CampaignStruct : Codable {
+    let id : Int
+    let name : String
+    let summary : String
+    let description : String
     
-    let account : AccountStruct
-    let checked : Int
-    let participation : QuestParticipationStruct
-    let pk : Int
+    let status : String
     
+    let startDate : String
+    let endDate : String
+    
+    let owner : UserStruct
+    
+    let stepScore : Int
+    let completionScore : Int
+    
+    let timeCreated : String
+    let lastUpdated: String
 }
+
+
+struct TargetMap : Codable {
+    let map : [ParticipationTargets]
+}
+
+struct Target : Codable {
+    var account : AccountStruct
+    var score : Int
+    var campaigns : [Participation]
+    
+    init(acc: AccountStruct) {
+        account = acc
+        score = 0
+        campaigns = []
+    }
+}
+
+struct ParticipationTargets : Codable {
+    let participationId : Int
+    let campaignName : String
+    let stepScore: Int
+    let completionScore: Int
+    let currentProgress : Float
+    let targets : [AccountStruct]
+}
+
+struct Participation : Codable {
+    
+    let participationId: Int
+    let campaign: CampaignStruct
+    let participant: AccountOwnerStruct
+    let currentProgress : Float
+}
+
+
+

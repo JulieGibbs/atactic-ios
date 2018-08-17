@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8nK-P1-7f2">
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8nK-P1-7f2">
->>>>>>> Workspace and storyboard automatic changes
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -133,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2030" y="-40"/>
+            <point key="canvasLocation" x="-2039" y="-125"/>
         </scene>
         <!--Quest List-->
         <scene sceneID="nL7-ib-CeW">
@@ -319,14 +315,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CDT-vH-EHV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Misiones" id="dnc-gE-EDN" userLabel="Top Bar Title"/>
+                    <navigationItem key="navigationItem" title="Campañas" id="dnc-gE-EDN" userLabel="Top Bar Title"/>
                     <connections>
                         <outlet property="tableView" destination="CCH-mj-del" id="hme-Ej-3j2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ji-ly-QLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-361" y="811"/>
+            <point key="canvasLocation" x="697" y="-1719"/>
         </scene>
         <!--Quest Detail-->
         <scene sceneID="Ys9-nj-3BE">
@@ -454,14 +450,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGg-uj-KGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="811"/>
+            <point key="canvasLocation" x="1676" y="-1719"/>
         </scene>
         <!--Quest Navigation-->
         <scene sceneID="R0y-Sc-z8F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" id="vaE-ly-vDh" userLabel="Quest Navigation" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Misiones" image="icon_navbar_flag_24" selectedImage="icon_navbar_flag_24" id="VkX-LE-kvO">
+                    <tabBarItem key="tabBarItem" title="Campañas" image="icon_navbar_flag_24" selectedImage="icon_navbar_flag_24" id="VkX-LE-kvO">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -482,29 +478,32 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vw6-qI-MwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="-43"/>
+            <point key="canvasLocation" x="-462" y="-1719"/>
         </scene>
-        <!--Google Maps View Controller-->
+        <!--Google Maps Scene-->
         <scene sceneID="0jf-FT-ian">
             <objects>
-                <viewController id="gKx-Ne-P0O" customClass="GoogleMapsViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gKx-Ne-P0O" userLabel="Google Maps Scene" customClass="GoogleMapsViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fYP-4v-lhb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.87672509517766495" green="0.87672509517766495" blue="0.87672509517766495" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sNI-yS-pwy"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Mapa" image="icon_navbar_map_24" selectedImage="icon_navbar_map_24" id="qTD-K5-vcd">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77c-XZ-cLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="-1158"/>
+            <point key="canvasLocation" x="553" y="-125"/>
         </scene>
         <!--Map-->
         <scene sceneID="kY7-zC-wpE">
             <objects>
-                <viewController title="Map" id="47q-Jk-qEs" customClass="MapViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AppleMapViewController" title="Map" id="47q-Jk-qEs" customClass="MapViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ofX-VK-0Ho">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0B-cv-mRC">
@@ -520,7 +519,7 @@
                                 </items>
                             </navigationBar>
                             <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGw-8h-spq" userLabel="Info Tab">
-                                <rect key="frame" x="18" y="524" width="339" height="82"/>
+                                <rect key="frame" x="18" y="573" width="339" height="82"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_office_512" translatesAutoresizingMaskIntoConstraints="NO" id="HFW-dI-FLP" userLabel="Account Icon">
                                         <rect key="frame" x="15" y="15" width="28" height="28"/>
@@ -570,7 +569,7 @@
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gC0-IU-Mbb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="tintColor" red="0.91204321379999997" green="0.16426303980000001" blue="0.16941714290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
                         </subviews>
@@ -600,7 +599,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoU-Np-6GU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1255" y="-40"/>
+            <point key="canvasLocation" x="-463" y="-125"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="cel-vq-e2Y">
@@ -834,7 +833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2e3-xy-0Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="-898"/>
+            <point key="canvasLocation" x="-231" y="752"/>
         </scene>
         <!--Target List-->
         <scene sceneID="0pi-5s-dIU">
@@ -930,9 +929,8 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="0.90820997953414917" green="0.12663567066192627" blue="0.039241675287485123" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Prioridades" id="hlB-3O-jOL"/>
@@ -961,7 +959,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTK-0d-EBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="-42"/>
+            <point key="canvasLocation" x="-231" y="-899"/>
         </scene>
         <!--Activity History-->
         <scene sceneID="x0P-SO-cXh">
@@ -1038,7 +1036,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGQ-AU-74e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="-412"/>
+            <point key="canvasLocation" x="762" y="949"/>
         </scene>
         <!--Tab Bar Contoller-->
         <scene sceneID="d97-vT-QzV">
@@ -1052,11 +1050,11 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginSegue" id="Dfv-2f-MpU"/>
                         <segue destination="vaE-ly-vDh" kind="relationship" relationship="viewControllers" id="1k7-Pc-hJ6"/>
                         <segue destination="aFV-xm-Umg" kind="relationship" relationship="viewControllers" id="9Cw-kL-hTw"/>
-                        <segue destination="47q-Jk-qEs" kind="relationship" relationship="viewControllers" id="0d0-rO-nGA"/>
+                        <segue destination="gKx-Ne-P0O" kind="relationship" relationship="viewControllers" id="RWs-AE-xdu"/>
                         <segue destination="RhV-v0-oKN" kind="relationship" relationship="viewControllers" id="yJX-2Q-fTI"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginSegue" id="Dfv-2f-MpU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj1-iP-ZWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1136,7 +1134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Dc-BS-gjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="1088"/>
+            <point key="canvasLocation" x="2596" y="-1476"/>
         </scene>
         <!--Quest Description Tab-->
         <scene sceneID="F94-UF-NZm">
@@ -1167,7 +1165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6L-Xy-AEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="645"/>
+            <point key="canvasLocation" x="2596" y="-1908"/>
         </scene>
         <!--Profile Navigation-->
         <scene sceneID="aF5-lz-J58">
@@ -1192,7 +1190,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meD-VV-KnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="-898"/>
+            <point key="canvasLocation" x="-1255" y="752"/>
         </scene>
     </scenes>
     <resources>
@@ -1210,6 +1208,7 @@
         <image name="icon_target_24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="DqT-b6-cPK"/>
         <segue reference="iPp-yf-W1E"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

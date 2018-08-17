@@ -13,6 +13,9 @@ import GoogleMaps
 
 class GoogleMapsViewController: UIViewController {
     
+    var priorityMarkers : [ParticipationTargets] = []
+    var secondaryMarkers : [AccountStruct] = []
+    
     override func loadView() {
         
         // Get current location from Location Controller
@@ -26,13 +29,58 @@ class GoogleMapsViewController: UIViewController {
         
         mapView.setMinZoom(6, maxZoom: 18)
         mapView.isMyLocationEnabled = true
-        view = mapView
+        self.view = mapView
         
-        addMarkers(map: mapView)
+        let dataHandler = MapDataHandler(viewController: self)
+        dataHandler.getData()
     }
     
 
-    func addMarkers(map: GMSMapView) {
+    func setData (highPriorityMarkers : [ParticipationTargets], lowPriorityMarkers : [AccountStruct]){
+        self.priorityMarkers = highPriorityMarkers
+        self.secondaryMarkers = lowPriorityMarkers
+        drawMarkers()
+    }
+    
+    func drawMarkers() {
+        
+        var drawn : [Int] = []
+        
+        // Draw highlighted markets
+        for pt in priorityMarkers {
+            
+            for tgt in pt.targets {
+                
+                if (!drawn.contains(tgt.id)){
+                    let marker = GMSMarker()
+                    marker.position = CLLocationCoordinate2D(latitude: tgt.latitude, longitude: tgt.longitude)
+                    marker.icon = #imageLiteral(resourceName: "marker_important_32")
+                    marker.title = tgt.name
+                    marker.snippet = pt.campaignName
+                    marker.map = view as? GMSMapView
+                
+                    drawn.append(tgt.id)
+                }
+            }
+        }
+        
+        // Draw low priority markets
+        for account in secondaryMarkers {
+            
+            if (!drawn.contains(account.id)) {
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: account.latitude, longitude: account.longitude)
+                marker.icon = #imageLiteral(resourceName: "marker_neutral_24g")
+                marker.title = account.name
+                // marker.snippet = account.type
+                marker.map = view as? GMSMapView
+            }
+        }
+    }
+    
+    /*
+    func addSampleMarker(map: GMSMapView) {
+        
         // Add a marker
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: 41.35, longitude: 2.16)
@@ -40,7 +88,7 @@ class GoogleMapsViewController: UIViewController {
         marker.snippet = "Test Marker"
         marker.map = map
     }
-    
+    */
     
 }
 

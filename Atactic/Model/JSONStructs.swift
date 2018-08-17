@@ -115,5 +115,11 @@ struct Participation : Codable {
     let currentProgress : Float
 }
 
+struct AccountMap : Codable {
+    
+    let targets : [ParticipationTargets]
+    let accounts : [AccountStruct]
+    
+}
 
 

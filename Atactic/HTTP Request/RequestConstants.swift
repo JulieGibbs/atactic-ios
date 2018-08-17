@@ -11,7 +11,7 @@ import Foundation
 class RequestConstants {
     
     // private static let AtacticServerURL = "http://api.atactic.io/mobile/"
-    private static let AtacticServerURL = "http://192.168.1.37:8080/mobile/"
+    private static let AtacticServerURL = "http://192.168.1.44:8080/mobile/"
     // private static let AtacticServerURL = "http://localhost:8080/mobile/"
 
     private static let APIResourcesURL = AtacticServerURL + "rsc/"

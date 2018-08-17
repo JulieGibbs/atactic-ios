@@ -6,10 +6,8 @@
 	<string>UseAppPreferences</string>
 	<key>CustomBuildLocationType</key>
 	<string>RelativeToDerivedData</string>
-	<key>DerivedDataCustomLocation</key>
-	<string>/Users/jaime/Library/Developer/Xcode/DerivedData</string>
 	<key>DerivedDataLocationStyle</key>
-	<string>AbsolutePath</string>
+	<string>Default</string>
 	<key>EnabledFullIndexStoreVisibility</key>
 	<false/>
 	<key>IssueFilterStyle</key>

@@ -16,21 +16,25 @@ class GoogleMapsViewController: UIViewController {
     var priorityMarkers : [ParticipationTargets] = []
     var secondaryMarkers : [AccountStruct] = []
     
+    @IBOutlet var map: GMSMapView!
+    
     override func loadView() {
+        
+        super.loadView()
+        print("GOOGLE MAPS VIEW CONTROLLER - LOAD VIEW")
         
         // Get current location from Location Controller
         let currentLocation = LocationController.global.getMostRecentLocation()
         
-        // Set camera con current location
+        // Center camera on current location
         let camera = GMSCameraPosition.camera(withTarget: currentLocation!.coordinate, zoom: 15)
         
-        // Instantiate and Configure Map View
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        
-        mapView.setMinZoom(6, maxZoom: 18)
-        mapView.isMyLocationEnabled = true
-        self.view = mapView
-        
+        // Configure Map View
+        map.camera = camera
+        map.setMinZoom(6, maxZoom: 18)
+        map.isMyLocationEnabled = true
+
+        // Instantiate Data Handler and request data
         let dataHandler = MapDataHandler(viewController: self)
         dataHandler.getData()
     }
@@ -39,10 +43,10 @@ class GoogleMapsViewController: UIViewController {
     func setData (highPriorityMarkers : [ParticipationTargets], lowPriorityMarkers : [AccountStruct]){
         self.priorityMarkers = highPriorityMarkers
         self.secondaryMarkers = lowPriorityMarkers
-        drawMarkers()
+        drawMarkers(mapView: map)
     }
     
-    func drawMarkers() {
+    func drawMarkers(mapView: GMSMapView) {
         
         var drawn : [Int] = []
         
@@ -57,7 +61,7 @@ class GoogleMapsViewController: UIViewController {
                     marker.icon = #imageLiteral(resourceName: "marker_important_32")
                     marker.title = tgt.name
                     marker.snippet = pt.campaignName
-                    marker.map = view as? GMSMapView
+                    marker.map = mapView
                 
                     drawn.append(tgt.id)
                 }
@@ -73,7 +77,7 @@ class GoogleMapsViewController: UIViewController {
                 marker.icon = #imageLiteral(resourceName: "marker_neutral_24g")
                 marker.title = account.name
                 // marker.snippet = account.type
-                marker.map = view as? GMSMapView
+                marker.map = mapView
             }
         }
     }

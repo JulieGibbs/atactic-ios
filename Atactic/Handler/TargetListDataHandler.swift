@@ -81,7 +81,9 @@ class TargetListDataHandler {
                 var displayableTargetList : [Target] = transform(targetMap: targetMap)
                 
                 // Calculate distance to each target account
-                displayableTargetList = setDistances(list: displayableTargetList)
+                if let currentLocation = LocationController.global.getMostRecentLocation() {
+                    displayableTargetList = setDistances(location: currentLocation, list: displayableTargetList)
+                }
                 
                 // Sort by score
                 displayableTargetList = displayableTargetList.sorted(by: {$0.score > $1.score})
@@ -102,25 +104,16 @@ class TargetListDataHandler {
     }
     
     
-    
-    private func setDistances(list : [Target]) -> [Target] {
-        
+    private func setDistances(location: CLLocation, list : [Target]) -> [Target] {
         var newList : [Target] = []
         for tgt in list {
             var ntgt = tgt
-            ntgt.account.distance = Float(distanceTo(account: tgt.account))
+            let accountLocation = CLLocation(latitude: tgt.account.latitude, longitude: tgt.account.longitude)
+            ntgt.account.distance = Float(location.distance(from: accountLocation))
             newList.append(ntgt)
         }
         return newList
     }
-    
-    private func distanceTo(account : AccountStruct) -> Int {
-        let location = LocationController.global.getMostRecentLocation()
-        let accountLocation = CLLocation(latitude: account.latitude, longitude: account.longitude)
-        let distance = Int(location!.distance(from: accountLocation))
-        return distance
-    }
-    
     
     
     private func transform(targetMap : TargetMap) -> [Target] {

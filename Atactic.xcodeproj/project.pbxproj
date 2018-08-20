@@ -26,6 +26,7 @@
 		6F8F31BB201A4AB100216070 /* CentralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BA201A4AB100216070 /* CentralController.swift */; };
 		6F8F31BD201A5D7500216070 /* QuestListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BC201A5D7500216070 /* QuestListRequest.swift */; };
 		6F8F31BF201A7B2700216070 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BE201A7B2700216070 /* ProfileRequest.swift */; };
+		6FB1C8C5212ADE2900648687 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1C8C4212ADE2900648687 /* LoginHandler.swift */; };
 		6FB79FC020272676003F5BC4 /* TargetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */; };
 		6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FC1202729DB003F5BC4 /* TargetCell.swift */; };
 		6FBBF4AB1FFAC8FA00CAFBE9 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */; };
@@ -70,6 +71,7 @@
 		6F8F31BA201A4AB100216070 /* CentralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralController.swift; sourceTree = "<group>"; };
 		6F8F31BC201A5D7500216070 /* QuestListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListRequest.swift; sourceTree = "<group>"; };
 		6F8F31BE201A7B2700216070 /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		6FB1C8C4212ADE2900648687 /* LoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 		6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetListViewController.swift; sourceTree = "<group>"; };
 		6FB79FC1202729DB003F5BC4 /* TargetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCell.swift; sourceTree = "<group>"; };
 		6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		6F16C3E820057AC600D9BB09 /* HTTP Request */ = {
+		6F16C3E820057AC600D9BB09 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				6F35E3CE2017A1DE005BCB88 /* RequestConstants.swift */,
@@ -147,7 +149,7 @@
 				6F4815F2201F9D6E0041F56A /* RequestFactory.swift */,
 				6F4DC55B212733790091D1E7 /* AccountMapRequest.swift */,
 			);
-			path = "HTTP Request";
+			path = Network;
 			sourceTree = "<group>";
 		};
 		6F16C3E920057ACE00D9BB09 /* View Elements */ = {
@@ -161,15 +163,16 @@
 			path = "View Elements";
 			sourceTree = "<group>";
 		};
-		6FCE26E6205A93D100701BE3 /* Data Handler */ = {
+		6FCE26E6205A93D100701BE3 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				6FCE26E7205A93F900701BE3 /* ActivityRegisterDataHandler.swift */,
 				6F1E7984206267BF00E8AEDF /* TargetListDataHandler.swift */,
-				6F1E798A20627EEA00E8AEDF /* LocationController.swift */,
 				6F4DC559212731C90091D1E7 /* MapDataHandler.swift */,
+				6FCE26E7205A93F900701BE3 /* ActivityRegisterDataHandler.swift */,
+				6F1E798A20627EEA00E8AEDF /* LocationController.swift */,
+				6FB1C8C4212ADE2900648687 /* LoginHandler.swift */,
 			);
-			path = "Data Handler";
+			path = Handler;
 			sourceTree = "<group>";
 		};
 		6FCE26ED205ACB3100701BE3 /* Utils */ = {
@@ -201,8 +204,8 @@
 		6FF1C9D11FF4273E00837460 /* Atactic */ = {
 			isa = PBXGroup;
 			children = (
-				6F16C3E820057AC600D9BB09 /* HTTP Request */,
-				6FCE26E6205A93D100701BE3 /* Data Handler */,
+				6F16C3E820057AC600D9BB09 /* Network */,
+				6FCE26E6205A93D100701BE3 /* Handler */,
 				6F16C3E720057A9000D9BB09 /* Model */,
 				6F16C3E620057A6F00D9BB09 /* Controller */,
 				6F16C3E920057ACE00D9BB09 /* View Elements */,
@@ -383,6 +386,7 @@
 				6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */,
 				6F0A52E92117642E00A6C28D /* GoogleMapsViewController.swift in Sources */,
 				6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */,
+				6FB1C8C5212ADE2900648687 /* LoginHandler.swift in Sources */,
 				6F8F31BB201A4AB100216070 /* CentralController.swift in Sources */,
 				6FF1C9D31FF4273E00837460 /* AppDelegate.swift in Sources */,
 				6F35E3CB2017445F005BCB88 /* VersionRequest.swift in Sources */,

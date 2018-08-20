@@ -15,6 +15,11 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwdTextField: UITextField!
     @IBOutlet var errorMessage: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    var authenticationHandler : LoginHandler?
+    
     /*
     override var prefersStatusBarHidden: Bool {
         print("LoginView prefers status bar hidden")
@@ -25,6 +30,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Login View Controller loaded")
+        
+        authenticationHandler = LoginHandler(view: self)
         
         // In case there is a navigation controller with a top bar, hide it.
         self.navigationController?.navigationBar.isHidden = true
@@ -46,6 +53,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         print("Login button pressed")
+        self.showLoadingIndicator()
         
         // Recover user credential from UI Views
         let usr = usrnameTextField.text!
@@ -53,67 +61,38 @@ class LoginViewController: UIViewController {
         print("username: " + usr)
         // print("password: " + pwd)
         
-        errorMessage.isHidden = true
-        errorMessage.text = ""
+        hideErrorMessage()
         
         // Execute login logic
-        doLogin(username: usr, password: pwd)
+        authenticationHandler?.attemptLogin(username: usr, password: pwd)
     }
     
-    /*
-     * Prepares a login request for the ATACTIC API and sends it asynchronously.
-     * In case of success, it performs a segue to enter Atactic. Otherwise, prints the corresponding error.
-     */
-    func doLogin(username: String, password: String) {
-        
-        let loginRequest = LoginRequest(user: username, pass: password)
-        
-        // Execute the authentication request asynchronously
-        let task = URLSession.shared.dataTask(with: loginRequest.request,
-                                              completionHandler: { (data, response, error) in
-                                                
-            if let httpStatus = response as? HTTPURLResponse {   // There is a response from the server
-                print("Response Status Code : \(httpStatus.statusCode)")
-                
-                if httpStatus.statusCode == 200 {
-                    print("Authentication response OK")
-                    let responseStr = String(data: data!, encoding: String.Encoding.utf8)
-                    let userId = Int(responseStr!)!
-                    print("User ID = \(userId)")
-                    
-                    // Run in main queue
-                    DispatchQueue.main.async { () -> Void in
-                        // Store username, password and user ID in UserDefaults.standard
-                        print("Storing user credentials")
-                        UserDefaults.standard.set(username, forKey: "username")
-                        UserDefaults.standard.set(password, forKey: "password")
-                        UserDefaults.standard.set(userId, forKey: "uid")
-                        
-                        // Redirect to table view
-                        print("Performing segue...")
-                        self.performSegue(withIdentifier: "doLoginSegue", sender: self)
-                        
-                    }
-                } else {
-                    print("Authentication response NOT ok: \(httpStatus.statusCode)")
-                    
-                    // Run UI updates on the main queue
-                    DispatchQueue.main.async { () -> Void in
-                        // Show error message
-                        self.errorMessage.text = "Datos de acceso inválidos"
-                        self.errorMessage.isHidden = false
-                    }
-                }
-            }else{
-                print("No response from server")
-            }
-        })
-        task.resume()
+    func enterApp() {
+        print("Performing segue...")
+        self.performSegue(withIdentifier: "doLoginSegue", sender: self)
+        hideLoadingIndicator()
     }
     
-    func checkServerVersion(){
-        let request = VersionRequest()
-        request.execute()
+    func displayErrorMessage(message: String) {
+        self.errorMessage.text = message
+        self.errorMessage.isHidden = false
+        hideLoadingIndicator()
+    }
+    
+    private func hideErrorMessage(){
+        errorMessage.isHidden = true
+        errorMessage.text = ""
+    }
+    
+    private func showLoadingIndicator(){
+        loginButton.isEnabled = false
+        self.activityIndicator.isHidden = false
+        self.activityIndicator!.startAnimating()
+    }
+    
+    private func hideLoadingIndicator(){
+        loginButton.isEnabled = true
+        self.activityIndicator.isHidden = true
     }
     
     /*

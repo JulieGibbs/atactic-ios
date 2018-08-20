@@ -10,7 +10,7 @@ import Foundation
 
 class ProfileRequest {
     
-    var resourceURLString = RequestConstants.AtacticAPIResourceURL.ProfileResource
+    var resourceURLString = RequestConstants.AtacticAPIResourceURL.UserResource + "/profile"
     
     internal var request: URLRequest
     

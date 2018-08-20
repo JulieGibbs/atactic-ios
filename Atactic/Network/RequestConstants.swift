@@ -19,11 +19,11 @@ class RequestConstants {
     struct AtacticAPIResourceURL {
         static let ServerVersionResource = APIResourcesURL + "version"
         static let AuthenticationResource = APIResourcesURL + "auth"
-        static let QuestResource = APIResourcesURL + "quest"
-        static let ProfileResource = APIResourcesURL + "profile"
+        static let QuestResource = APIResourcesURL + "campaign"
+        static let UserResource = APIResourcesURL + "user"
         static let AccountsResource = APIResourcesURL + "account"
-        static let TargetAccountsForUser = APIResourcesURL + "target/all"
-        static let ActivityListResource = APIResourcesURL + "checkin/list"
+        static let TargetAccountsForUser = APIResourcesURL + "account/targets"
+        static let ActivityListResource = APIResourcesURL + "activity/list"
     }
 
 }

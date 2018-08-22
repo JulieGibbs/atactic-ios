@@ -12,6 +12,9 @@ class TargetListViewController : UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var errorMsgTextView: UITextView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     var targets : [Target] = []
     
     /*
@@ -26,6 +29,9 @@ class TargetListViewController : UIViewController {
         print()
         print("Target List View Controller loaded")
         
+        self.tableView.isHidden = true
+        self.activityIndicator.isHidden = false
+        
         let dataHandler = TargetListDataHandler(viewController: self)
         dataHandler.getData()
     }
@@ -33,16 +39,22 @@ class TargetListViewController : UIViewController {
     //
     // Set the data to display in the view
     //
-    func setData(targets: [Target]) {
+    func displayData(targets: [Target]) {
         print("TargetListViewController - Received data to display")
         // print("\(targets.count) priority targets will be displayed")
         self.targets = targets
+        
+        self.activityIndicator.isHidden = true
+        self.tableView.isHidden = false
+        
         self.tableView.reloadData()
     }
     
-    func setError(errorMessage: String) {
-        // TODO display error
-        
+    func displayError(errorMessage: String) {
+        self.tableView.isHidden = true
+        self.activityIndicator.isHidden = true
+        self.errorMsgTextView.text = errorMessage
+        self.errorMsgTextView.isHidden = false
     }
     
 }

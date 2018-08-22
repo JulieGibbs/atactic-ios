@@ -10,7 +10,7 @@ import Foundation
 
 class VersionRequest {
     
-    let versionResourceURL = URL(string: RequestConstants.AtacticAPIResourceURL.ServerVersionResource)
+    let versionResourceURL = URL(string: RequestConstants.APIServiceURL.ServerVersionResource)
     
     func execute(){
         

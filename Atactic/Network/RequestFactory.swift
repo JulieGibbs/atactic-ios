@@ -12,7 +12,7 @@ class RequestFactory {
         
     static func buildLoginRequest(user: String, pass: String) -> URLRequest {
     
-        let resourceURL = URL(string: RequestConstants.AtacticAPIResourceURL.AuthenticationResource)
+        let resourceURL = URL(string: RequestConstants.APIServiceURL.AuthenticationResource)
         var request = URLRequest(url: resourceURL!)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -24,7 +24,7 @@ class RequestFactory {
     
     static func buildTargetAccountsRequest(userId: Int) -> URLRequest {
         
-        let urlStr = RequestConstants.AtacticAPIResourceURL.TargetAccountsForUser + "?uid=\(userId)"
+        let urlStr = RequestConstants.APIServiceURL.TargetAccountsForUser + "?uid=\(userId)"
         var request = URLRequest(url: URL(string: urlStr)!)
         request.httpMethod = "GET"
         return request

@@ -68,6 +68,9 @@ class TargetListDataHandler {
     
     
     private func handleServerResponse(data: Data?, response: URLResponse?, error: Error?) {
+        
+        // sleep(1)
+        
         // Try cast to HTTP Response
         if let httpResponse = response as? HTTPURLResponse {
         
@@ -78,28 +81,33 @@ class TargetListDataHandler {
                 let targetMap = decode(data: data!)
                 
                 // Transform the TargetMap structure type into an Array of Target objects
-                var displayableTargetList : [Target] = transform(targetMap: targetMap)
+                var targets : [Target] = transform(targetMap: targetMap)
                 
                 // Calculate distance to each target account
                 if let currentLocation = LocationController.global.getMostRecentLocation() {
-                    displayableTargetList = setDistances(location: currentLocation, list: displayableTargetList)
+                    targets = setDistances(location: currentLocation, list: targets)
                 }
                 
                 // Sort by score
-                displayableTargetList = displayableTargetList.sorted(by: {$0.score > $1.score})
+                targets = targets.sorted(by: {$0.score > $1.score})
                 
                 // Run UI updates in the main queue
                 DispatchQueue.main.async { () -> Void in
-                    print("TargetListDataHandler - Returning data to view controller")
-                    self.viewController.setData(targets: displayableTargetList)
+                    if (targets.isEmpty) {
+                        print("TargetListDataHandler - Empty list of targets received")
+                        self.viewController.displayError(errorMessage: "No se han encontrado objetivos prioritarios")
+                    } else {
+                        print("TargetListDataHandler - Returning data to view controller")
+                        self.viewController.displayData(targets: targets)
+                    }
                 }
             } else {
                 print("TargetListDataHandler - Response error code \(httpResponse.statusCode)")
-                // TODO SEND ERROR TO VIEW CONTROLLER
+                self.viewController.displayError(errorMessage: "Se ha producido un error \(httpResponse.statusCode). Por favor, reinicie la aplicación")
             }
         } else {
             print("TargetListDataHandler - No response from server")
-            // TODO SEND ERROR TO VIEW CONTROLLER
+            self.viewController.displayError(errorMessage: "No se ha podido conectar con el servidor")
         }
     }
     

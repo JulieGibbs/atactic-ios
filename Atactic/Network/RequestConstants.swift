@@ -11,12 +11,12 @@ import Foundation
 class RequestConstants {
     
     // private static let AtacticServerURL = "http://api.atactic.io/mobile/"
-    private static let AtacticServerURL = "http://192.168.1.44:8080/mobile/"
+    private static let AtacticServerURL = "http://192.168.1.47:8080/mobile/"
     // private static let AtacticServerURL = "http://localhost:8080/mobile/"
 
     private static let APIResourcesURL = AtacticServerURL + "rsc/"
     
-    struct AtacticAPIResourceURL {
+    struct APIServiceURL {
         static let ServerVersionResource = APIResourcesURL + "version"
         static let AuthenticationResource = APIResourcesURL + "auth"
         static let QuestResource = APIResourcesURL + "campaign"
@@ -24,6 +24,7 @@ class RequestConstants {
         static let AccountsResource = APIResourcesURL + "account"
         static let TargetAccountsForUser = APIResourcesURL + "account/targets"
         static let ActivityListResource = APIResourcesURL + "activity/list"
+        static let RouteService = APIResourcesURL + "account/route"
     }
 
 }

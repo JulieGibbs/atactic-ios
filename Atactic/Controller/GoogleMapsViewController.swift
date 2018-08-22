@@ -17,11 +17,13 @@ class GoogleMapsViewController: UIViewController {
     var secondaryMarkers : [AccountStruct] = []
     
     @IBOutlet var map: GMSMapView!
+    @IBOutlet var routeButton: UIBarButtonItem!
+    
     
     override func loadView() {
-        
         super.loadView()
-        print("GOOGLE MAPS VIEW CONTROLLER - LOAD VIEW")
+        
+        routeButton.action = #selector(routeButtonPressed)
         
         // Get current location from Location Controller
         let currentLocation = LocationController.global.getMostRecentLocation()
@@ -93,6 +95,55 @@ class GoogleMapsViewController: UIViewController {
         marker.map = map
     }
     */
+ 
+    @objc func routeButtonPressed(){
+        
+        // Instantiate Data Handler and request data
+        let dataHandler = MapDataHandler(viewController: self)
+        dataHandler.generateRoute()
+    }
+    
+    //
+    //
+    //
+    func displayRoute(origin: CLLocation, route: [AccountStruct]){
+        // Will launch the Google Maps App in case it is installed
+        // If it isn't installed, it will launch a browser and go to maps.google.com
+        // Mobile browsers admit up to 3 waypoints only, including origin and destination
+        // The character "|" is used to sepparate waypoints. Must be replaced by %7C
+        // Example URL:
+        // https://www.google.com/maps/dir/?api=1&origin=Plaza+San+Francisco+Zaragoza&destination=Plaza+del+Pilar+Zaragoza&waypoints=41.6455,-0.890156|41.665,-0.915435|41.6287,-0.883081|41.6291,-0.876407
+                
+        var urlstring = "https://www.google.com/maps/dir/?api=1"
+            urlstring += "&origin=" + String(origin.coordinate.latitude) + "," + String(origin.coordinate.longitude)
+            urlstring += "&destination=" + String(route.last!.latitude) + "," + String(route.last!.longitude)
+        
+        // Add intermediate waypoints
+        if (route.count > 1) {
+        
+            let waypoints = route.dropLast()
+            urlstring += "&waypoints="
+            
+            for acc in waypoints {
+                urlstring += String(acc.latitude) + "," + String(acc.longitude)
+                if (acc.id != waypoints.last!.id){
+                    urlstring += "|"
+                }
+            }
+        }
+        
+        // Encode URL
+        urlstring = urlstring.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        print(urlstring)
+        
+        if let googleMapsURL = URL(string: urlstring) {
+            // This will launch an external App
+            UIApplication.shared.open(googleMapsURL, options: [:], completionHandler: nil)
+        } else {
+            // TODO displayError
+            print("Invalid URL")
+        }
+    }
     
 }
 

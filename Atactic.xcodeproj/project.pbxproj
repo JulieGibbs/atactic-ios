@@ -17,6 +17,7 @@
 		6F35E3CB2017445F005BCB88 /* VersionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CA2017445F005BCB88 /* VersionRequest.swift */; };
 		6F35E3CD201799F5005BCB88 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CC201799F5005BCB88 /* LoginRequest.swift */; };
 		6F35E3CF2017A1DE005BCB88 /* RequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CE2017A1DE005BCB88 /* RequestConstants.swift */; };
+		6F449007212D72B0002C80ED /* RouteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F449006212D72AF002C80ED /* RouteRequest.swift */; };
 		6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */; };
 		6F4815F3201F9D6E0041F56A /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4815F2201F9D6E0041F56A /* RequestFactory.swift */; };
 		6F4DC55A212731C90091D1E7 /* MapDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DC559212731C90091D1E7 /* MapDataHandler.swift */; };
@@ -62,6 +63,7 @@
 		6F35E3CA2017445F005BCB88 /* VersionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionRequest.swift; sourceTree = "<group>"; };
 		6F35E3CC201799F5005BCB88 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		6F35E3CE2017A1DE005BCB88 /* RequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstants.swift; sourceTree = "<group>"; };
+		6F449006212D72AF002C80ED /* RouteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteRequest.swift; sourceTree = "<group>"; };
 		6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
 		6F4815F2201F9D6E0041F56A /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		6F4DC559212731C90091D1E7 /* MapDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataHandler.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				6FCE26EB205A9D4100701BE3 /* ActivityRegisterRequest.swift */,
 				6F4815F2201F9D6E0041F56A /* RequestFactory.swift */,
 				6F4DC55B212733790091D1E7 /* AccountMapRequest.swift */,
+				6F449006212D72AF002C80ED /* RouteRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				6FCE26EF205ACB4000701BE3 /* DateUtils.swift in Sources */,
 				6F4815F3201F9D6E0041F56A /* RequestFactory.swift in Sources */,
 				6F35E3C9201656CE005BCB88 /* AccountAnnotation.swift in Sources */,
+				6F449007212D72B0002C80ED /* RouteRequest.swift in Sources */,
 				6FE55E981FF50E4E00945171 /* QuestCell.swift in Sources */,
 				6F35E3CD201799F5005BCB88 /* LoginRequest.swift in Sources */,
 				6F1E79892062724900E8AEDF /* RequestProtocol.swift in Sources */,

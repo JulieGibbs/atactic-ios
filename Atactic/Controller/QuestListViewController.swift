@@ -12,23 +12,37 @@ class QuestListViewController : UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var activityIndicatorView: UIView!
+    @IBOutlet var errorMsgTextView: UITextView!
+    
     // Variable holding the list of quest participations to display
     var questParticipationList : [Participation] = []
     
+    /*
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Quest List View Controller loaded")
+        print("QuestListViewController - view did load")
     }
-    
+    */
+    /*
     override func viewDidAppear(_ animated: Bool) {
-        print("Quest List View controller did appear")
+        print("QuestListViewController - view DID appear")
+        self.activityIndicator.isHidden = false
         super.viewDidAppear(animated)
     }
+    */
     
     override func viewWillAppear(_ animated: Bool) {
-        print("QuestListViewController - view will appear")
-        loadQuestParticipations()
+        print("QuestListViewController - view WILL appear")
         super.viewWillAppear(animated)
+        
+        self.tableView.isHidden = true
+        errorMsgTextView.isHidden = true
+        showActivityIndicator()
+        
+        loadQuestParticipations()
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +60,32 @@ class QuestListViewController : UIViewController {
                 destinationViewContoller.quest = selectedQuest
             }
         }
+    }
+    
+    private func showActivityIndicator(){
+        self.activityIndicatorView.isHidden = false
+        self.activityIndicator.isHidden = false
+    }
+    
+    private func hideActivityIndicator(){
+        self.activityIndicatorView.isHidden = true
+        self.activityIndicator.isHidden = true
+    }
+    
+    public func displayData(data: [Participation]){
+        print("QuestListViewController - Updating data to display")
+        errorMsgTextView.isHidden = true
+        self.questParticipationList = data
+        self.tableView.reloadData()
+        hideActivityIndicator()
+        self.tableView.isHidden = false
+    }
+    
+    public func displayError(message: String){
+        errorMsgTextView.text = message
+        hideActivityIndicator()
+        tableView.isHidden = true
+        errorMsgTextView.isHidden = false
     }
     
 }
@@ -120,13 +160,15 @@ extension QuestListViewController {
         
         let task = URLSession.shared.dataTask(with: questListRequest.getRequest()) { (data, response, error) in
             
+            // sleep(2)
+            
             if let serverResponse = response as? HTTPURLResponse {
-                print("QuestList service response received - \(serverResponse.statusCode)")
+                print("QuestListViewController - QuestList service response received - \(serverResponse.statusCode)")
                 
                 if (serverResponse.statusCode == 200) {
                     
                     // DECODE JSON response
-                    print("Decoding QuestList from JSON response")
+                    print("QuestListViewController - Decoding QuestList from JSON response")
                     // print(String(data: data!, encoding: .utf8)!)
                     // print()
                     let decoder = JSONDecoder()
@@ -135,15 +177,19 @@ extension QuestListViewController {
                     
                     // Run UI updates in the main queue
                     DispatchQueue.main.async { () -> Void in
-                        print("QuestListViewController: reloading table view data")
-                        self.questParticipationList = questList
-                        self.tableView.reloadData()
+                        if (questList.isEmpty){
+                            self.displayError(message: "No se han encontrado campañas activas")
+                        } else {
+                            self.displayData(data: questList)
+                        }
                     }
                 } else {
-                    print("Error code \(serverResponse.statusCode)")
+                    print("QuestListViewController - ERROR: status code \(serverResponse.statusCode)")
+                    self.displayError(message: "Se ha producido un error \(serverResponse.statusCode). Por favor, reinicie la aplicación")
                 }
             } else {
-                print("No response from server")
+                print("QuestListViewController - ERROR: no response from server")
+                self.displayError(message: "No se ha podido conectar con el servidor")
             }
         }
         task.resume()

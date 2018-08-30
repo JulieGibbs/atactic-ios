@@ -95,7 +95,7 @@ class TargetListDataHandler {
                 DispatchQueue.main.async { () -> Void in
                     if (targets.isEmpty) {
                         print("TargetListDataHandler - Empty list of targets received")
-                        self.viewController.displayError(errorMessage: "No se han encontrado objetivos prioritarios")
+                        self.viewController.displayError(message: "No se han encontrado objetivos prioritarios")
                     } else {
                         print("TargetListDataHandler - Returning data to view controller")
                         self.viewController.displayData(targets: targets)
@@ -103,11 +103,11 @@ class TargetListDataHandler {
                 }
             } else {
                 print("TargetListDataHandler - Response error code \(httpResponse.statusCode)")
-                self.viewController.displayError(errorMessage: "Se ha producido un error \(httpResponse.statusCode). Por favor, reinicie la aplicación")
+                self.viewController.displayError(message: "Se ha producido un error \(httpResponse.statusCode). Por favor, reinicie la aplicación")
             }
         } else {
             print("TargetListDataHandler - No response from server")
-            self.viewController.displayError(errorMessage: "No se ha podido conectar con el servidor")
+            self.viewController.displayError(message: "No se ha podido conectar con el servidor")
         }
     }
     

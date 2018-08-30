@@ -41,8 +41,9 @@ class TargetListViewController : UIViewController {
     //
     func displayData(targets: [Target]) {
         print("TargetListViewController - Received data to display")
-        // print("\(targets.count) priority targets will be displayed")
+        
         self.targets = targets
+        // print("\(targets.count) priority targets will be displayed")
         
         self.activityIndicator.isHidden = true
         self.tableView.isHidden = false
@@ -50,10 +51,10 @@ class TargetListViewController : UIViewController {
         self.tableView.reloadData()
     }
     
-    func displayError(errorMessage: String) {
+    func displayError(message: String) {
         self.tableView.isHidden = true
         self.activityIndicator.isHidden = true
-        self.errorMsgTextView.text = errorMessage
+        self.errorMsgTextView.text = message
         self.errorMsgTextView.isHidden = false
     }
     

@@ -18,42 +18,52 @@ class QuestDetailViewController: UIViewController {
     @IBOutlet var progressLabel: UILabel!
     @IBOutlet var containerViewA: UIView!
     @IBOutlet var containerViewB: UIView!
+    @IBOutlet var containerViewC: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         printQuestData()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //
+    // By overriding the prepare for segue, we can access the QuestTargetsSegmentController
+    //  that manages the Target List container view in the Campaign Detail screen
+    //  and add the Participation ID as a parameter in the segue
+    //
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // print("QuestDetailViewController - Preparing for segue")
+        if segue.identifier == "GoToTargetsSegue" {
+            if let dc = segue.destination as? QuestTargetsSegmentController {
+                // print("QuestDetailViewController - (Segue) I have access to the Target Segment Controller")
+                // print("QuestDetailViewController - (Segue) Will send the participation ID: \(quest.participationId)")
+                dc.participationId = quest.participationId
+            }
+        }
     }
-    
     
     func printQuestData() {
         
+        // Display Campaign name and Briefing
         questTitleLabel.text = quest.campaign.name
         questBriefingLabel.text = quest.campaign.summary
         
         // Set progress values for progress label text and circular indicator angle
-        // let prgr = Double(quest.currentStep) / Double(quest.totalSteps)
         let prgr  = Double(quest.currentProgress)
         progressLabel.text = String(format: "%.0f", prgr * 100) + "%"
-        
         progressIndicator.angle = prgr * 360.0
         progressIndicator.animate(fromAngle: 0, toAngle: prgr * 360.0, duration: 1) { (completed) in }
         
+        // Display administrator info
         let adminNameLabel: UILabel = containerViewA.subviews[0].subviews[1] as! UILabel
         let adminTitleLabel: UILabel = containerViewA.subviews[0].subviews[2] as! UILabel
+        adminNameLabel.text = quest.campaign.owner.firstName + " " + quest.campaign.owner.lastName
+        adminTitleLabel.text = quest.campaign.owner.position
+        
+        // Display deadline info
         let endDateLabel: UILabel =
             containerViewA.subviews[0].subviews[4] as! UILabel
         let remainingDaysLabel: UILabel =
             containerViewA.subviews[0].subviews[5] as! UILabel
-        
-        adminNameLabel.text = quest.campaign.owner.firstName + " " + quest.campaign.owner.lastName
-        adminTitleLabel.text = quest.campaign.owner.position
-        
         let endDateStr = quest.campaign.endDate
         
         // Format date
@@ -79,6 +89,13 @@ class QuestDetailViewController: UIViewController {
         
         let longDescriptionTextField = containerViewB.subviews[0].subviews[0] as! UITextView
         longDescriptionTextField.text = quest.campaign.description
+        
+        
+        // let targetListDataHandler = TargetListDataHandler(viewController: self.containerViewC)
+        
+        let statusMessageTextView : UITextView = containerViewC.subviews[0].subviews[0] as! UITextView
+        
+        statusMessageTextView.text = "Quest targets go here"
     }
     
     //
@@ -90,11 +107,19 @@ class QuestDetailViewController: UIViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerViewA.alpha = 1
                 self.containerViewB.alpha = 0
+                self.containerViewC.alpha = 0
             })
-        }else{
+        } else if sender.selectedSegmentIndex == 1 {
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerViewA.alpha = 0
                 self.containerViewB.alpha = 1
+                self.containerViewC.alpha = 0
+            })
+        } else if sender.selectedSegmentIndex == 2 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.containerViewA.alpha = 0
+                self.containerViewB.alpha = 0
+                self.containerViewC.alpha = 1
             })
         }
         

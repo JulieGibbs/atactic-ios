@@ -185,11 +185,15 @@ extension QuestListViewController {
                     }
                 } else {
                     print("QuestListViewController - ERROR: status code \(serverResponse.statusCode)")
-                    self.displayError(message: "Se ha producido un error \(serverResponse.statusCode). Por favor, reinicie la aplicación")
+                    DispatchQueue.main.async { () -> Void in
+                        self.displayError(message: "Se ha producido un error \(serverResponse.statusCode). Por favor, reinicie la aplicación")
+                        }
                 }
             } else {
                 print("QuestListViewController - ERROR: no response from server")
-                self.displayError(message: "No se ha podido conectar con el servidor")
+                DispatchQueue.main.async { () -> Void in
+                    self.displayError(message: "No se ha podido conectar con el servidor")
+                }
             }
         }
         task.resume()

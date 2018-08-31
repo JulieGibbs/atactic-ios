@@ -45,8 +45,38 @@ class LocationController: NSObject, CLLocationManagerDelegate {
     }
     
     func getMostRecentLocation() -> CLLocation? {
+        print("LocationController - Reporting location: \(String(describing: mostRecentLocation?.coordinate))")
+        checkAuthorizationStatus()
         return mostRecentLocation
     }
     
+    private func checkAuthorizationStatus(){
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            // Request when-in-use authorization initially
+            // locationManager.requestWhenInUseAuthorization()
+            print("LocationController - Location authorization status not determined")
+            break
+            
+        case .restricted, .denied:
+            // Disable location features
+            // disableMyLocationBasedFeatures()
+            print("LocationController - Location authorization DENIED")
+            break
+            
+        case .authorizedWhenInUse:
+            // Enable basic location features
+            // enableMyWhenInUseFeatures()
+            print("LocationController - Location authorization granted (when in use)")
+            break
+            
+        case .authorizedAlways:
+            // Enable any of your app's location features
+            // enableMyAlwaysFeatures()
+            print("LocationController - Location authorization granted (always)")
+            break
+        }
+    }
+
 }
 

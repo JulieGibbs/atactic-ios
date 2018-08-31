@@ -25,30 +25,51 @@ class GoogleMapsViewController: UIViewController {
         
         routeButton.action = #selector(routeButtonPressed)
         
-        // Get current location from Location Controller
-        let currentLocation = LocationController.global.getMostRecentLocation()
-        
-        // Center camera on current location
-        let camera = GMSCameraPosition.camera(withTarget: currentLocation!.coordinate, zoom: 15)
-        
-        // Configure Map View
-        map.camera = camera
-        map.setMinZoom(6, maxZoom: 18)
-        map.isMyLocationEnabled = true
+        setupMap()
 
         // Instantiate Data Handler and request data
         let dataHandler = MapDataHandler(viewController: self)
         dataHandler.getData()
     }
     
-
-    func setData (highPriorityMarkers : [ParticipationTargets], lowPriorityMarkers : [AccountStruct]){
-        self.priorityMarkers = highPriorityMarkers
-        self.secondaryMarkers = lowPriorityMarkers
-        drawMarkers(mapView: map)
+    private func setupMap(){
+        updateMapCamera()
+        map.setMinZoom(6, maxZoom: 18)
+        map.isMyLocationEnabled = true
     }
     
-    func drawMarkers(mapView: GMSMapView) {
+    private func updateMapCamera() {
+        
+        var cameraPosition : GMSCameraPosition
+        let defaultCameraLocation = CLLocationCoordinate2D(latitude: 39.842782, longitude: -3.572391)
+        
+        // Get current location from Location Controller
+        if let currentLocation = LocationController.global.getMostRecentLocation() {
+            // Center camera on current location
+            cameraPosition = GMSCameraPosition.camera(withTarget: currentLocation.coordinate, zoom: 15)
+        } else {
+            // In case current location is unavailable, center camera on a target
+            if let aTarget = self.priorityMarkers.first?.targets.first {
+                let targetLocation = CLLocationCoordinate2D(latitude: aTarget.latitude, longitude: aTarget.longitude)
+                cameraPosition = GMSCameraPosition.camera(withTarget: targetLocation, zoom: 12)
+            } else {
+                cameraPosition = GMSCameraPosition.camera(withTarget: defaultCameraLocation, zoom: 8)
+            }
+        }
+        map.camera = cameraPosition
+        // map.animate(to: cameraPosition)
+    }
+
+    func displayData (highPriorityMarkers : [ParticipationTargets], lowPriorityMarkers : [AccountStruct]){
+        self.priorityMarkers = highPriorityMarkers
+        self.secondaryMarkers = lowPriorityMarkers
+        
+        drawMarkers(mapView: map)
+        
+        updateMapCamera()
+    }
+    
+    private func drawMarkers(mapView: GMSMapView) {
         
         var drawn : [Int] = []
         

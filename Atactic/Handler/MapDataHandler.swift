@@ -42,7 +42,7 @@ class MapDataHandler {
                     // Run UI updates in the main queue
                     DispatchQueue.main.async { () -> Void in
                         print("MapDataHandler: returning data to view controller")
-                        self.mapViewController.setData(highPriorityMarkers: accountMap.targets, lowPriorityMarkers:accountMap.accounts)
+                        self.mapViewController.displayData(highPriorityMarkers: accountMap.targets, lowPriorityMarkers:accountMap.accounts)
                     }
                 } else {
                     print("MapDataHandler - Error code \(serverResponse.statusCode)")

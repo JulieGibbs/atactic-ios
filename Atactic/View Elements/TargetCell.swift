@@ -13,6 +13,6 @@ class TargetCell : UITableViewCell {
     @IBOutlet var accountNameLabel: UILabel!
     @IBOutlet var accountAddressLabel: UILabel!
     @IBOutlet var distanceToTargetLabel: UILabel!
-    @IBOutlet var targetScore: UILabel!
+    // @IBOutlet var targetScore: UILabel!
     
 }

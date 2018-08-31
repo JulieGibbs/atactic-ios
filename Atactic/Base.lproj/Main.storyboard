@@ -190,14 +190,14 @@ para vendedores profesionales</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyK-QW-apf" userLabel="Card">
                                                     <rect key="frame" x="8" y="4" width="304" height="122"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmt-xU-7yv" userLabel="Title Label">
-                                                            <rect key="frame" x="116" y="10" width="183" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="dmt-xU-7yv" userLabel="Title Label">
+                                                            <rect key="frame" x="114" y="10" width="175" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest summary goes here. Quest summary goes here. Quest summary goes here. Quest summary goes here." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="3uR-dB-eSB" userLabel="Briefing Label">
-                                                            <rect key="frame" x="116" y="34.5" width="178" height="45"/>
+                                                            <rect key="frame" x="114" y="34.5" width="175" height="45"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="52" id="0so-i3-78N"/>
                                                             </constraints>
@@ -206,13 +206,13 @@ para vendedores profesionales</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLk-eq-b3C" userLabel="Progress Label">
-                                                            <rect key="frame" x="36" y="49.5" width="44" height="23.5"/>
+                                                            <rect key="frame" x="34" y="49.5" width="44" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                             <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lg-xw-ANx" userLabel="Progress Circle" customClass="KDCircularProgress" customModule="Atactic" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red">
-                                                            <rect key="frame" x="10" y="13" width="96" height="96"/>
+                                                            <rect key="frame" x="8" y="13" width="96" height="96"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="96" id="97f-GQ-pGL"/>
@@ -273,15 +273,15 @@ para vendedores profesionales</string>
                                                         <constraint firstItem="u4l-Es-iaH" firstAttribute="leading" secondItem="DyK-QW-apf" secondAttribute="leading" constant="114" id="Ax8-7p-Xbe"/>
                                                         <constraint firstAttribute="bottom" secondItem="6ql-kl-9oF" secondAttribute="bottom" constant="12" id="HKw-O7-O0u"/>
                                                         <constraint firstItem="6ql-kl-9oF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u4l-Es-iaH" secondAttribute="trailing" constant="5" id="Q7A-XC-bgv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="3uR-dB-eSB" secondAttribute="trailing" constant="10" id="Qur-0T-X7N"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3uR-dB-eSB" secondAttribute="trailing" constant="15" id="Qur-0T-X7N"/>
                                                         <constraint firstItem="3uR-dB-eSB" firstAttribute="top" secondItem="dmt-xU-7yv" secondAttribute="bottom" constant="4" id="RNe-wA-Sji"/>
                                                         <constraint firstItem="6ql-kl-9oF" firstAttribute="leading" secondItem="iny-Ss-LYA" secondAttribute="trailing" constant="4" id="Tp9-dZ-C0v"/>
                                                         <constraint firstAttribute="bottom" secondItem="u4l-Es-iaH" secondAttribute="bottom" constant="12" id="Tq1-LT-YSR"/>
                                                         <constraint firstItem="dmt-xU-7yv" firstAttribute="leading" secondItem="6lg-xw-ANx" secondAttribute="trailing" constant="10" id="VW2-CH-6L8"/>
                                                         <constraint firstItem="oLk-eq-b3C" firstAttribute="centerY" secondItem="6lg-xw-ANx" secondAttribute="centerY" id="YdS-kb-ibD"/>
-                                                        <constraint firstItem="6lg-xw-ANx" firstAttribute="leading" secondItem="DyK-QW-apf" secondAttribute="leading" constant="10" id="YjG-Vq-hre"/>
+                                                        <constraint firstItem="6lg-xw-ANx" firstAttribute="leading" secondItem="DyK-QW-apf" secondAttribute="leading" constant="8" id="YjG-Vq-hre"/>
                                                         <constraint firstItem="3uR-dB-eSB" firstAttribute="leading" secondItem="6lg-xw-ANx" secondAttribute="trailing" constant="10" id="Zth-wB-Oje"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dmt-xU-7yv" secondAttribute="trailing" constant="5" id="akM-I6-9Lm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dmt-xU-7yv" secondAttribute="trailing" constant="15" id="akM-I6-9Lm"/>
                                                         <constraint firstAttribute="bottom" secondItem="iny-Ss-LYA" secondAttribute="bottom" constant="13" id="e0s-XX-Ku6"/>
                                                         <constraint firstItem="oLk-eq-b3C" firstAttribute="centerX" secondItem="6lg-xw-ANx" secondAttribute="centerX" id="g6E-d2-QL4"/>
                                                         <constraint firstItem="dmt-xU-7yv" firstAttribute="top" secondItem="DyK-QW-apf" secondAttribute="topMargin" constant="2" id="kR7-Fa-ryX"/>
@@ -803,11 +803,8 @@ para vendedores profesionales</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6d-am-M1C" userLabel="Account Name Label">
-                                                            <rect key="frame" x="69" y="18" width="103" height="20.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="220" id="3up-U0-3Oc"/>
-                                                            </constraints>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="W6d-am-M1C" userLabel="Account Name Label">
+                                                            <rect key="frame" x="69" y="18" width="231" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -818,24 +815,11 @@ para vendedores profesionales</string>
                                                             <color key="textColor" red="0.52815556330000002" green="0.53338482629999995" blue="0.53338482629999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.125" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ji3-zw-YtT" userLabel="Score Label" colorLabel="IBBuiltInLabel-Blue">
-                                                            <rect key="frame" x="241" y="16" width="38" height="19.5"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
-                                                            <color key="textColor" red="0.90196078431372551" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_office_512" translatesAutoresizingMaskIntoConstraints="NO" id="xC3-lL-Y2T">
                                                             <rect key="frame" x="15" y="22" width="36" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="36" id="CcZ-LK-Tg0"/>
                                                                 <constraint firstAttribute="height" constant="36" id="Nxn-v8-nda"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_redtrophy" translatesAutoresizingMaskIntoConstraints="NO" id="buK-P3-uEv">
-                                                            <rect key="frame" x="284" y="16" width="18" height="18"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="18" id="idU-r6-0Ac"/>
-                                                                <constraint firstAttribute="width" constant="18" id="yLz-Vj-MhD"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="650 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-El-KsC" userLabel="Distance Label">
@@ -846,17 +830,13 @@ para vendedores profesionales</string>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="buK-P3-uEv" firstAttribute="leading" secondItem="ji3-zw-YtT" secondAttribute="trailing" constant="5" id="Cu9-C7-LG2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="W6d-am-M1C" secondAttribute="trailing" constant="20" id="HbZ-g2-6l3"/>
                                                         <constraint firstAttribute="trailing" secondItem="ygX-El-KsC" secondAttribute="trailing" constant="18" id="LOu-fo-HgU"/>
-                                                        <constraint firstItem="buK-P3-uEv" firstAttribute="top" secondItem="odP-Qs-jjo" secondAttribute="top" constant="16" id="bSH-ka-pcI"/>
                                                         <constraint firstItem="xC3-lL-Y2T" firstAttribute="centerY" secondItem="odP-Qs-jjo" secondAttribute="centerY" id="jZK-Bd-H2q"/>
-                                                        <constraint firstItem="ji3-zw-YtT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W6d-am-M1C" secondAttribute="trailing" constant="5" id="lst-iH-cJs"/>
                                                         <constraint firstItem="ygX-El-KsC" firstAttribute="centerY" secondItem="iUJ-Me-bdT" secondAttribute="centerY" id="nBd-1o-tqp"/>
                                                         <constraint firstItem="W6d-am-M1C" firstAttribute="top" secondItem="odP-Qs-jjo" secondAttribute="topMargin" constant="7" id="nYl-X2-5VU"/>
-                                                        <constraint firstItem="ji3-zw-YtT" firstAttribute="top" secondItem="odP-Qs-jjo" secondAttribute="top" constant="16" id="rf0-nd-hhJ"/>
                                                         <constraint firstItem="iUJ-Me-bdT" firstAttribute="top" secondItem="W6d-am-M1C" secondAttribute="bottom" constant="8" id="rtY-x0-7Mv"/>
                                                         <constraint firstItem="xC3-lL-Y2T" firstAttribute="leading" secondItem="odP-Qs-jjo" secondAttribute="leadingMargin" id="s3u-41-D2o"/>
-                                                        <constraint firstAttribute="trailing" secondItem="buK-P3-uEv" secondAttribute="trailing" constant="18" id="t9I-gd-YP7"/>
                                                         <constraint firstItem="W6d-am-M1C" firstAttribute="leading" secondItem="xC3-lL-Y2T" secondAttribute="trailing" constant="18" id="wdJ-FZ-BSw"/>
                                                         <constraint firstItem="ygX-El-KsC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iUJ-Me-bdT" secondAttribute="trailing" constant="5" id="xiJ-gc-3oY"/>
                                                         <constraint firstItem="iUJ-Me-bdT" firstAttribute="leading" secondItem="xC3-lL-Y2T" secondAttribute="trailing" constant="18" id="zxQ-Yg-h8f"/>
@@ -866,7 +846,6 @@ para vendedores profesionales</string>
                                                     <outlet property="accountAddressLabel" destination="iUJ-Me-bdT" id="aZO-vW-NdM"/>
                                                     <outlet property="accountNameLabel" destination="W6d-am-M1C" id="SZE-99-K5W"/>
                                                     <outlet property="distanceToTargetLabel" destination="ygX-El-KsC" id="lCA-NG-6GM"/>
-                                                    <outlet property="targetScore" destination="ji3-zw-YtT" id="sGv-Tx-Yh0"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

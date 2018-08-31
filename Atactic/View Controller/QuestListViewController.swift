@@ -112,7 +112,7 @@ extension QuestListViewController: UITableViewDataSource {
         cell.questSummaryLabel.text = participation.campaign.summary
         // cell.currentStepLabel.text = "\(participation.currentStep)"
         // cell.totalStepsLabel.text = "\(participation.totalSteps)"
-        cell.scoreLabel.text = "\(participation.campaign.stepScore)"
+        cell.scoreLabel.text = "\(participation.campaign.completionScore)"
         
         // Parse the campaign's end date
         let endDateStr = participation.campaign.endDate

@@ -63,13 +63,14 @@ class QuestTargetListDataHandler {
                 
                 // Run UI updates in the main queue
                 DispatchQueue.main.async { () -> Void in
-                    if (targets.isEmpty) {
-                        print("QuestTargetListDataHandler - Empty list of targets received")
-                        self.viewController.displayError(message: "No se han encontrado objetivos prioritarios")
-                    } else {
-                        print("QuestTargetListDataHandler - Returning data to view controller")
-                        self.viewController.displayData(targets: targets)
-                    }
+                    print("QuestTargetListDataHandler - Returning data to view controller")
+                    self.viewController.displayData(targets: targets)
+                }
+                
+            } else if (httpResponse.statusCode == 204) {
+                print("QuestTargetListDataHandler - Empty list of targets received")
+                DispatchQueue.main.async { () -> Void in
+                    self.viewController.displayError(message: "No se han encontrado objetivos específicos para esta campaña")
                 }
             } else {
                 print("QuestTargetListDataHandler - Response error code \(httpResponse.statusCode)")

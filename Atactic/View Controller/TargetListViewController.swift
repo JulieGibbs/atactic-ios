@@ -80,7 +80,7 @@ extension TargetListViewController: UITableViewDataSource {
         
         cell.accountNameLabel.text = target.account.name
         cell.accountAddressLabel.text = target.account.address + ", " + target.account.postalCode + ", " + target.account.city
-        cell.targetScore.text = "\(target.score)"
+        // cell.targetScore.text = "\(target.score)"
         
         if (target.account.distance == -1) {
             cell.distanceToTargetLabel.text = ""

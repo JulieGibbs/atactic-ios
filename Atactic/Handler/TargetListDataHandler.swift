@@ -26,8 +26,6 @@ class TargetListDataHandler {
     //  by calling its setData() or setError() functions.
     //
     func getData() {
-
-        // TODO: viewController.showLoading()
         
         // Recover user's ID
         let recoveredUserId : Int = UserDefaults.standard.integer(forKey: "uid")
@@ -69,8 +67,6 @@ class TargetListDataHandler {
     
     private func handleServerResponse(data: Data?, response: URLResponse?, error: Error?) {
         
-        // sleep(1)
-        
         // Try cast to HTTP Response
         if let httpResponse = response as? HTTPURLResponse {
         
@@ -86,10 +82,10 @@ class TargetListDataHandler {
                 // Calculate distance to each target account
                 if let currentLocation = LocationController.global.getMostRecentLocation() {
                     targets = setDistances(location: currentLocation, list: targets)
+                    
+                    // Sort by distance
+                    targets = targets.sorted(by: {$0.account.distance < $1.account.distance})
                 }
-                
-                // Sort by score
-                targets = targets.sorted(by: {$0.score > $1.score})
                 
                 // Run UI updates in the main queue
                 DispatchQueue.main.async { () -> Void in

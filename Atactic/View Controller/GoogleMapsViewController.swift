@@ -13,8 +13,10 @@ import GoogleMaps
 
 class GoogleMapsViewController: UIViewController {
     
-    var priorityMarkers : [ParticipationTargets] = []
-    var secondaryMarkers : [AccountStruct] = []
+    var priorityAccounts : [ParticipationTargets] = []
+    var nonPriorityAccounts : [AccountStruct] = []
+    
+    var mapMarkers : [GMSMarker] = []
     
     @IBOutlet var map: GMSMapView!
     @IBOutlet var routeButton: UIBarButtonItem!
@@ -36,6 +38,7 @@ class GoogleMapsViewController: UIViewController {
         updateMapCamera()
         map.setMinZoom(6, maxZoom: 18)
         map.isMyLocationEnabled = true
+        map.settings.myLocationButton = true
     }
     
     private func updateMapCamera() {
@@ -49,7 +52,7 @@ class GoogleMapsViewController: UIViewController {
             cameraPosition = GMSCameraPosition.camera(withTarget: currentLocation.coordinate, zoom: 15)
         } else {
             // In case current location is unavailable, center camera on a target
-            if let aTarget = self.priorityMarkers.first?.targets.first {
+            if let aTarget = self.priorityAccounts.first?.targets.first {
                 let targetLocation = CLLocationCoordinate2D(latitude: aTarget.latitude, longitude: aTarget.longitude)
                 cameraPosition = GMSCameraPosition.camera(withTarget: targetLocation, zoom: 12)
             } else {
@@ -61,48 +64,92 @@ class GoogleMapsViewController: UIViewController {
     }
 
     func displayData (highPriorityMarkers : [ParticipationTargets], lowPriorityMarkers : [AccountStruct]){
-        self.priorityMarkers = highPriorityMarkers
-        self.secondaryMarkers = lowPriorityMarkers
+        self.priorityAccounts = highPriorityMarkers
+        self.nonPriorityAccounts = lowPriorityMarkers
         
         drawMarkers(mapView: map)
         
         updateMapCamera()
     }
     
+    
+    private func adjustMarkerPosition(position: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        
+        let minoffset = -0.00025
+        let maxoffset = 0.00025
+        
+        let latVariation = (Double(arc4random_uniform(UInt32.max)) / Double(UInt32.max)) * (maxoffset - minoffset) + minoffset
+        let lonVariation = (Double(arc4random_uniform(UInt32.max)) / Double(UInt32.max)) * (maxoffset - minoffset) + minoffset
+        
+        let modifiedLat = position.latitude + latVariation
+        let modifiedLon = position.longitude + lonVariation
+        
+        print("Adjusting marker position with an offset")
+        print("New coordinates - lat: \(modifiedLat) lon: \(modifiedLon)")
+        print("LatVariation= \(latVariation)")
+        print("LonVariation= \(lonVariation)")
+        return CLLocationCoordinate2D(latitude: modifiedLat, longitude: modifiedLon)
+    }
+    
     private func drawMarkers(mapView: GMSMapView) {
         
-        var drawn : [Int] = []
+        var drawnAccountIds : [Int] = []
         
         // Draw highlighted markets
-        for pt in priorityMarkers {
+        for pt in priorityAccounts {
             
             for tgt in pt.targets {
                 
-                if (!drawn.contains(tgt.id)){
+                if (!drawnAccountIds.contains(tgt.id)){
                     let marker = GMSMarker()
-                    marker.position = CLLocationCoordinate2D(latitude: tgt.latitude, longitude: tgt.longitude)
+                    var markerPosition = CLLocationCoordinate2D(latitude: tgt.latitude, longitude: tgt.longitude)
+
+                    // Add a random latitude or longitude offset to different markers placed on the exact same spot
+                    for m in mapMarkers {
+                        if (m.position.latitude == markerPosition.latitude && m.position.longitude == markerPosition.longitude) {
+                            markerPosition = adjustMarkerPosition(position: markerPosition)
+                        }
+                    }
+                    
+                    marker.position = markerPosition
                     marker.icon = #imageLiteral(resourceName: "marker_important_32")
                     marker.title = tgt.name
                     marker.snippet = pt.campaignName
+                    
                     marker.map = mapView
-                
-                    drawn.append(tgt.id)
+                    mapMarkers.append(marker)
+                    
+                    drawnAccountIds.append(tgt.id)
                 }
+                // else if account has already been drawn, add the other campaign name to the marker snippet
+                
             }
         }
         
         // Draw low priority markets
-        for account in secondaryMarkers {
+        for account in nonPriorityAccounts {
             
-            if (!drawn.contains(account.id)) {
+            if (!drawnAccountIds.contains(account.id)) {
                 let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: account.latitude, longitude: account.longitude)
+                var markerPosition = CLLocationCoordinate2D(latitude: account.latitude, longitude: account.longitude)
+
+                // Add a random latitude or longitude offset to different markers placed on the exact same spot
+                for m in mapMarkers {
+                    if (m.position.latitude == markerPosition.latitude && m.position.longitude == markerPosition.longitude) {
+                        markerPosition = adjustMarkerPosition(position: markerPosition)
+                    }
+                }
+                marker.position = markerPosition
                 marker.icon = #imageLiteral(resourceName: "marker_neutral_24g")
                 marker.title = account.name
                 // marker.snippet = account.type
+                
                 marker.map = mapView
+                mapMarkers.append(marker)
             }
         }
+        
+
     }
     
     /*

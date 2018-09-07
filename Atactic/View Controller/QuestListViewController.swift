@@ -20,12 +20,17 @@ class QuestListViewController : UIViewController {
     // Variable holding the list of quest participations to display
     var questParticipationList : [Participation] = []
     
-    /*
     override func viewDidLoad() {
-        super.viewDidLoad()
         print("QuestListViewController - view did load")
+        super.viewDidLoad()
+        
+        self.tableView.isHidden = true
+        errorMsgTextView.isHidden = true
+        showActivityIndicator()
+        
+        loadQuestParticipations()
     }
-    */
+ 
     /*
     override func viewDidAppear(_ animated: Bool) {
         print("QuestListViewController - view DID appear")
@@ -34,6 +39,7 @@ class QuestListViewController : UIViewController {
     }
     */
     
+    /*
     override func viewWillAppear(_ animated: Bool) {
         print("QuestListViewController - view WILL appear")
         super.viewWillAppear(animated)
@@ -44,6 +50,7 @@ class QuestListViewController : UIViewController {
         
         loadQuestParticipations()
     }
+    */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

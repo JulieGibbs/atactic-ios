@@ -509,7 +509,7 @@ para vendedores profesionales</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vw6-qI-MwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-462" y="-1719"/>
+            <point key="canvasLocation" x="-444" y="-1720"/>
         </scene>
         <!--Google Maps-->
         <scene sceneID="0jf-FT-ian">
@@ -585,8 +585,8 @@ para vendedores profesionales</string>
                                             <constraint firstAttribute="height" constant="90" id="aEw-Df-jek"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre Apellidos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6S-B2-mkE" userLabel="Full Name">
-                                        <rect key="frame" x="84.5" y="113" width="151.5" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6S-B2-mkE" userLabel="Full Name">
+                                        <rect key="frame" x="157" y="113" width="6" height="25"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -614,16 +614,16 @@ para vendedores profesionales</string>
                                 <rect key="frame" x="0.0" y="242" width="320" height="72"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="08q-L2-RVz" userLabel="Score Block">
-                                        <rect key="frame" x="125" y="3" width="71.5" height="57"/>
+                                        <rect key="frame" x="124.5" y="3" width="71" height="57"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1524" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdr-7u-xkd" userLabel="Score Indicator">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="37.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdr-7u-xkd" userLabel="Score Indicator">
+                                                <rect key="frame" x="0.0" y="0.0" width="71" height="37.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
                                                 <color key="textColor" red="0.90832698349999996" green="0.05357003212" blue="0.05913958699" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puntuación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckD-ou-NPq" userLabel="Score Label">
-                                                <rect key="frame" x="0.0" y="37.5" width="71.5" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="37.5" width="71" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -757,7 +757,7 @@ para vendedores profesionales</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2e3-xy-0Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2873" y="1450"/>
+            <point key="canvasLocation" x="-2876" y="1460"/>
         </scene>
         <!--Target List-->
         <scene sceneID="0pi-5s-dIU">
@@ -809,8 +809,8 @@ para vendedores profesionales</string>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Street, 77, 08023, Barcelona" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="iUJ-Me-bdT" userLabel="Address Label">
-                                                            <rect key="frame" x="69" y="46.5" width="153" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Address Street, 77, Barcelona" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="iUJ-Me-bdT" userLabel="Address Label">
+                                                            <rect key="frame" x="69" y="47" width="161" height="17"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                             <color key="textColor" red="0.52815556330000002" green="0.53338482629999995" blue="0.53338482629999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -822,8 +822,8 @@ para vendedores profesionales</string>
                                                                 <constraint firstAttribute="height" constant="36" id="Nxn-v8-nda"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="650 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-El-KsC" userLabel="Distance Label">
-                                                            <rect key="frame" x="267" y="47" width="34.5" height="16.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1000m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-El-KsC" userLabel="Distance Label">
+                                                            <rect key="frame" x="235" y="47" width="70" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                             <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -831,14 +831,14 @@ para vendedores profesionales</string>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="W6d-am-M1C" secondAttribute="trailing" constant="20" id="HbZ-g2-6l3"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ygX-El-KsC" secondAttribute="trailing" constant="18" id="LOu-fo-HgU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ygX-El-KsC" secondAttribute="trailing" constant="15" id="LOu-fo-HgU"/>
                                                         <constraint firstItem="xC3-lL-Y2T" firstAttribute="centerY" secondItem="odP-Qs-jjo" secondAttribute="centerY" id="jZK-Bd-H2q"/>
                                                         <constraint firstItem="ygX-El-KsC" firstAttribute="centerY" secondItem="iUJ-Me-bdT" secondAttribute="centerY" id="nBd-1o-tqp"/>
                                                         <constraint firstItem="W6d-am-M1C" firstAttribute="top" secondItem="odP-Qs-jjo" secondAttribute="topMargin" constant="7" id="nYl-X2-5VU"/>
+                                                        <constraint firstItem="ygX-El-KsC" firstAttribute="leading" secondItem="iUJ-Me-bdT" secondAttribute="trailing" constant="5" id="pXB-4Q-mC4"/>
                                                         <constraint firstItem="iUJ-Me-bdT" firstAttribute="top" secondItem="W6d-am-M1C" secondAttribute="bottom" constant="8" id="rtY-x0-7Mv"/>
                                                         <constraint firstItem="xC3-lL-Y2T" firstAttribute="leading" secondItem="odP-Qs-jjo" secondAttribute="leadingMargin" id="s3u-41-D2o"/>
                                                         <constraint firstItem="W6d-am-M1C" firstAttribute="leading" secondItem="xC3-lL-Y2T" secondAttribute="trailing" constant="18" id="wdJ-FZ-BSw"/>
-                                                        <constraint firstItem="ygX-El-KsC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iUJ-Me-bdT" secondAttribute="trailing" constant="5" id="xiJ-gc-3oY"/>
                                                         <constraint firstItem="iUJ-Me-bdT" firstAttribute="leading" secondItem="xC3-lL-Y2T" secondAttribute="trailing" constant="18" id="zxQ-Yg-h8f"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -891,12 +891,12 @@ para vendedores profesionales</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTK-0d-EBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="-899"/>
+            <point key="canvasLocation" x="-232.5" y="-900"/>
         </scene>
-        <!--Activity History-->
+        <!--Actividad-->
         <scene sceneID="x0P-SO-cXh">
             <objects>
-                <viewController title="Activity History" id="fQn-FQ-hNo" customClass="ActivityRegisterViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Actividad" id="fQn-FQ-hNo" customClass="ActivityRegisterViewController" customModule="Atactic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m8T-35-dLd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -970,7 +970,7 @@ para vendedores profesionales</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGQ-AU-74e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1811" y="1449"/>
+            <point key="canvasLocation" x="-1817" y="1460"/>
         </scene>
         <!--Tab Bar Contoller-->
         <scene sceneID="d97-vT-QzV">
@@ -1124,7 +1124,7 @@ para vendedores profesionales</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meD-VV-KnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1255" y="654"/>
+            <point key="canvasLocation" x="-1256" y="665"/>
         </scene>
         <!--Quest Targets Tab-->
         <scene sceneID="reJ-Kn-XNv">
@@ -1236,7 +1236,7 @@ para vendedores profesionales</string>
         <image name="icon_target_24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dfv-2f-MpU"/>
+        <segue reference="iPp-yf-W1E"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

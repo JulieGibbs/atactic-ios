@@ -207,7 +207,7 @@ class GoogleMapsViewController: UIViewController {
         
         if let googleMapsURL = URL(string: urlstring) {
             // This will launch an external App
-            UIApplication.shared.open(googleMapsURL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(googleMapsURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         } else {
             // TODO displayError
             print("Invalid URL")
@@ -217,3 +217,8 @@ class GoogleMapsViewController: UIViewController {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

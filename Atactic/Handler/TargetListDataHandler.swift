@@ -119,7 +119,9 @@ class TargetListDataHandler {
         return newList
     }
     
-    
+    //
+    // Transforms the TargetMap structure, which is 
+    //
     private func transform(targetMap : TargetMap) -> [Target] {
 
         var targetList : [Target] = []

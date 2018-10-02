@@ -10,7 +10,7 @@ import Foundation
 
 class AccountsRequest {
     
-    var resourceURLString = RequestConstants.APIServiceURL.AccountsResource
+    var resourceURLString = NetworkConstants.APIServiceURL.AccountsResource
     
     var request: URLRequest
     

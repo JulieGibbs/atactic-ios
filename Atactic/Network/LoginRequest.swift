@@ -15,7 +15,7 @@ import Foundation
 class LoginRequest {
     
     // URL for the Authentication Service in the ATACTIC API
-    let resourceURL = URL(string: RequestConstants.APIServiceURL.AuthenticationResource)
+    let resourceURL = URL(string: NetworkConstants.APIServiceURL.AuthenticationResource)
     
     // URL Request object
     var request: URLRequest

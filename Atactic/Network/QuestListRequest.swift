@@ -10,7 +10,7 @@ import Foundation
 
 class QuestListRequest {
     
-    var resourceURLString = RequestConstants.APIServiceURL.QuestResource
+    var resourceURLString = NetworkConstants.APIServiceURL.QuestResource
     
     var request: URLRequest
     

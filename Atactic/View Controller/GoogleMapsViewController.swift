@@ -172,13 +172,14 @@ class GoogleMapsViewController: UIViewController {
     }
     
     //
-    //
+    // Will launch the Google Maps App in case it is installed
+    // If it isn't installed, it will launch a browser and go to maps.google.com
     //
     func displayRoute(origin: CLLocation, route: [AccountStruct]){
-        // Will launch the Google Maps App in case it is installed
-        // If it isn't installed, it will launch a browser and go to maps.google.com
+
         // Mobile browsers admit up to 3 waypoints only, including origin and destination
         // The character "|" is used to sepparate waypoints. Must be replaced by %7C
+        
         // Example URL:
         // https://www.google.com/maps/dir/?api=1&origin=Plaza+San+Francisco+Zaragoza&destination=Plaza+del+Pilar+Zaragoza&waypoints=41.6455,-0.890156|41.665,-0.915435|41.6287,-0.883081|41.6291,-0.876407
                 

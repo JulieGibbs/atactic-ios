@@ -25,10 +25,27 @@ class DateUtils {
         let printableFormatter = DateFormatter()
         printableFormatter.dateFormat = "dd'/'M'/'yyyy"
         
-        let parsedDateStr = printableFormatter.string(from: parsedDate!)
-        timeSubstr.remove(at: timeSubstr.index(before: timeSubstr.endIndex))
+        let parsedDateStr = printableFormatter.string(from: parsedDate!)    // 06/02/2018
+        
+        timeSubstr.remove(at: timeSubstr.index(before: timeSubstr.endIndex))    // Remove last char
         
         return parsedDateStr + " " + timeSubstr
+    }
+    
+    //
+    // Converts to a string like "2018-02-06T20:51:31Z..."
+    // to a string like "06/02/2018"
+    //
+    static func toFormattedDate(timestamp: String) -> String {
+        let dateSubstr = String(timestamp.split(separator: "T")[0])
+        
+        let sourceFormatter = DateFormatter()
+        sourceFormatter.dateFormat = "yyyy-MM-dd"
+        let parsedDate = sourceFormatter.date(from: dateSubstr)
+        let printableFormatter = DateFormatter()
+        printableFormatter.dateFormat = "dd'/'M'/'yyyy"
+        
+        return printableFormatter.string(from: parsedDate!)
     }
     
     

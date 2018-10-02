@@ -1,28 +1,25 @@
 //
-//  CampaignTargetsRequest.swift
+//  AccountCampaignsRequest.swift
 //  Atactic
 //
-//  Created by Jaime Lucea on 29/8/18.
+//  Created by Jaime Lucea on 01/10/2018.
 //  Copyright © 2018 ATACTIC. All rights reserved.
 //
 
 import Foundation
 
-class CampaignTargetsRequest : HTTPRequest {
+class AccountCampaignsRequest : HTTPRequest {
     
-    var request: URLRequest
+    var request : URLRequest
     
     // Request parameters
     let userIdParam = "uid"
-    let participationIdParam = "pid"
+    let accountIdParam = "accid"
     
-    //
-    // Initialize without location parameters
-    //
-    init(userId: Int, participationId: Int) {
-        let urlStr = NetworkConstants.APIServiceURL.CampaignTargets + "?"
+    init(userId: Int, accountId: Int) {
+        let urlStr = NetworkConstants.APIServiceURL.AccountCampaignsResource + "?"
             + userIdParam + "=\(userId)" + "&"
-            + participationIdParam + "=\(participationId)"
+            + accountIdParam + "=\(accountId)"
         
         request = URLRequest(url: URL(string: urlStr)!)
         request.httpMethod = "GET"
@@ -36,4 +33,7 @@ class CampaignTargetsRequest : HTTPRequest {
         return self.request.url!.absoluteString
     }
     
+    
 }
+
+

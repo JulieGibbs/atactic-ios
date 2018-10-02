@@ -54,6 +54,9 @@ class QuestTargetsSegmentController : UIViewController {
         self.tableView.reloadData()
     }
     
+    //
+    // Hides the table and displays a message instead
+    //
     func displayError(message: String) {
         self.tableView.isHidden = true
         self.activityIndicator.isHidden = true

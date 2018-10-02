@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6F0A52E92117642E00A6C28D /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0A52E82117642E00A6C28D /* GoogleMapsViewController.swift */; };
+		6F171BD0214FF40F0080C9EB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F171BCF214FF40F0080C9EB /* AccountDetailViewController.swift */; };
 		6F1E7985206267BF00E8AEDF /* TargetListDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E7984206267BF00E8AEDF /* TargetListDataHandler.swift */; };
 		6F1E798720626CC700E8AEDF /* PriorityTargetsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E798620626CC700E8AEDF /* PriorityTargetsRequest.swift */; };
 		6F1E79892062724900E8AEDF /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E79882062724900E8AEDF /* RequestProtocol.swift */; };
 		6F1E798B20627EEA00E8AEDF /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E798A20627EEA00E8AEDF /* LocationController.swift */; };
 		6F33BC771FFA996C00BC4789 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33BC761FFA996C00BC4789 /* UserProfileViewController.swift */; };
 		6F35E3C9201656CE005BCB88 /* AccountAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3C8201656CE005BCB88 /* AccountAnnotation.swift */; };
-		6F35E3CB2017445F005BCB88 /* VersionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CA2017445F005BCB88 /* VersionRequest.swift */; };
+		6F35E3CB2017445F005BCB88 /* ServerVersionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CA2017445F005BCB88 /* ServerVersionRequest.swift */; };
 		6F35E3CD201799F5005BCB88 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CC201799F5005BCB88 /* LoginRequest.swift */; };
-		6F35E3CF2017A1DE005BCB88 /* RequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CE2017A1DE005BCB88 /* RequestConstants.swift */; };
+		6F35E3CF2017A1DE005BCB88 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CE2017A1DE005BCB88 /* NetworkConstants.swift */; };
 		6F449007212D72B0002C80ED /* RouteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F449006212D72AF002C80ED /* RouteRequest.swift */; };
 		6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */; };
 		6F4815F3201F9D6E0041F56A /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4815F2201F9D6E0041F56A /* RequestFactory.swift */; };
@@ -30,6 +31,11 @@
 		6F8F31BD201A5D7500216070 /* QuestListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BC201A5D7500216070 /* QuestListRequest.swift */; };
 		6F8F31BF201A7B2700216070 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BE201A7B2700216070 /* ProfileRequest.swift */; };
 		6FB1C8C5212ADE2900648687 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1C8C4212ADE2900648687 /* LoginHandler.swift */; };
+		6FB6046521623DB700BA9BDB /* GoogleMapsDarkStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FB6046421623DB700BA9BDB /* GoogleMapsDarkStyle.json */; };
+		6FB6046721626FD900BA9BDB /* AccountCampaignsDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB6046621626FD900BA9BDB /* AccountCampaignsDataHandler.swift */; };
+		6FB604692162729A00BA9BDB /* SimpleQuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB604682162729A00BA9BDB /* SimpleQuestCell.swift */; };
+		6FB6046B216277EA00BA9BDB /* AccountCampaignsSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB6046A216277EA00BA9BDB /* AccountCampaignsSegmentController.swift */; };
+		6FB6046D21627A9C00BA9BDB /* AccountCampaignsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB6046C21627A9C00BA9BDB /* AccountCampaignsRequest.swift */; };
 		6FB79FC020272676003F5BC4 /* TargetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */; };
 		6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FC1202729DB003F5BC4 /* TargetCell.swift */; };
 		6FBBF4AB1FFAC8FA00CAFBE9 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */; };
@@ -59,15 +65,16 @@
 		28089A41DE0117A75E9B80CB /* Pods-Atactic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atactic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atactic/Pods-Atactic.release.xcconfig"; sourceTree = "<group>"; };
 		4F8564AE593984A6F6441D15 /* libPods-Atactic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Atactic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0A52E82117642E00A6C28D /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
+		6F171BCF214FF40F0080C9EB /* AccountDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
 		6F1E7984206267BF00E8AEDF /* TargetListDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetListDataHandler.swift; sourceTree = "<group>"; };
 		6F1E798620626CC700E8AEDF /* PriorityTargetsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityTargetsRequest.swift; sourceTree = "<group>"; };
 		6F1E79882062724900E8AEDF /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		6F1E798A20627EEA00E8AEDF /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		6F33BC761FFA996C00BC4789 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		6F35E3C8201656CE005BCB88 /* AccountAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAnnotation.swift; sourceTree = "<group>"; };
-		6F35E3CA2017445F005BCB88 /* VersionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionRequest.swift; sourceTree = "<group>"; };
+		6F35E3CA2017445F005BCB88 /* ServerVersionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerVersionRequest.swift; sourceTree = "<group>"; };
 		6F35E3CC201799F5005BCB88 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		6F35E3CE2017A1DE005BCB88 /* RequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstants.swift; sourceTree = "<group>"; };
+		6F35E3CE2017A1DE005BCB88 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		6F449006212D72AF002C80ED /* RouteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteRequest.swift; sourceTree = "<group>"; };
 		6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
 		6F4815F2201F9D6E0041F56A /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -81,6 +88,11 @@
 		6F8F31BC201A5D7500216070 /* QuestListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListRequest.swift; sourceTree = "<group>"; };
 		6F8F31BE201A7B2700216070 /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
 		6FB1C8C4212ADE2900648687 /* LoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
+		6FB6046421623DB700BA9BDB /* GoogleMapsDarkStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapsDarkStyle.json; sourceTree = "<group>"; };
+		6FB6046621626FD900BA9BDB /* AccountCampaignsDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCampaignsDataHandler.swift; sourceTree = "<group>"; };
+		6FB604682162729A00BA9BDB /* SimpleQuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleQuestCell.swift; sourceTree = "<group>"; };
+		6FB6046A216277EA00BA9BDB /* AccountCampaignsSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCampaignsSegmentController.swift; sourceTree = "<group>"; };
+		6FB6046C21627A9C00BA9BDB /* AccountCampaignsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCampaignsRequest.swift; sourceTree = "<group>"; };
 		6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetListViewController.swift; sourceTree = "<group>"; };
 		6FB79FC1202729DB003F5BC4 /* TargetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCell.swift; sourceTree = "<group>"; };
 		6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
@@ -134,6 +146,8 @@
 				6F33BC761FFA996C00BC4789 /* UserProfileViewController.swift */,
 				6F628E6A2059A77F002E267A /* ActivityRegisterViewController.swift */,
 				6FFC685B2136ABB600F2CA6A /* TargetListDisplay.swift */,
+				6F171BCF214FF40F0080C9EB /* AccountDetailViewController.swift */,
+				6FB6046A216277EA00BA9BDB /* AccountCampaignsSegmentController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -151,9 +165,9 @@
 		6F16C3E820057AC600D9BB09 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				6F35E3CE2017A1DE005BCB88 /* RequestConstants.swift */,
+				6F35E3CE2017A1DE005BCB88 /* NetworkConstants.swift */,
 				6F1E79882062724900E8AEDF /* RequestProtocol.swift */,
-				6F35E3CA2017445F005BCB88 /* VersionRequest.swift */,
+				6F35E3CA2017445F005BCB88 /* ServerVersionRequest.swift */,
 				6F35E3CC201799F5005BCB88 /* LoginRequest.swift */,
 				6F8F31BC201A5D7500216070 /* QuestListRequest.swift */,
 				6FDCFDA8201F814B009BF9E2 /* AccountsRequest.swift */,
@@ -164,6 +178,7 @@
 				6F4815F2201F9D6E0041F56A /* RequestFactory.swift */,
 				6F4DC55B212733790091D1E7 /* AccountMapRequest.swift */,
 				6F449006212D72AF002C80ED /* RouteRequest.swift */,
+				6FB6046C21627A9C00BA9BDB /* AccountCampaignsRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -173,6 +188,7 @@
 			children = (
 				6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */,
 				6FE55E971FF50E4E00945171 /* QuestCell.swift */,
+				6FB604682162729A00BA9BDB /* SimpleQuestCell.swift */,
 				6FB79FC1202729DB003F5BC4 /* TargetCell.swift */,
 				6FFC685D2136C4F900F2CA6A /* QuestTargetCell.swift */,
 				6F628E6C2059A84B002E267A /* ActivityCell.swift */,
@@ -183,12 +199,13 @@
 		6FCE26E6205A93D100701BE3 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				6FB1C8C4212ADE2900648687 /* LoginHandler.swift */,
+				6F1E798A20627EEA00E8AEDF /* LocationController.swift */,
 				6F1E7984206267BF00E8AEDF /* TargetListDataHandler.swift */,
+				6FB6046621626FD900BA9BDB /* AccountCampaignsDataHandler.swift */,
 				6F79BF26212F01820075B639 /* QuestTargetListDataHandler.swift */,
 				6F4DC559212731C90091D1E7 /* MapDataHandler.swift */,
 				6FCE26E7205A93F900701BE3 /* ActivityRegisterDataHandler.swift */,
-				6F1E798A20627EEA00E8AEDF /* LocationController.swift */,
-				6FB1C8C4212ADE2900648687 /* LoginHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -234,6 +251,7 @@
 				6FF1C9D21FF4273E00837460 /* AppDelegate.swift */,
 				6FF7CF122006957D009E6062 /* SampleLocation.gpx */,
 				6FF1C9DE1FF4273E00837460 /* Info.plist */,
+				6FB6046421623DB700BA9BDB /* GoogleMapsDarkStyle.json */,
 			);
 			path = Atactic;
 			sourceTree = "<group>";
@@ -323,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FF1C9DD1FF4273E00837460 /* LaunchScreen.storyboard in Resources */,
+				6FB6046521623DB700BA9BDB /* GoogleMapsDarkStyle.json in Resources */,
 				6FF1C9DA1FF4273E00837460 /* Assets.xcassets in Resources */,
 				6FF1C9D81FF4273E00837460 /* Main.storyboard in Resources */,
 			);
@@ -392,10 +411,11 @@
 				6F33BC771FFA996C00BC4789 /* UserProfileViewController.swift in Sources */,
 				6FDCFDA9201F814B009BF9E2 /* AccountsRequest.swift in Sources */,
 				6FF1C9D51FF4273E00837460 /* LoginViewController.swift in Sources */,
+				6FB6046721626FD900BA9BDB /* AccountCampaignsDataHandler.swift in Sources */,
 				6F79BF27212F01820075B639 /* QuestTargetListDataHandler.swift in Sources */,
 				6FF7CF112006807A009E6062 /* MapViewController.swift in Sources */,
 				6FFC685E2136C4F900F2CA6A /* QuestTargetCell.swift in Sources */,
-				6F35E3CF2017A1DE005BCB88 /* RequestConstants.swift in Sources */,
+				6F35E3CF2017A1DE005BCB88 /* NetworkConstants.swift in Sources */,
 				6F1E7985206267BF00E8AEDF /* TargetListDataHandler.swift in Sources */,
 				6FFC685C2136ABB600F2CA6A /* TargetListDisplay.swift in Sources */,
 				6FBBF4AB1FFAC8FA00CAFBE9 /* KDCircularProgress.swift in Sources */,
@@ -403,17 +423,21 @@
 				6F1E798720626CC700E8AEDF /* PriorityTargetsRequest.swift in Sources */,
 				6F8F31BD201A5D7500216070 /* QuestListRequest.swift in Sources */,
 				6FFC68602136F6D400F2CA6A /* CampaignTargetsRequest.swift in Sources */,
+				6F171BD0214FF40F0080C9EB /* AccountDetailViewController.swift in Sources */,
 				6FE55E961FF500E900945171 /* QuestListViewController.swift in Sources */,
 				6F628E6B2059A77F002E267A /* ActivityRegisterViewController.swift in Sources */,
+				6FB6046D21627A9C00BA9BDB /* AccountCampaignsRequest.swift in Sources */,
 				6FDCFDAB201F9741009BF9E2 /* JSONStructs.swift in Sources */,
 				6FCE26EC205A9D4100701BE3 /* ActivityRegisterRequest.swift in Sources */,
 				6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */,
 				6F0A52E92117642E00A6C28D /* GoogleMapsViewController.swift in Sources */,
 				6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */,
 				6FB1C8C5212ADE2900648687 /* LoginHandler.swift in Sources */,
+				6FB6046B216277EA00BA9BDB /* AccountCampaignsSegmentController.swift in Sources */,
 				6F8F31BB201A4AB100216070 /* CentralController.swift in Sources */,
 				6FF1C9D31FF4273E00837460 /* AppDelegate.swift in Sources */,
-				6F35E3CB2017445F005BCB88 /* VersionRequest.swift in Sources */,
+				6F35E3CB2017445F005BCB88 /* ServerVersionRequest.swift in Sources */,
+				6FB604692162729A00BA9BDB /* SimpleQuestCell.swift in Sources */,
 				6F1E798B20627EEA00E8AEDF /* LocationController.swift in Sources */,
 				6FB79FC020272676003F5BC4 /* TargetListViewController.swift in Sources */,
 			);

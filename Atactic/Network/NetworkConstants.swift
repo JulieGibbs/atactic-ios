@@ -8,12 +8,12 @@
 
 import Foundation
 
-class RequestConstants {
+class NetworkConstants {
     
     // private static let AtacticServerURL = "http://atactic.jelastic.cloudhosted.es/mobile/"
     
     private static let AtacticServerURL = "http://api.atactic.io/mobile/"
-    // private static let AtacticServerURL = "http://192.168.1.38:8080/mobile/"
+    // private static let AtacticServerURL = "http://192.168.1.35:8080/mobile/"
     // private static let AtacticServerURL = "http://localhost:8080/mobile/"
 
     private static let APIResourcesURL = AtacticServerURL + "rsc/"
@@ -28,6 +28,7 @@ class RequestConstants {
         static let CampaignTargets = APIResourcesURL + "account/targets/campaign"
         static let ActivityListResource = APIResourcesURL + "activity/list"
         static let RouteService = APIResourcesURL + "account/route"
+        static let AccountCampaignsResource = APIResourcesURL + "campaign/acc"
     }
 
 }

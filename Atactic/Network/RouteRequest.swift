@@ -10,7 +10,7 @@ import Foundation
 
 class RouteRequest {
     
-    private let resourceURLString = RequestConstants.APIServiceURL.RouteService
+    private let resourceURLString = NetworkConstants.APIServiceURL.RouteService
     
     private let userIdParam = "uid"
     private let latitudeParam = "lat"

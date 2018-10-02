@@ -12,7 +12,7 @@ struct AccountStruct : Codable {
     
     let address : String
     let city : String
-    let country : String
+    let country : String?
     var distance : Float
     let externalId : String
     let id : Int

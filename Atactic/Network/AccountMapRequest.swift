@@ -10,7 +10,7 @@ import Foundation
 
 class AccountMapRequest {
     
-    var resourceURLString = RequestConstants.APIServiceURL.AccountsResource + "/map"
+    var resourceURLString = NetworkConstants.APIServiceURL.AccountsResource + "/map"
     
     var request: URLRequest
     

@@ -10,7 +10,7 @@ import Foundation
 
 class ProfileRequest {
     
-    var resourceURLString = RequestConstants.APIServiceURL.UserResource + "/profile"
+    var resourceURLString = NetworkConstants.APIServiceURL.UserResource + "/profile"
     
     internal var request: URLRequest
     

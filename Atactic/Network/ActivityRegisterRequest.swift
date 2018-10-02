@@ -10,7 +10,7 @@ import Foundation
 
 class ActivityRegisterRequest {
     
-    var resourceURLString = RequestConstants.APIServiceURL.ActivityListResource
+    var resourceURLString = NetworkConstants.APIServiceURL.ActivityListResource
     
     var request: URLRequest
     

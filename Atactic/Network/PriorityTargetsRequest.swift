@@ -21,7 +21,7 @@ class PriorityTargetsRequest : HTTPRequest {
     // Initialize without location parameters
     //
     init(userId: Int) {
-        let urlStr = RequestConstants.APIServiceURL.TargetAccountsForUser + "?"
+        let urlStr = NetworkConstants.APIServiceURL.TargetAccountsForUser + "?"
             + userIdParam + "=\(userId)"
         request = URLRequest(url: URL(string: urlStr)!)
         request.httpMethod = "GET"
@@ -31,7 +31,7 @@ class PriorityTargetsRequest : HTTPRequest {
     // Initialize with all parameter values
     //
     init(userId: Int, userLocationLatitude: Double, userLocationLongitude: Double) {
-        let urlStr = RequestConstants.APIServiceURL.TargetAccountsForUser + "?"
+        let urlStr = NetworkConstants.APIServiceURL.TargetAccountsForUser + "?"
             + userIdParam + "=\(userId)"
             + "&" + userLocationLatitudeParam + "=\(userLocationLatitude)"
             + "&" + userLocationLongitudeParam + "=\(userLocationLongitude)"

@@ -58,6 +58,19 @@ class TargetListViewController : UIViewController {
         self.errorMsgTextView.isHidden = false
     }
     
+    // Prepare for the showAccountDetail segue
+    // by setting the quest data in the destination QuestDetailViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAccountDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let selectedAccount = self.targets[indexPath.row]
+                let destinationViewContoller = segue.destination as! AccountDetailViewController
+                destinationViewContoller.account = selectedAccount
+            }
+        }
+    }
+    
+    
 }
 
 //

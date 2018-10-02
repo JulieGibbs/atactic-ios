@@ -8,15 +8,13 @@
 
 import Foundation
 
-class ProfileRequest {
-    
-    var resourceURLString = NetworkConstants.APIServiceURL.UserResource + "/profile"
+class ProfileRequest : HTTPRequest {
     
     internal var request: URLRequest
     
     init(userId: Int){
         
-        resourceURLString += "?uid=\(userId)"
+        let resourceURLString = NetworkConstants.APIServiceURL.ProfileResource + "?uid=\(userId)"
         let myurl = URL(string: resourceURLString)!
         
         request = URLRequest(url: myurl)
@@ -27,6 +25,9 @@ class ProfileRequest {
         return request
     }
     
+    func getURLString() -> String {
+        return self.request.url!.absoluteString
+    }
     
 }
 

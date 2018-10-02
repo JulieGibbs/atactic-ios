@@ -8,22 +8,24 @@
 
 import Foundation
 
-class ActivityRegisterRequest {
-    
-    var resourceURLString = NetworkConstants.APIServiceURL.ActivityListResource
+class ActivityRegisterRequest : HTTPRequest {
     
     var request: URLRequest
     
     init(userId: Int){
-        resourceURLString += "?uid=\(userId)"
-        
+        let resourceURLString = NetworkConstants.APIServiceURL.ActivityListResource + "?uid=\(userId)"
         let myurl = URL(string: resourceURLString)!
+        
         request = URLRequest(url: myurl)
         request.httpMethod = "GET"
     }
     
     func getRequest() -> URLRequest {
         return request
+    }
+    
+    func getURLString() -> String {
+        return self.request.url!.absoluteString
     }
     
 }

@@ -23,12 +23,14 @@ class NetworkConstants {
         static let AuthenticationResource = APIResourcesURL + "auth"
         static let QuestResource = APIResourcesURL + "campaign"
         static let UserResource = APIResourcesURL + "user"
-        static let AccountsResource = APIResourcesURL + "account"
+        // static let AccountsResource = APIResourcesURL + "account"
+        static let AccountMapResource = APIResourcesURL + "account/map"
         static let TargetAccountsForUser = APIResourcesURL + "account/targets"
         static let CampaignTargets = APIResourcesURL + "account/targets/campaign"
         static let ActivityListResource = APIResourcesURL + "activity/list"
         static let RouteService = APIResourcesURL + "account/route"
         static let AccountCampaignsResource = APIResourcesURL + "campaign/acc"
+        static let ProfileResource = APIResourcesURL + "user/profile"
     }
 
 }

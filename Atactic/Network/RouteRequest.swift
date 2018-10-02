@@ -8,20 +8,19 @@
 
 import Foundation
 
-class RouteRequest {
+class RouteRequest : HTTPRequest {
     
-    private let resourceURLString = NetworkConstants.APIServiceURL.RouteService
-    
+    // Request parameters
     private let userIdParam = "uid"
     private let latitudeParam = "lat"
     private let longitudeParam = "lon"
     private let waypointsParam = "waypoints"
     
-    private var request: URLRequest
+    var request: URLRequest
     
     init(userId: Int, latitude: Double, longitude: Double, waypoints: Int){
         // Build URL
-        var urlString = resourceURLString+"?"+userIdParam+"=\(userId)"
+        var urlString = NetworkConstants.APIServiceURL.RouteService + "?" + userIdParam+"=\(userId)"
             urlString += "&"+latitudeParam+"=\(latitude)"+"&"+longitudeParam+"=\(longitude)"
             urlString += "&"+waypointsParam+"=\(waypoints)"
 
@@ -36,8 +35,8 @@ class RouteRequest {
         return request
     }
     
-    func getRequestURL() -> String {
-        return request.url!.absoluteString
+    func getURLString() -> String {
+        return self.request.url!.absoluteString
     }
     
 }

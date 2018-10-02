@@ -8,15 +8,13 @@
 
 import Foundation
 
-class AccountMapRequest {
-    
-    var resourceURLString = NetworkConstants.APIServiceURL.AccountsResource + "/map"
+class AccountMapRequest : HTTPRequest {
     
     var request: URLRequest
     
     init(userId: Int){
         
-        resourceURLString += "?uid=\(userId)"
+        let resourceURLString = NetworkConstants.APIServiceURL.AccountMapResource + "?uid=\(userId)"
         let myurl = URL(string: resourceURLString)!
         
         request = URLRequest(url: myurl)
@@ -25,6 +23,10 @@ class AccountMapRequest {
     
     func getRequest() -> URLRequest {
         return request
+    }
+    
+    func getURLString() -> String {
+        return self.request.url!.absoluteString
     }
     
 }

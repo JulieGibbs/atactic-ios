@@ -12,7 +12,7 @@ import Foundation
 // Class containing a request object that can interact with the authentication resource
 // from ATACTIC's API
 //
-class LoginRequest {
+class LoginRequest : HTTPRequest {
     
     // URL for the Authentication Service in the ATACTIC API
     let resourceURL = URL(string: NetworkConstants.APIServiceURL.AuthenticationResource)
@@ -35,6 +35,10 @@ class LoginRequest {
     
     func getRequest() -> URLRequest {
         return request
+    }
+    
+    func getURLString() -> String {
+        return self.request.url!.absoluteString
     }
     
 }

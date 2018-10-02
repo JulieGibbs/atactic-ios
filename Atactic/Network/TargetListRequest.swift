@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PriorityTargetsRequest : HTTPRequest {
+class TargetListRequest : HTTPRequest {
     
     var request: URLRequest
     

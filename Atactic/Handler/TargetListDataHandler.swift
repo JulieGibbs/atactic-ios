@@ -43,19 +43,19 @@ class TargetListDataHandler {
     //
     // Build the Http request to the TargetAccounts service
     //
-    private func buildRequest(userId: Int) -> PriorityTargetsRequest {
+    private func buildRequest(userId: Int) -> TargetListRequest {
 
-        var request : PriorityTargetsRequest
+        var request : TargetListRequest
         
         // Get user's last known location
         print("TargetListDataHandler - Requesting user location to LocationController")
         if let location = LocationController.global.getMostRecentLocation() {
-            request = PriorityTargetsRequest(userId: userId,
+            request = TargetListRequest(userId: userId,
                                              userLocationLatitude: location.coordinate.latitude,
                                              userLocationLongitude: location.coordinate.longitude)
         } else {
             print("TargetListDataHandlar - User location unknown, requesting targets without location parameters")
-            request = PriorityTargetsRequest(userId: userId)
+            request = TargetListRequest(userId: userId)
         }
         // print("TargetListDataHandler - Location: \(location?.coordinate)")
         

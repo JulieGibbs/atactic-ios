@@ -163,7 +163,7 @@ extension QuestListViewController {
         // TODO change User ID with Authentication TOKEN
         let recoveredUserId = UserDefaults.standard.integer(forKey: "uid")
         
-        let questListRequest = QuestListRequest(userId: recoveredUserId)
+        let questListRequest = CampaignListRequest(userId: recoveredUserId)
         
         let task = URLSession.shared.dataTask(with: questListRequest.getRequest()) { (data, response, error) in
             

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class QuestListRequest {
+class CampaignListRequest : HTTPRequest {
     
     var resourceURLString = NetworkConstants.APIServiceURL.QuestResource
     
@@ -27,5 +27,8 @@ class QuestListRequest {
         return request
     }
     
+    func getURLString() -> String {
+        return self.request.url!.absoluteString
+    }
     
 }

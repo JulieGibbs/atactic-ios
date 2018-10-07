@@ -11,9 +11,9 @@ import UIKit
 class QuestListViewController : UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var activityIndicatorView: UIView!
     @IBOutlet var errorMsgTextView: UITextView!
     
@@ -24,13 +24,33 @@ class QuestListViewController : UIViewController {
         print("QuestListViewController - view did load")
         super.viewDidLoad()
         
+        // Hide views and show loading indicator
+        self.tableView.isHidden = true
+        errorMsgTextView.isHidden = true
+        showActivityIndicator()
+        
+        loadQuestParticipations()
+        
+        // Add refresh control to Table View
+        // refreshControl.attributedTitle = NSAttributedString(string: "Actualizar datos")
+        refreshControl.tintColor = UIColor.red
+        refreshControl.addTarget(self, action: #selector(refreshTableData(_:)), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+    }
+ 
+    @objc private func refreshTableData(_ sender: Any) {
+        
+        print("QuestListViewController - REFRESHING TABLE DATA")
+        
+        // Hide views and show loading indicator
         self.tableView.isHidden = true
         errorMsgTextView.isHidden = true
         showActivityIndicator()
         
         loadQuestParticipations()
     }
- 
+    
+    
     /*
     override func viewDidAppear(_ animated: Bool) {
         print("QuestListViewController - view DID appear")
@@ -85,6 +105,7 @@ class QuestListViewController : UIViewController {
         self.questParticipationList = data
         self.tableView.reloadData()
         hideActivityIndicator()
+        self.refreshControl.endRefreshing()
         self.tableView.isHidden = false
     }
     

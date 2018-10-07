@@ -11,19 +11,15 @@ import UIKit
 class TargetListViewController : UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet var errorMsgTextView: UITextView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
+    var dataHandler : TargetListDataHandler?
     var targets : [Target] = []
     
-    /*
-    required init?(coder aDecoder: NSCoder) {
-        targets = []
-        super.init(coder: aDecoder)
-    }
-    */
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print()
@@ -32,8 +28,22 @@ class TargetListViewController : UIViewController {
         self.tableView.isHidden = true
         self.activityIndicator.isHidden = false
         
-        let dataHandler = TargetListDataHandler(viewController: self)
-        dataHandler.getData()
+        dataHandler = TargetListDataHandler(viewController: self)
+        // let dataHandler = TargetListDataHandler(viewController: self)
+        dataHandler!.getData()
+        
+        // Add refresh control to Table View
+        print("TargetListViewController - Adding refresh control to table view")
+        // refreshControl.attributedTitle = NSAttributedString(string: "Actualizar datos")
+        refreshControl.tintColor = UIColor.red
+        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+        print("TargetListViewController - Refresh control added and registered")
+    }
+
+    
+    @objc private func reloadData() {
+        dataHandler!.getData()
     }
     
     //
@@ -47,6 +57,7 @@ class TargetListViewController : UIViewController {
         
         self.activityIndicator.isHidden = true
         self.tableView.isHidden = false
+        self.refreshControl.endRefreshing()
         
         self.tableView.reloadData()
     }

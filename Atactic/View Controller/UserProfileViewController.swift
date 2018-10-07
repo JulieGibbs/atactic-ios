@@ -16,6 +16,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet var rankIndicator: UILabel!
     
     @IBOutlet var activityRegisterMenuLine: UIView!
+    @IBOutlet var changePasswordMenuLine: UIView!
     @IBOutlet var logoutMenuLine: UIView!
     
     struct Profile : Codable {
@@ -44,6 +45,13 @@ class UserProfileViewController: UIViewController {
         performSegue(withIdentifier: "showActivityRegisterSegue", sender: self)
     }
     
+    @objc func goToPasswordChangeForm() {
+        print("Will move to password change form")
+        
+        // Segue 
+        performSegue(withIdentifier: "showPasswordChangeSegue", sender: self)
+    }
+    
     @objc func logout() {
         print("Signing out - Removing stored credentials")
         UserDefaults.standard.removeObject(forKey: "username")
@@ -52,14 +60,19 @@ class UserProfileViewController: UIViewController {
         performSegue(withIdentifier: "logoutSegue", sender: self)
     }
     
+    //
+    // Declare gesture recognizers and add them to the corresponding menu views
+    //
     func setupMenuActions() {
         
         // Declare gesture recognizers
         let toActivityRegisterGesture = UITapGestureRecognizer(target: self, action: #selector (self.goToActivityRegister))
+        let toChangePasswordGesture = UITapGestureRecognizer(target: self, action: #selector (self.goToPasswordChangeForm))
         let logoutGesture = UITapGestureRecognizer(target: self, action: #selector (self.logout))
         
         // Add gesture recognizers to view elements
         activityRegisterMenuLine.addGestureRecognizer(toActivityRegisterGesture)
+        changePasswordMenuLine.addGestureRecognizer(toChangePasswordGesture)
         logoutMenuLine.addGestureRecognizer(logoutGesture)
     }
     

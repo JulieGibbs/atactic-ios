@@ -10,6 +10,28 @@ import Foundation
 
 class DateUtils {
     
+    static let defaultRawDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    static let defaultLocale = "es"
+    static let defaultOutputFormat = "dd/MM/yyyy HH:MM"
+    
+    //
+    // Parses a Date from a String containing a date and time description
+    // in the default format used by Atactic: "yyyy-MM-dd'T'HH:mm:ssZ"
+    //
+    static func parseDate(dateString: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: defaultLocale)
+        formatter.dateFormat = defaultRawDateFormat
+        return formatter.date(from: dateString)
+    }
+    
+    static func toDateAndTimeString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: defaultLocale)
+        formatter.dateFormat = defaultOutputFormat
+        return formatter.string(from: date)
+    }
+    
     //
     // Converts to a string like "2018-02-06T20:51:31Z"
     // to a string like "06/02/2018 20:51:31"

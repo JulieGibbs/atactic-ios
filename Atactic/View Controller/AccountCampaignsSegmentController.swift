@@ -67,7 +67,7 @@ extension AccountCampaignsSegmentController: UITableViewDataSource {
         
         cell.campaignNameLabel.text = campaign.campaign.name
         cell.campaignDeadlineLabel.text = DateUtils.toFormattedDate(timestamp: campaign.campaign.endDate)
-        cell.progressLabel.text = String(campaign.currentProgress * 100) + " %"
+        cell.progressLabel.text = String(format: "%.1f", campaign.currentProgress * 100) + " %"
 
         return cell
     }

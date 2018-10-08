@@ -64,9 +64,11 @@ extension ActivityRegisterViewController: UITableViewDataSource {
         
         cell.accountNameLabel.text = visit.account.name
         
-        let formattedDateAndTime = DateUtils.toFormattedDateAndTime(unformattedTimeStamp: visit.timeReported)
-        cell.activityDateLabel.text = formattedDateAndTime
-
+        if let parsedDate = DateUtils.parseDate(dateString: visit.timeReported) {
+            // print(DateUtils.toDateAndTimeString(date: parsedDate))
+            let formattedDateAndTime = DateUtils.toDateAndTimeString(date: parsedDate)
+            cell.activityDateLabel.text = formattedDateAndTime
+        }
         return cell
     }
     

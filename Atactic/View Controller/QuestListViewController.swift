@@ -40,10 +40,10 @@ class QuestListViewController : UIViewController {
  
     @objc private func refreshTableData(_ sender: Any) {
         
-        print("QuestListViewController - REFRESHING TABLE DATA")
+        print("QuestListViewController - Refreshing Data")
         
         // Hide views and show loading indicator
-        self.tableView.isHidden = true
+        // self.tableView.isHidden = true
         errorMsgTextView.isHidden = true
         showActivityIndicator()
         

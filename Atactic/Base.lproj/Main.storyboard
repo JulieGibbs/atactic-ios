@@ -1515,7 +1515,7 @@ para vendedores profesionales</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BpY-ic-k4B">
                                 <rect key="frame" x="0.0" y="44" width="414" height="340"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SQCell" id="CuX-gy-7si" customClass="SimpleQuestCell" customModule="Atactic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -1556,7 +1556,7 @@ para vendedores profesionales</string>
                                                 <constraint firstItem="fq5-9F-qk1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="z3R-ZK-oA1" secondAttribute="trailing" constant="20" id="lth-cz-z3d"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="campaignDeadlineLabel" destination="yGI-FB-mDe" id="Yno-BH-lKs"/>
                                             <outlet property="campaignNameLabel" destination="X1N-nv-5T2" id="c6n-VP-1eG"/>

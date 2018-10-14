@@ -140,7 +140,7 @@ para vendedores profesionales</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2061" y="40"/>
+            <point key="canvasLocation" x="-2012" y="36"/>
         </scene>
         <!--Quest List-->
         <scene sceneID="nL7-ib-CeW">
@@ -841,7 +841,7 @@ para vendedores profesionales</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2e3-xy-0Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2865.217391304348" y="1295.7589285714284"/>
+            <point key="canvasLocation" x="-2786" y="1223"/>
         </scene>
         <!--Target List-->
         <scene sceneID="0pi-5s-dIU">
@@ -1346,7 +1346,7 @@ para vendedores profesionales</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Dc-BS-gjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2595" y="-2071"/>
+            <point key="canvasLocation" x="2594" y="-2110"/>
         </scene>
         <!--Quest Description Tab-->
         <scene sceneID="F94-UF-NZm">

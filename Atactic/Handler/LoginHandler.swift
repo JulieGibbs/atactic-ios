@@ -29,8 +29,9 @@ class LoginHandler {
         // Execute the authentication request asynchronously
         let task = URLSession.shared.dataTask(with: loginRequest.request,
            completionHandler: { (data, response, error) in
-                                                
-                if let httpStatus = response as? HTTPURLResponse {   // There is a response from the server
+            
+                // Got a response from the server
+                if let httpStatus = response as? HTTPURLResponse {
                     print("LoginHandler - Response Status Code : \(httpStatus.statusCode)")
                     
                     if httpStatus.statusCode == 200 {
@@ -38,6 +39,11 @@ class LoginHandler {
                         let responseStr = String(data: data!, encoding: String.Encoding.utf8)
                         let userId = Int(responseStr!)!
                         print("LoginHandler - User ID = \(userId)")
+                        
+                        // Get Configuration
+                        print("LoginHandler - Requesting configuration for user \(userId)")
+                        let configHandler = ConfigurationHandler()
+                        configHandler.getConfiguration(userId: userId)
                         
                         // Run in main queue
                         DispatchQueue.main.async { () -> Void in

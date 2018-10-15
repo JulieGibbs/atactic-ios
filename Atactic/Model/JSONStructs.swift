@@ -122,4 +122,14 @@ struct AccountMap : Codable {
     
 }
 
+struct Configuration : Codable {
+    let accountsLiteral : String
+    let checkInEnabled : Bool
+    let defaultLanguage : String
+    let maxCheckInDistance : Int
+    let numberOfRouteWaypoints : Int
+    let requireProximityCheckIn : Bool
+    let showRanking : Bool
+}
+
 

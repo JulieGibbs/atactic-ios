@@ -20,6 +20,7 @@ class GoogleMapsViewController: UIViewController {
     
     @IBOutlet var map: GMSMapView!
     @IBOutlet var routeButton: UIBarButtonItem!
+    @IBOutlet var checkInView: UIView!
     
     
     override func loadView() {
@@ -28,7 +29,16 @@ class GoogleMapsViewController: UIViewController {
         routeButton.action = #selector(routeButtonPressed)
         
         setupMap()
-
+        
+        // Check if checkIn is enabled and hide or show the check-oin button accordingly
+        let isCheckInEnabled = UserDefaults.standard.bool(forKey: "checkInEnabled")
+        if (isCheckInEnabled) {
+            print("GoogleMapsViewController - CheckIn is enabled: will display button")
+            map.addSubview(checkInView)
+        } else {
+            print("GoogleMapsViewController - CheckIn is disabled: will hide Button")
+        }
+        
         // Instantiate Data Handler and request data
         let dataHandler = MapDataHandler(viewController: self)
         dataHandler.getData()
@@ -84,10 +94,10 @@ class GoogleMapsViewController: UIViewController {
         let modifiedLat = position.latitude + latVariation
         let modifiedLon = position.longitude + lonVariation
         
-        print("Adjusting marker position with an offset")
-        print("New coordinates - lat: \(modifiedLat) lon: \(modifiedLon)")
-        print("LatVariation= \(latVariation)")
-        print("LonVariation= \(lonVariation)")
+//        print("Adjusting marker position with an offset")
+//        print("New coordinates - lat: \(modifiedLat) lon: \(modifiedLon)")
+//        print("LatVariation= \(latVariation)")
+//        print("LonVariation= \(lonVariation)")
         return CLLocationCoordinate2D(latitude: modifiedLat, longitude: modifiedLon)
     }
     

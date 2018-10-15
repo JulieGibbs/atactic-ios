@@ -531,7 +531,36 @@ para vendedores profesionales</string>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1I-po-C9S" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svd-43-PGj" userLabel="CheckIn Button Subview">
+                                        <rect key="frame" x="107" y="655" width="200" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPh-DW-FIX" userLabel="Check-In Button">
+                                                <rect key="frame" x="45" y="10" width="110" height="40"/>
+                                                <color key="backgroundColor" red="0.90588235289999997" green="0.14143843840000001" blue="0.2144169974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="MlJ-sa-EIc"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="a4Z-xq-KZu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                <state key="normal" title="Check-In">
+                                                    <color key="titleColor" white="0.84999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="8nG-tf-10P"/>
+                                            <constraint firstAttribute="width" constant="200" id="gRj-VI-qt5"/>
+                                            <constraint firstItem="xPh-DW-FIX" firstAttribute="centerY" secondItem="svd-43-PGj" secondAttribute="centerY" id="hw8-hE-gyE"/>
+                                            <constraint firstItem="xPh-DW-FIX" firstAttribute="centerX" secondItem="svd-43-PGj" secondAttribute="centerX" id="t15-CD-v8C"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="svd-43-PGj" secondAttribute="bottom" constant="10" id="CpH-Gd-OLZ"/>
+                                    <constraint firstItem="svd-43-PGj" firstAttribute="centerX" secondItem="x1I-po-C9S" secondAttribute="centerX" id="d2n-pJ-WSX"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.8666666666666667" green="0.25490196078431371" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -551,13 +580,14 @@ para vendedores profesionales</string>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="checkInView" destination="svd-43-PGj" id="kVg-Yy-qR0"/>
                         <outlet property="map" destination="x1I-po-C9S" id="1mI-oA-TzW"/>
                         <outlet property="routeButton" destination="b1D-kh-Bqm" id="Esg-z7-SzS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77c-XZ-cLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-444" y="26"/>
+            <point key="canvasLocation" x="-444.92753623188412" y="25.446428571428569"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="cel-vq-e2Y">

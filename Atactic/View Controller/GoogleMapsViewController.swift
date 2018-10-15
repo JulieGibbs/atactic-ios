@@ -26,8 +26,6 @@ class GoogleMapsViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        routeButton.action = #selector(routeButtonPressed)
-        
         setupMap()
         
         // Check if checkIn is enabled and hide or show the check-oin button accordingly
@@ -173,9 +171,14 @@ class GoogleMapsViewController: UIViewController {
         marker.map = map
     }
     */
- 
-    @objc func routeButtonPressed(){
+    
+    @IBAction func checkInButtonPressed(_ sender: Any) {
         
+        print("Go to check-in pressed")
+        // performSegue(withIdentifier: "toCheckInSegue", sender: sender)
+    }
+    
+    @IBAction func routeButtonPressed(_ sender: Any) {
         // Instantiate Data Handler and request data
         let dataHandler = MapDataHandler(viewController: self)
         dataHandler.generateRoute()

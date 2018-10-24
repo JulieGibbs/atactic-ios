@@ -733,6 +733,10 @@ para vendedores profesionales</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mio-6p-ugC"/>
                     </view>
+                    <connections>
+                        <outlet property="accountPicker" destination="j0X-Ow-Nde" id="ecW-Ox-MZc"/>
+                        <outlet property="comments" destination="TLT-a7-X1E" id="IVO-TC-ibO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euz-f9-5bA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

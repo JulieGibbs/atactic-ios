@@ -11,13 +11,23 @@ import UIKit
 
 class CheckInViewController : UIViewController {
     
+    @IBOutlet var accountPicker: UIPickerView!
+    @IBOutlet var comments: UITextView!
+    
+    private let examples = ["Uno", "Dos" , "Tres"]
+    
+    var eligibleAccounts : [AccountStruct] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("CheckInViewController - did load")
         
+        accountPicker.dataSource = self
+        accountPicker.delegate = self
         
+        print("CheckInViewController - Requesting eligible accounts to CheckInHandler")
+        let handler = CheckInHandler(view: self)
+        handler.getAccountsEligibleForCheckIn()
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -29,6 +39,51 @@ class CheckInViewController : UIViewController {
         
         print("CheckInViewController - CheckIn button pressed")
         
+        let selectedIndex = accountPicker.selectedRow(inComponent: 0)
+        let selectedAccountId = eligibleAccounts[selectedIndex].id
         
+        print("CheckInViewController - Selected Index = \(selectedIndex)")
+        print("CheckInViewController - Selected Account Id = \(selectedAccountId)")
+        
+        // Perform check-in
+        let handler = CheckInHandler(view: self)
+        print("CheckInViewController - Calling CheckInHandler.doCheckin")
+        handler.doCheckIn(visitedAccountId: selectedAccountId, meetingNotes: comments.text)        
+    }
+    
+    func setEligibleAccounts(accounts: [AccountStruct]){
+        // Add Accounts to Account Picker
+        self.eligibleAccounts = accounts
+        accountPicker.reloadAllComponents()
+    }
+    
+    
+    func checkInOk(){
+        print("CheckInViewController - Check-in OK, returning to Map screen")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func displayError(message: String){
+        
+        // TODO
+        print("CheckInViewController - Error")
+        print(message)
+    }
+    
+}
+
+
+extension CheckInViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return eligibleAccounts.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return eligibleAccounts[row].name
     }
 }

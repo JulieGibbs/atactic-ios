@@ -13,9 +13,20 @@
     </wpt>
      -->
 
+    <!--
     <wpt lat="41.645169" lon="-0.905589">
         <name>Zaragoza Home</name>
-        <!--
+    </wpt>
+    -->
+    
+    <wpt lat="41.605169" lon="-0.815589">
+        <name>Zaragoza 2</name>
+    </wpt>
+    
+    <!--
+    <wpt lat="41.605169" lon="-0.815589">
+        <name>Zaragoza</name>
+        
          Optionally provide a time element for each waypoint. Xcode will interpolate movement
          at a rate of speed based on the time elapsed between each waypoint. If you do not provide
          a time element, then Xcode will use a fixed rate of speed.
@@ -23,7 +34,7 @@
          Waypoints must be sorted by time in ascending order.
          -->
         <!--
-        <time>2014-09-24T14:55:37Z</time>
-         -->
+         <time>2014-09-24T14:55:37Z</time>
     </wpt>
+    -->
 </gpx>

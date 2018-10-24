@@ -10,19 +10,43 @@ import Foundation
 
 class DateUtils {
     
-    static let defaultRawDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    static let defaultDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    static let alternateDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
     static let defaultLocale = "es"
     static let defaultOutputFormat = "dd/MM/yyyy HH:MM"
     
     //
-    // Parses a Date from a String containing a date and time description
-    // in the default format used by Atactic: "yyyy-MM-dd'T'HH:mm:ssZ"
+    // Parses a Date from a String containing a date and time description.
+    //
+    // Tries to parse with the default format used by Atactic: "yyyy-MM-dd'T'HH:mm:ssZ"
+    // If this doesnt' work, it tries with other common date-time formats.
+    // In case it's unable to parse the date, returns nil
     //
     static func parseDate(dateString: String) -> Date? {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: defaultLocale)
-        formatter.dateFormat = defaultRawDateFormat
-        return formatter.date(from: dateString)
+        formatter.dateFormat = defaultDateFormat
+        if let parsedDate = formatter.date(from: dateString) {
+            print("DateUtils - Date parsed with format \(defaultDateFormat)")
+            return parsedDate
+        } else {
+            formatter.dateFormat = alternateDateFormat
+            if let parsedDate = formatter.date(from: dateString){
+                print("DateUtils - Date parsed with format \(alternateDateFormat)")
+                return parsedDate
+            } else {
+                print("DateUtils - Could not parse dateString \(dateString)")
+                return nil
+            }
+        }
+    }
+    
+    static func toString(date: Date, format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: defaultLocale)
+        formatter.dateFormat = format
+        return formatter.string(from: date)
     }
     
     static func toDateAndTimeString(date: Date) -> String {
@@ -32,8 +56,16 @@ class DateUtils {
         return formatter.string(from: date)
     }
     
+    static func toDateString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: defaultLocale)
+        formatter.dateFormat = "dd/MM/yyy"
+        return formatter.string(from: date)
+    }
+    
+
     //
-    // Converts to a string like "2018-02-06T20:51:31Z"
+    // Converts a string like "2018-02-06T20:51:31Z"
     // to a string like "06/02/2018 20:51:31"
     //
     static func toFormattedDateAndTime(unformattedTimeStamp: String) -> String {

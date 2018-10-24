@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6F03706D2174AD7A00BCE903 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F03706C2174AD7A00BCE903 /* CheckInViewController.swift */; };
+		6F03706F2174D33600BCE903 /* CheckInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F03706E2174D33600BCE903 /* CheckInHandler.swift */; };
+		6F0370712174D4AA00BCE903 /* NearbyAccountsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0370702174D4AA00BCE903 /* NearbyAccountsRequest.swift */; };
 		6F0A52E92117642E00A6C28D /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0A52E82117642E00A6C28D /* GoogleMapsViewController.swift */; };
 		6F1447BA217353C800B2E1B3 /* TenantConfigurationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1447B9217353C800B2E1B3 /* TenantConfigurationRequest.swift */; };
 		6F1447BC21735AAA00B2E1B3 /* ConfigurationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1447BB21735AAA00B2E1B3 /* ConfigurationHandler.swift */; };
@@ -47,6 +49,7 @@
 		6FCE26EA205A94AA00701BE3 /* VisitStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE26E9205A94AA00701BE3 /* VisitStruct.swift */; };
 		6FCE26EC205A9D4100701BE3 /* ActivityRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE26EB205A9D4100701BE3 /* ActivityRegisterRequest.swift */; };
 		6FCE26EF205ACB4000701BE3 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE26EE205ACB4000701BE3 /* DateUtils.swift */; };
+		6FCFDD262177782500974AA5 /* CheckInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCFDD252177782500974AA5 /* CheckInRequest.swift */; };
 		6FDCFDAB201F9741009BF9E2 /* JSONStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDCFDAA201F9741009BF9E2 /* JSONStructs.swift */; };
 		6FE55E961FF500E900945171 /* QuestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE55E951FF500E900945171 /* QuestListViewController.swift */; };
 		6FE55E981FF50E4E00945171 /* QuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE55E971FF50E4E00945171 /* QuestCell.swift */; };
@@ -66,6 +69,8 @@
 		28089A41DE0117A75E9B80CB /* Pods-Atactic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atactic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atactic/Pods-Atactic.release.xcconfig"; sourceTree = "<group>"; };
 		4F8564AE593984A6F6441D15 /* libPods-Atactic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Atactic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F03706C2174AD7A00BCE903 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		6F03706E2174D33600BCE903 /* CheckInHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInHandler.swift; sourceTree = "<group>"; };
+		6F0370702174D4AA00BCE903 /* NearbyAccountsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyAccountsRequest.swift; sourceTree = "<group>"; };
 		6F0A52E82117642E00A6C28D /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		6F1447B9217353C800B2E1B3 /* TenantConfigurationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantConfigurationRequest.swift; sourceTree = "<group>"; };
 		6F1447BB21735AAA00B2E1B3 /* ConfigurationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationHandler.swift; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 		6FCE26E9205A94AA00701BE3 /* VisitStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitStruct.swift; sourceTree = "<group>"; };
 		6FCE26EB205A9D4100701BE3 /* ActivityRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRegisterRequest.swift; sourceTree = "<group>"; };
 		6FCE26EE205ACB4000701BE3 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		6FCFDD252177782500974AA5 /* CheckInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInRequest.swift; sourceTree = "<group>"; };
 		6FDCFDAA201F9741009BF9E2 /* JSONStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStructs.swift; sourceTree = "<group>"; };
 		6FE55E951FF500E900945171 /* QuestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListViewController.swift; sourceTree = "<group>"; };
 		6FE55E971FF50E4E00945171 /* QuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestCell.swift; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 				6FCE26EB205A9D4100701BE3 /* ActivityRegisterRequest.swift */,
 				6F54CB012164C2FE00A1A3A9 /* PasswordChangeRequest.swift */,
 				6F1447B9217353C800B2E1B3 /* TenantConfigurationRequest.swift */,
+				6F0370702174D4AA00BCE903 /* NearbyAccountsRequest.swift */,
+				6FCFDD252177782500974AA5 /* CheckInRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 				6F4DC559212731C90091D1E7 /* MapDataHandler.swift */,
 				6FCE26E7205A93F900701BE3 /* ActivityRegisterDataHandler.swift */,
 				6F1447BB21735AAA00B2E1B3 /* ConfigurationHandler.swift */,
+				6F03706E2174D33600BCE903 /* CheckInHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F0370712174D4AA00BCE903 /* NearbyAccountsRequest.swift in Sources */,
 				6FCE26EA205A94AA00701BE3 /* VisitStruct.swift in Sources */,
 				6F628E6D2059A84B002E267A /* ActivityCell.swift in Sources */,
 				6FCE26E8205A93F900701BE3 /* ActivityRegisterDataHandler.swift in Sources */,
@@ -422,8 +432,10 @@
 				6FFC685E2136C4F900F2CA6A /* QuestTargetCell.swift in Sources */,
 				6F35E3CF2017A1DE005BCB88 /* NetworkConstants.swift in Sources */,
 				6F1E7985206267BF00E8AEDF /* TargetListDataHandler.swift in Sources */,
+				6F03706F2174D33600BCE903 /* CheckInHandler.swift in Sources */,
 				6FBBF4AB1FFAC8FA00CAFBE9 /* KDCircularProgress.swift in Sources */,
 				6F8F31BF201A7B2700216070 /* ProfileRequest.swift in Sources */,
+				6FCFDD262177782500974AA5 /* CheckInRequest.swift in Sources */,
 				6F1E798720626CC700E8AEDF /* TargetListRequest.swift in Sources */,
 				6FFC68602136F6D400F2CA6A /* CampaignTargetsRequest.swift in Sources */,
 				6F171BD0214FF40F0080C9EB /* AccountDetailViewController.swift in Sources */,

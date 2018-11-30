@@ -31,6 +31,7 @@ class QuestTargetsSegmentController : UIViewController {
         super.viewDidLoad()
         
         self.tableView.isHidden = true
+        self.errorMsgTextView.isHidden = true
         self.activityIndicator.isHidden = false
         
         print("QuestTargetsSegmentController - Calling Data Handler")
@@ -50,7 +51,6 @@ class QuestTargetsSegmentController : UIViewController {
         
         self.activityIndicator.isHidden = true
         self.tableView.isHidden = false
-        
         self.tableView.reloadData()
     }
     

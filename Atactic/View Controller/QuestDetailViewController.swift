@@ -89,13 +89,13 @@ class QuestDetailViewController: UIViewController {
         
         let longDescriptionTextField = containerViewB.subviews[0].subviews[0] as! UITextView
         longDescriptionTextField.text = quest.campaign.description
-        
+        longDescriptionTextField.setContentOffset(CGPoint.zero, animated: false)
         
         // let targetListDataHandler = TargetListDataHandler(viewController: self.containerViewC)
         
-        let statusMessageTextView : UITextView = containerViewC.subviews[0].subviews[0] as! UITextView
+        // let statusMessageTextView : UITextView = containerViewC.subviews[0].subviews[0] as! UITextView
         
-        statusMessageTextView.text = "Quest targets go here"
+        // statusMessageTextView.text = "Quest targets go here"
     }
     
     //

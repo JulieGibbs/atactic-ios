@@ -29,6 +29,7 @@ class QuestListViewController : UIViewController {
         errorMsgTextView.isHidden = true
         showActivityIndicator()
         
+        print("QuestListViewController - Loading participations...")
         loadQuestParticipations()
         
         // Add refresh control to Table View

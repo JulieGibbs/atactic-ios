@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, AuthenticationController {
 
     @IBOutlet var usrnameTextField: UITextField!
     @IBOutlet var passwdTextField: UITextField!
@@ -20,16 +20,12 @@ class LoginViewController: UIViewController {
     
     var authenticationHandler : LoginHandler?
     
-    /*
-    override var prefersStatusBarHidden: Bool {
-        print("LoginView prefers status bar hidden")
-        return true
-    }
-    */
-    
+    //
+    // Instantiate LoginHandler when the view is loaded
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Login View Controller loaded")
+        print("LoginViewController - Did load")
         
         authenticationHandler = LoginHandler(view: self)
         
@@ -37,38 +33,49 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
 
-    /*
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        print("Login View will disappear")
-        // self.navigationController?.navigationBar.isHidden = false
-        // self.tabBarController?.tabBar.isHidden = false
-    } */
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        print("Login button pressed")
+        print("LoginViewController - Login button pressed")
         self.showLoadingIndicator()
         
         // Recover user credential from UI Views
         let usr = usrnameTextField.text!
         let pwd = passwdTextField.text!
-        print("username: " + usr)
-        // print("password: " + pwd)
+        // print("username: " + usr)
         
-        hideErrorMessage()
+        if (!errorMessage.isHidden) { hideErrorMessage() }
         
         // Execute login logic
         authenticationHandler?.attemptLogin(username: usr, password: pwd)
     }
     
+    func onAuthenticationSucess(token: String) {
+        let userId = Int(token)!
+        loadConfiguration(userId: userId)
+        storeUserCredentials(token: token)
+        enterApp()
+    }
+    
+    func onAuthenticationFailure(message: String?) {
+        displayErrorMessage(message: message!)
+    }
+    
+    func loadConfiguration(userId: Int){
+        // Get Configuration
+        print("LoginViewController - Requesting configuration for user \(userId)")
+        let configHandler = ConfigurationHandler()
+        configHandler.getConfiguration(userId: userId)
+    }
+    
+    func storeUserCredentials(token: String){
+        // Store username, password and user ID in UserDefaults.standard
+        print("LoginViewController - Storing user credentials")
+        UserDefaults.standard.set(self.usrnameTextField.text, forKey: "username")
+        UserDefaults.standard.set(self.passwdTextField.text, forKey: "password")
+        UserDefaults.standard.set(token, forKey: "uid")
+    }
+    
     func enterApp() {
-        print("Performing segue...")
+        print("LoginViewController - Entering app...")
         self.performSegue(withIdentifier: "doLoginSegue", sender: self)
         hideLoadingIndicator()
     }
@@ -95,45 +102,16 @@ class LoginViewController: UIViewController {
         self.activityIndicator.isHidden = true
     }
     
-    /*
-    func attemptLoginOffline() -> Bool {
-        if let upwd = users[usrnameTextField.text!] {           // Optional binding
-            print("User \(usrnameTextField.text!) exists")
-            if upwd == passwdTextField.text! {
-                print ("Password OK")
-                return true
-            }else{
-                print("Wrong password")
-                
-                return false
-            }
-        }else{
-            print("User \(usrnameTextField.text!) does NOT exist")
-            return false
-        }
-    }
-    */
-    
     @IBAction func nextActionKeyPressed(_ sender: UITextField) {
-        print("Action Key Pressed - Next")
+        // print("Action Key Pressed - Next")
         // Set focus on the password field
         passwdTextField.becomeFirstResponder()
     }
     
     @IBAction func doneActionKeyPressed(_ sender: UITextField) {
-        print("Action Key Pressed - Done")
+        // print("Action Key Pressed - Done")
         // Remove focus & hide keyboard
         passwdTextField.resignFirstResponder()
-    }
-    
-    // Will prepare for the doLoginSegue indicating that the user
-    // entered credentials in the login screen in order to access the app
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("LoginViewController preparing for segue")
-        if segue.identifier == "doLoginSegue" {
-            let destinationViewContoller = segue.destination as! CentralController
-            destinationViewContoller.comingFromLoginScreen = true
-        }
     }
     
     

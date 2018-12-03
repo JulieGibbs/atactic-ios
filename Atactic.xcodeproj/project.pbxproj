@@ -34,7 +34,7 @@
 		6F628E6D2059A84B002E267A /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F628E6C2059A84B002E267A /* ActivityCell.swift */; };
 		6F79BF25212F01200075B639 /* QuestTargetsSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F79BF24212F01200075B639 /* QuestTargetsSegmentController.swift */; };
 		6F79BF27212F01820075B639 /* QuestTargetListDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F79BF26212F01820075B639 /* QuestTargetListDataHandler.swift */; };
-		6F8F31BB201A4AB100216070 /* CentralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BA201A4AB100216070 /* CentralController.swift */; };
+		6F8F31BB201A4AB100216070 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BA201A4AB100216070 /* LaunchController.swift */; };
 		6F8F31BF201A7B2700216070 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F31BE201A7B2700216070 /* ProfileRequest.swift */; };
 		6FB1C8C5212ADE2900648687 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1C8C4212ADE2900648687 /* LoginHandler.swift */; };
 		6FB6046521623DB700BA9BDB /* GoogleMapsDarkStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FB6046421623DB700BA9BDB /* GoogleMapsDarkStyle.json */; };
@@ -96,7 +96,7 @@
 		6F628E6C2059A84B002E267A /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		6F79BF24212F01200075B639 /* QuestTargetsSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTargetsSegmentController.swift; sourceTree = "<group>"; };
 		6F79BF26212F01820075B639 /* QuestTargetListDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTargetListDataHandler.swift; sourceTree = "<group>"; };
-		6F8F31BA201A4AB100216070 /* CentralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralController.swift; sourceTree = "<group>"; };
+		6F8F31BA201A4AB100216070 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
 		6F8F31BE201A7B2700216070 /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
 		6FB1C8C4212ADE2900648687 /* LoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 		6FB6046421623DB700BA9BDB /* GoogleMapsDarkStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapsDarkStyle.json; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				6FE15D4821AEB5AC007002C1 /* AuthenticationController.swift */,
+				6F8F31BA201A4AB100216070 /* LaunchController.swift */,
 				6FF1C9D41FF4273E00837460 /* LoginViewController.swift */,
-				6F8F31BA201A4AB100216070 /* CentralController.swift */,
 				6FE55E951FF500E900945171 /* QuestListViewController.swift */,
 				6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */,
 				6F79BF24212F01200075B639 /* QuestTargetsSegmentController.swift */,
@@ -453,7 +453,7 @@
 				6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */,
 				6FB1C8C5212ADE2900648687 /* LoginHandler.swift in Sources */,
 				6FB6046B216277EA00BA9BDB /* AccountCampaignsSegmentController.swift in Sources */,
-				6F8F31BB201A4AB100216070 /* CentralController.swift in Sources */,
+				6F8F31BB201A4AB100216070 /* LaunchController.swift in Sources */,
 				6FF1C9D31FF4273E00837460 /* AppDelegate.swift in Sources */,
 				6F35E3CB2017445F005BCB88 /* ServerVersionRequest.swift in Sources */,
 				6FB604692162729A00BA9BDB /* SimpleQuestCell.swift in Sources */,

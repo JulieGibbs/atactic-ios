@@ -736,6 +736,7 @@ para vendedores profesionales</string>
                     <connections>
                         <outlet property="accountPicker" destination="j0X-Ow-Nde" id="ecW-Ox-MZc"/>
                         <outlet property="comments" destination="TLT-a7-X1E" id="IVO-TC-ibO"/>
+                        <outlet property="dateLabel" destination="zyl-gL-Iff" id="0bJ-2t-ve3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euz-f9-5bA" userLabel="First Responder" sceneMemberID="firstResponder"/>

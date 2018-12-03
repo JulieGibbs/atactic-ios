@@ -13,8 +13,9 @@ class CheckInViewController : UIViewController {
     
     @IBOutlet var accountPicker: UIPickerView!
     @IBOutlet var comments: UITextView!
+    @IBOutlet var dateLabel: UILabel!
     
-    private let examples = ["Uno", "Dos" , "Tres"]
+    // private let examples = ["Uno", "Dos" , "Tres"]
     
     var eligibleAccounts : [AccountStruct] = []
     
@@ -28,6 +29,10 @@ class CheckInViewController : UIViewController {
         print("CheckInViewController - Requesting eligible accounts to CheckInHandler")
         let handler = CheckInHandler(view: self)
         handler.getAccountsEligibleForCheckIn()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        dateLabel.text = DateUtils.toDateAndTimeString(date: Date.init())
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {

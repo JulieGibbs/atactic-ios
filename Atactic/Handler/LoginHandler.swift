@@ -25,49 +25,55 @@ class LoginHandler {
         let loginRequest = LoginRequest(user: username, pass: password)
         print("LoginHandler - Request ready - \(loginRequest.getURLString())")
         
+        // loginRequest.request.timeoutInterval = 10;
+        
         //
         // Execute the authentication request asynchronously
         //
         let task = URLSession.shared.dataTask(with: loginRequest.request,
            completionHandler: { (data, response, error) in
             
-                // Got a response from the server
-                if let httpStatus = response as? HTTPURLResponse {
-                    print("LoginHandler - Response Status Code : \(httpStatus.statusCode)")
+            if (error != nil) {
+                print("LoginHandler - Error \(error.debugDescription)")
+            }
+            
+            // Got a response from the server
+            if let httpStatus = response as? HTTPURLResponse {
+                print("LoginHandler - Response Status Code : \(httpStatus.statusCode)")
+                
+                if httpStatus.statusCode == 200 {
                     
-                    if httpStatus.statusCode == 200 {
-                        
-                        print("LoginHandler - Authentication response OK")
-                        let responseStr = String(data: data!, encoding: String.Encoding.utf8)
-                        let userId = Int(responseStr!)!
-                        print("LoginHandler - User ID = \(userId)")
+                    print("LoginHandler - Authentication response OK")
+                    let responseStr = String(data: data!, encoding: String.Encoding.utf8)
+                    let userId = Int(responseStr!)!
+                    print("LoginHandler - User ID = \(userId)")
 
-                        // Run in main queue
-                        DispatchQueue.main.async { () -> Void in
-
-                            // Tell controller to execute success scenario
-                            self.controller.onAuthenticationSucess(token: "\(userId)")
-                        }
-                    } else {
-                        // Error - Authentication attempt failed
-                        print("LoginHandler - Authentication response NOT ok: \(httpStatus.statusCode)")
-                        
-                        //
-                        // Run UI updates on the main queue
-                        //
-                        DispatchQueue.main.async { () -> Void in
-                            // Show error message
-                            self.controller.onAuthenticationFailure(message: "Datos de acceso inválidos")
-                        }
-                    }
-                }else{
-                    // Error - Could not connect with server
-                    // Run UI updates on the main queue
+                    // Run in main queue
                     DispatchQueue.main.async { () -> Void in
-                        
-                        self.controller.onAuthenticationFailure(message: "No se ha podido conectar con el servidor")
+
+                        // Tell controller to execute success scenario
+                        self.controller.onAuthenticationSucess(token: "\(userId)")
+                    }
+                } else {
+                    // Error - Authentication attempt failed
+                    print("LoginHandler - Authentication response NOT ok: \(httpStatus.statusCode)")
+                    
+                    //
+                    // Run UI updates on the main queue
+                    //
+                    DispatchQueue.main.async { () -> Void in
+                        // Show error message
+                        self.controller.onAuthenticationFailure(message: "Datos de acceso inválidos")
                     }
                 }
+            }else{
+                // Error - Could not connect with server
+                // Run UI updates on the main queue
+                DispatchQueue.main.async { () -> Void in
+                    
+                    self.controller.onAuthenticationFailure(message: "No se ha podido conectar con el servidor")
+                }
+            }
         })
         
         //

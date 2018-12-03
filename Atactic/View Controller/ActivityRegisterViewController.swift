@@ -66,8 +66,8 @@ extension ActivityRegisterViewController: UITableViewDataSource {
         
         print("Time reported: \(visit.timeReported)")
         if let parsedDate = DateUtils.parseDate(dateString: visit.timeReported) {
-            print("Parsed date: \(parsedDate)")
-            print(DateUtils.toDateAndTimeString(date: parsedDate))
+            // print("Parsed date: \(parsedDate)")
+            // print(DateUtils.toDateAndTimeString(date: parsedDate))
             let formattedDateAndTime = DateUtils.toDateAndTimeString(date: parsedDate)
             cell.activityDateLabel.text = formattedDateAndTime
         }else{

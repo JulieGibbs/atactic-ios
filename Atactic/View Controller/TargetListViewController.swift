@@ -103,16 +103,30 @@ extension TargetListViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: qID, for: indexPath) as! TargetCell
         
         cell.accountNameLabel.text = target.account.name
-        cell.accountAddressLabel.text = target.account.address + ", " + target.account.postalCode + ", " + target.account.city
+        cell.accountAddressLabel.text = target.account.address + ", " + target.account.city
         // cell.targetScore.text = "\(target.score)"
         
         if (target.account.distance == -1) {
             cell.distanceToTargetLabel.text = ""
         } else {
+            cell.distanceToTargetLabel.text = formatDistance(meters: target.account.distance)
+            /*
             let roundedValue = Int(round(target.account.distance))
             cell.distanceToTargetLabel.text = "\(roundedValue)m"
+            */
         }
         return cell
+    }
+    
+    
+    func formatDistance(meters: Float) -> String {
+        if (meters < 1000){
+            return "\(Int(round(meters))) m"
+        }else if (meters >= 1000 && meters < 10000){
+            return String(format: "%.1f Km", meters/1000)
+        } else {
+            return "\(Int(round(meters/1000))) Km"
+        }
     }
     
 }

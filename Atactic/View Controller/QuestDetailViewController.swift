@@ -22,6 +22,7 @@ class QuestDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         printQuestData()
     }
     

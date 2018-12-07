@@ -10,6 +10,8 @@ import UIKit
 
 class QuestListViewController : UIViewController {
     
+    let atacticRed = UIColor.init(displayP3Red: 232/255, green: 12/255, blue: 15/255, alpha: 1)
+    
     @IBOutlet var tableView: UITableView!
     var refreshControl = UIRefreshControl()
     
@@ -135,12 +137,15 @@ extension QuestListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let participation = questParticipationList[indexPath.row]
         let qID = "QCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: qID, for: indexPath) as! QuestCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: qID, for: indexPath) as! ParticipationCell
         
-        cell.questNameLabel.text = participation.campaign.name
-        cell.questSummaryLabel.text = participation.campaign.summary
+        cell.titleLabel.text = participation.campaign.name
+        cell.briefingLabel.text = participation.campaign.summary
         // cell.currentStepLabel.text = "\(participation.currentStep)"
         // cell.totalStepsLabel.text = "\(participation.totalSteps)"
+        
+        cell.scoreIcon.image = cell.scoreIcon.image!.withRenderingMode(.alwaysTemplate)
+        cell.scoreIcon.tintColor = UIColor.darkGray
         cell.scoreLabel.text = "\(participation.campaign.completionScore)"
         
         // Parse the campaign's end date
@@ -168,6 +173,31 @@ extension QuestListViewController: UITableViewDataSource {
         let prgr = Double(participation.currentProgress)
         cell.progressLabel.text = String(format: "%.0f", prgr * 100) + "%"
         cell.progressCircle.angle = prgr * 360.0
+        
+        cell.priorityLabel.text = "\(participation.campaign.priority)"
+        cell.priorityLabel.layer.borderWidth = 1
+        switch (participation.campaign.priority){
+            case 1:
+                cell.priorityLabel.layer.borderColor = UIColor.lightGray.cgColor
+                cell.priorityLabel.textColor = UIColor.lightGray
+            case 2:
+                cell.priorityLabel.layer.borderColor = UIColor.gray.cgColor
+                cell.priorityLabel.textColor = UIColor.gray
+            case 3:
+                cell.priorityLabel.layer.borderColor = UIColor.darkGray.cgColor
+                cell.priorityLabel.textColor = UIColor.darkGray
+            case 4:
+                cell.priorityLabel.layer.borderColor = UIColor.black.cgColor
+                cell.priorityLabel.textColor = UIColor.black
+            case 5:
+                cell.priorityLabel.layer.borderColor = atacticRed.cgColor
+                cell.priorityLabel.backgroundColor = atacticRed
+                cell.priorityLabel.textColor = UIColor.white
+        default:
+            cell.priorityLabel.isHidden = true
+        }
+        
+        // cell.scoreLabel.layer.borderColor = CGColor.
         
         return cell
     }

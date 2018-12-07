@@ -79,6 +79,8 @@ struct CampaignStruct : Codable {
     
     let timeCreated : String
     let lastUpdated: String
+    
+    let priority : Int
 }
 
 

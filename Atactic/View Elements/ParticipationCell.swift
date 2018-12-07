@@ -8,19 +8,19 @@
 
 import UIKit
 
-class QuestCell: UITableViewCell {
+class ParticipationCell: UITableViewCell {
     
-    @IBOutlet var questNameLabel: UILabel!
-    @IBOutlet var questSummaryLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var briefingLabel: UILabel!
 
+    @IBOutlet var priorityLabel: UILabel!
     @IBOutlet var deadlineLabel: UILabel!
-    @IBOutlet var scoreLabel: UILabel!
     
-    @IBOutlet var currentStepLabel: UILabel!
-    @IBOutlet var totalStepsLabel: UILabel!
-
     @IBOutlet var progressLabel: UILabel!
     @IBOutlet var progressCircle: KDCircularProgress!
+    
+    @IBOutlet var scoreIcon: UIImageView!
+    @IBOutlet var scoreLabel: UILabel!
     
 }
 

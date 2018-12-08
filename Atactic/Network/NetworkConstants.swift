@@ -14,7 +14,7 @@ class NetworkConstants {
     // private static let AtacticServerURL = "http://atactic.jcloud.ik-server.com/mobile/"
     
     // private static let AtacticServerURL = "http://api.atactic.io/mobile/"
-    private static let AtacticServerURL = "http://192.168.1.33:8080/mobile/"
+    private static let AtacticServerURL = "http://192.168.1.36:8080/mobile/"
     // private static let AtacticServerURL = "http://localhost:8080/mobile/"
 
     private static let APIResourcesURL = AtacticServerURL + "rsc/"

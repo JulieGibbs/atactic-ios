@@ -16,7 +16,10 @@ class QuestDetailViewController: UIViewController {
     @IBOutlet var questBriefingLabel: UILabel!
     @IBOutlet var progressIndicator: KDCircularProgress!
     @IBOutlet var progressLabel: UILabel!
+    
     @IBOutlet var containerViewA: UIView!
+    
+    
     @IBOutlet var containerViewB: UIView!
     @IBOutlet var containerViewC: UIView!
     
@@ -39,6 +42,12 @@ class QuestDetailViewController: UIViewController {
                 // print("QuestDetailViewController - (Segue) Will send the participation ID: \(quest.participationId)")
                 dc.participationId = quest.participationId
             }
+        } else if (segue.identifier == "showInfo") {
+            if let dc = segue.destination as? CampaignInfoViewController {
+                print("Preparing for segue show Info")
+                dc.campaign = quest.campaign
+                // dc.displayData(campaign: quest.campaign)
+            }
         }
     }
     
@@ -55,19 +64,23 @@ class QuestDetailViewController: UIViewController {
         progressIndicator.animate(fromAngle: 0, toAngle: prgr * 360.0, duration: 1) { (completed) in }
         
         // Display administrator info
+        /*
         let adminNameLabel: UILabel = containerViewA.subviews[0].subviews[1] as! UILabel
         let adminTitleLabel: UILabel = containerViewA.subviews[0].subviews[2] as! UILabel
         adminNameLabel.text = quest.campaign.owner.firstName + " " + quest.campaign.owner.lastName
         adminTitleLabel.text = quest.campaign.owner.position
-        
+        */
         // Display deadline info
+        /*
         let endDateLabel: UILabel =
             containerViewA.subviews[0].subviews[4] as! UILabel
         let remainingDaysLabel: UILabel =
             containerViewA.subviews[0].subviews[5] as! UILabel
         let endDateStr = quest.campaign.endDate
+        */
         
         // Format date
+        /*
         let endDateSubstr = String(endDateStr.split(separator: "T")[0])
         let sourceFormatter = DateFormatter()
         sourceFormatter.dateFormat = "yyyy-MM-dd"
@@ -76,11 +89,12 @@ class QuestDetailViewController: UIViewController {
         printableFormatter.dateFormat = "dd'/'M'/'yyyy"
         
         endDateLabel.text = printableFormatter.string(from: parsedEndDate!)
-        
+        */
         // Get current date
-        let currentDate = Date()
+        // let currentDate = Date()
         
         // Calculate days of difference between the two dates
+        /*
         let calendar = Calendar.current
         let date1 = calendar.startOfDay(for: currentDate)
         let date2 = calendar.startOfDay(for: parsedEndDate!)
@@ -91,7 +105,7 @@ class QuestDetailViewController: UIViewController {
         let longDescriptionTextField = containerViewB.subviews[0].subviews[0] as! UITextView
         longDescriptionTextField.text = quest.campaign.description
         longDescriptionTextField.setContentOffset(CGPoint.zero, animated: false)
-        
+        */
         // let targetListDataHandler = TargetListDataHandler(viewController: self.containerViewC)
         
         // let statusMessageTextView : UITextView = containerViewC.subviews[0].subviews[0] as! UITextView

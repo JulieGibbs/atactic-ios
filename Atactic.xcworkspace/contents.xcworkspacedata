@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/jaime/Workspace/ATACTIC iOS/Atactic/View Controller/CampaignInfoViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:Atactic.xcodeproj">
    </FileRef>
    <FileRef

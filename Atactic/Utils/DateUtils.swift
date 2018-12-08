@@ -10,10 +10,12 @@ import Foundation
 
 class DateUtils {
     
-    static let defaultDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    static let alternateDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-
+    static let defaultDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    static let defaultDateFormatWithMiliseconds = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    
     static let defaultLocale = "es"
+    static let defaultTimeZone = "Europe/Madrid"
+    
     static let defaultOutputFormat = "dd/MM/yyyy HH:MM"
     
     //
@@ -24,23 +26,53 @@ class DateUtils {
     // In case it's unable to parse the date, returns nil
     //
     static func parseDate(dateString: String) -> Date? {
+        
+        print("DateParser - Trying to parse \(dateString)")
+        
+        // Remove miliseconds
+        let trimmedIsoString = dateString.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
+        
+        // Instantiate formatter and set default locale
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: defaultLocale)
+        formatter.timeZone = TimeZone(identifier: defaultTimeZone)
+        
         formatter.dateFormat = defaultDateFormat
-        if let parsedDate = formatter.date(from: dateString) {
-            print("DateUtils - Date parsed with format \(defaultDateFormat)")
+        if let parsedDate = formatter.date(from: trimmedIsoString) {
+            print("DateParser - Date parsed with format \(defaultDateFormat)")
             return parsedDate
         } else {
-            formatter.dateFormat = alternateDateFormat
-            if let parsedDate = formatter.date(from: dateString){
-                print("DateUtils - Date parsed with format \(alternateDateFormat)")
+            formatter.dateFormat = defaultDateFormatWithMiliseconds
+            if let parsedDate = formatter.date(from: trimmedIsoString){
+                print("DateParser - Date parsed with format \(defaultDateFormatWithMiliseconds)")
                 return parsedDate
-            } else {
-                print("DateUtils - Could not parse dateString \(dateString)")
-                return nil
             }
         }
+        return nil
     }
+    
+    //
+    // Parses a String representation of a Date in ISO8601 format
+    //
+    static func parseISODate(isoDateString: String) -> Date? {
+        
+        // Remove miliseconds
+        let trimmedIsoString = isoDateString.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
+        
+        // Instantiate ISO formatter
+        let isoFormatter = ISO8601DateFormatter()
+        if let parsedDate = isoFormatter.date(from: trimmedIsoString){
+            // print("DateUtils - Date parsed with ISO formatter")
+            return parsedDate
+        } else {
+            print("DateUtils - Unparseable ISO date: \(isoDateString)")
+            return nil
+        }
+    }
+    
+    //
+    // Date to String
+    //
     
     static func toString(date: Date, format: String) -> String {
         let formatter = DateFormatter()

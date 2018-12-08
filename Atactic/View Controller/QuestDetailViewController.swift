@@ -90,22 +90,11 @@ class QuestDetailViewController: UIViewController {
         
         endDateLabel.text = printableFormatter.string(from: parsedEndDate!)
         */
-        // Get current date
-        // let currentDate = Date()
-        
-        // Calculate days of difference between the two dates
-        /*
-        let calendar = Calendar.current
-        let date1 = calendar.startOfDay(for: currentDate)
-        let date2 = calendar.startOfDay(for: parsedEndDate!)
-        let daysOfDiff = calendar.dateComponents([.day], from: date1, to: date2).day
-        
-        remainingDaysLabel.text = "Faltan \(daysOfDiff!) días"
         
         let longDescriptionTextField = containerViewB.subviews[0].subviews[0] as! UITextView
         longDescriptionTextField.text = quest.campaign.description
         longDescriptionTextField.setContentOffset(CGPoint.zero, animated: false)
-        */
+ 
         // let targetListDataHandler = TargetListDataHandler(viewController: self.containerViewC)
         
         // let statusMessageTextView : UITextView = containerViewC.subviews[0].subviews[0] as! UITextView

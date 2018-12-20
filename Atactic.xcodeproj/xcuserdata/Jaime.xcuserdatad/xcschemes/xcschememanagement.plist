@@ -4,7 +4,14 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Atactic.xcscheme</key>
+		<key>Atactic (location not simulated).xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Atactic (simulated location).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>

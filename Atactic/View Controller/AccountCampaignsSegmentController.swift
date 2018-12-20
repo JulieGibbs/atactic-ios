@@ -66,12 +66,14 @@ extension AccountCampaignsSegmentController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: qID, for: indexPath) as! SimpleQuestCell
         
         cell.campaignNameLabel.text = campaign.campaign.name
-//        if let deadline = DateUtils.parseDate(dateString: campaign.campaign.endDate){
-//            cell.campaignDeadlineLabel.text = DateUtils.toDateAndTimeString(date: deadline)
-//        }else{
-//            cell.campaignDeadlineLabel.text = campaign.campaign.endDate
-//        }
-        cell.campaignDeadlineLabel.text = DateUtils.toFormattedDate(timestamp: campaign.campaign.endDate)
+        
+        if let deadline = DateUtils.parseISODate(isoDateString: campaign.campaign.endDate){
+            cell.campaignDeadlineLabel.text = DateUtils.toDateAndTimeString(date: deadline)
+        }else{
+            cell.campaignDeadlineLabel.isHidden = true
+        }
+        // cell.campaignDeadlineLabel.text = DateUtils.toFormattedDate(timestamp: campaign.campaign.endDate)
+        
         cell.progressLabel.text = String(format: "%.1f", campaign.currentProgress * 100) + " %"
 
         return cell

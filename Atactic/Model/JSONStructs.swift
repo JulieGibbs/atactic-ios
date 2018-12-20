@@ -22,6 +22,7 @@ struct AccountStruct : Codable {
     let postalCode : String
     let province : String
     let type : String
+    let relevance : Int?
     
 }
 

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TargetCell : UITableViewCell {
+class AccountCell : UITableViewCell {
     
     @IBOutlet var accountNameLabel: UILabel!
     @IBOutlet var accountAddressLabel: UILabel!
-    @IBOutlet var distanceToTargetLabel: UILabel!
-    // @IBOutlet var targetScore: UILabel!
-    
+    @IBOutlet var distanceToAccountLabel: UILabel!
+    @IBOutlet var accountScoreLabel: UILabel!
+        
 }

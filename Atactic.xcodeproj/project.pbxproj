@@ -11,7 +11,6 @@
 		6F03706F2174D33600BCE903 /* CheckInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F03706E2174D33600BCE903 /* CheckInHandler.swift */; };
 		6F0370712174D4AA00BCE903 /* NearbyAccountsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0370702174D4AA00BCE903 /* NearbyAccountsRequest.swift */; };
 		6F0A52E92117642E00A6C28D /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0A52E82117642E00A6C28D /* GoogleMapsViewController.swift */; };
-		6F0E1DB621BB091E0029EBAC /* CampaignInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E1DB521BB091E0029EBAC /* CampaignInfoViewController.swift */; };
 		6F1447BA217353C800B2E1B3 /* TenantConfigurationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1447B9217353C800B2E1B3 /* TenantConfigurationRequest.swift */; };
 		6F1447BC21735AAA00B2E1B3 /* ConfigurationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1447BB21735AAA00B2E1B3 /* ConfigurationHandler.swift */; };
 		6F171BD0214FF40F0080C9EB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F171BCF214FF40F0080C9EB /* AccountDetailViewController.swift */; };
@@ -26,11 +25,15 @@
 		6F35E3CB2017445F005BCB88 /* ServerVersionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CA2017445F005BCB88 /* ServerVersionRequest.swift */; };
 		6F35E3CD201799F5005BCB88 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CC201799F5005BCB88 /* LoginRequest.swift */; };
 		6F35E3CF2017A1DE005BCB88 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35E3CE2017A1DE005BCB88 /* NetworkConstants.swift */; };
+		6F383BEE21BC163B00BBAEF3 /* AccountListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F383BED21BC163B00BBAEF3 /* AccountListRequest.swift */; };
+		6F383BF021BC17FA00BBAEF3 /* AccountListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F383BEF21BC17FA00BBAEF3 /* AccountListPresenter.swift */; };
+		6F383BF321BC197900BBAEF3 /* AccountListDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F383BF221BC197900BBAEF3 /* AccountListDataHandler.swift */; };
 		6F449007212D72B0002C80ED /* RouteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F449006212D72AF002C80ED /* RouteRequest.swift */; };
 		6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */; };
 		6F4DC55A212731C90091D1E7 /* MapDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DC559212731C90091D1E7 /* MapDataHandler.swift */; };
 		6F4DC55C212733790091D1E7 /* AccountMapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DC55B212733790091D1E7 /* AccountMapRequest.swift */; };
 		6F54CB022164C2FE00A1A3A9 /* PasswordChangeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F54CB012164C2FE00A1A3A9 /* PasswordChangeRequest.swift */; };
+		6F5DA90C21BC0E280050F635 /* CampaignInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DA90B21BC0E280050F635 /* CampaignInfoViewController.swift */; };
 		6F628E6B2059A77F002E267A /* ActivityRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F628E6A2059A77F002E267A /* ActivityRegisterViewController.swift */; };
 		6F628E6D2059A84B002E267A /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F628E6C2059A84B002E267A /* ActivityCell.swift */; };
 		6F79BF25212F01200075B639 /* QuestTargetsSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F79BF24212F01200075B639 /* QuestTargetsSegmentController.swift */; };
@@ -43,8 +46,8 @@
 		6FB604692162729A00BA9BDB /* SimpleQuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB604682162729A00BA9BDB /* SimpleQuestCell.swift */; };
 		6FB6046B216277EA00BA9BDB /* AccountCampaignsSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB6046A216277EA00BA9BDB /* AccountCampaignsSegmentController.swift */; };
 		6FB6046D21627A9C00BA9BDB /* AccountCampaignsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB6046C21627A9C00BA9BDB /* AccountCampaignsRequest.swift */; };
-		6FB79FC020272676003F5BC4 /* TargetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */; };
-		6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FC1202729DB003F5BC4 /* TargetCell.swift */; };
+		6FB79FC020272676003F5BC4 /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FBF20272676003F5BC4 /* AccountListViewController.swift */; };
+		6FB79FC2202729DB003F5BC4 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79FC1202729DB003F5BC4 /* AccountCell.swift */; };
 		6FBBF4AB1FFAC8FA00CAFBE9 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */; };
 		6FCE26E8205A93F900701BE3 /* ActivityRegisterDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE26E7205A93F900701BE3 /* ActivityRegisterDataHandler.swift */; };
 		6FCE26EA205A94AA00701BE3 /* VisitStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE26E9205A94AA00701BE3 /* VisitStruct.swift */; };
@@ -74,7 +77,6 @@
 		6F03706E2174D33600BCE903 /* CheckInHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInHandler.swift; sourceTree = "<group>"; };
 		6F0370702174D4AA00BCE903 /* NearbyAccountsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyAccountsRequest.swift; sourceTree = "<group>"; };
 		6F0A52E82117642E00A6C28D /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
-		6F0E1DB521BB091E0029EBAC /* CampaignInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CampaignInfoViewController.swift; path = "/Users/jaime/Workspace/ATACTIC iOS/Atactic/View Controller/CampaignInfoViewController.swift"; sourceTree = "<absolute>"; };
 		6F1447B9217353C800B2E1B3 /* TenantConfigurationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantConfigurationRequest.swift; sourceTree = "<group>"; };
 		6F1447BB21735AAA00B2E1B3 /* ConfigurationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationHandler.swift; sourceTree = "<group>"; };
 		6F171BCF214FF40F0080C9EB /* AccountDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
@@ -89,11 +91,15 @@
 		6F35E3CA2017445F005BCB88 /* ServerVersionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerVersionRequest.swift; sourceTree = "<group>"; };
 		6F35E3CC201799F5005BCB88 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		6F35E3CE2017A1DE005BCB88 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		6F383BED21BC163B00BBAEF3 /* AccountListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListRequest.swift; sourceTree = "<group>"; };
+		6F383BEF21BC17FA00BBAEF3 /* AccountListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListPresenter.swift; sourceTree = "<group>"; };
+		6F383BF221BC197900BBAEF3 /* AccountListDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListDataHandler.swift; sourceTree = "<group>"; };
 		6F449006212D72AF002C80ED /* RouteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteRequest.swift; sourceTree = "<group>"; };
 		6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestDetailViewController.swift; sourceTree = "<group>"; };
 		6F4DC559212731C90091D1E7 /* MapDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataHandler.swift; sourceTree = "<group>"; };
 		6F4DC55B212733790091D1E7 /* AccountMapRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMapRequest.swift; sourceTree = "<group>"; };
 		6F54CB012164C2FE00A1A3A9 /* PasswordChangeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeRequest.swift; sourceTree = "<group>"; };
+		6F5DA90B21BC0E280050F635 /* CampaignInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignInfoViewController.swift; sourceTree = "<group>"; };
 		6F628E6A2059A77F002E267A /* ActivityRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRegisterViewController.swift; sourceTree = "<group>"; };
 		6F628E6C2059A84B002E267A /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		6F79BF24212F01200075B639 /* QuestTargetsSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTargetsSegmentController.swift; sourceTree = "<group>"; };
@@ -106,8 +112,8 @@
 		6FB604682162729A00BA9BDB /* SimpleQuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleQuestCell.swift; sourceTree = "<group>"; };
 		6FB6046A216277EA00BA9BDB /* AccountCampaignsSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCampaignsSegmentController.swift; sourceTree = "<group>"; };
 		6FB6046C21627A9C00BA9BDB /* AccountCampaignsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCampaignsRequest.swift; sourceTree = "<group>"; };
-		6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetListViewController.swift; sourceTree = "<group>"; };
-		6FB79FC1202729DB003F5BC4 /* TargetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCell.swift; sourceTree = "<group>"; };
+		6FB79FBF20272676003F5BC4 /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
+		6FB79FC1202729DB003F5BC4 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		6FCE26E7205A93F900701BE3 /* ActivityRegisterDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRegisterDataHandler.swift; sourceTree = "<group>"; };
 		6FCE26E9205A94AA00701BE3 /* VisitStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitStruct.swift; sourceTree = "<group>"; };
@@ -147,14 +153,14 @@
 		6F16C3E620057A6F00D9BB09 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6FE15D4821AEB5AC007002C1 /* AuthenticationController.swift */,
+				6F383BF121BC181400BBAEF3 /* Protocols */,
 				6F8F31BA201A4AB100216070 /* LaunchController.swift */,
 				6FF1C9D41FF4273E00837460 /* LoginViewController.swift */,
 				6FE55E951FF500E900945171 /* QuestListViewController.swift */,
 				6F44BECC1FF6616B00591E2B /* QuestDetailViewController.swift */,
-				6F0E1DB521BB091E0029EBAC /* CampaignInfoViewController.swift */,
+				6F5DA90B21BC0E280050F635 /* CampaignInfoViewController.swift */,
 				6F79BF24212F01200075B639 /* QuestTargetsSegmentController.swift */,
-				6FB79FBF20272676003F5BC4 /* TargetListViewController.swift */,
+				6FB79FBF20272676003F5BC4 /* AccountListViewController.swift */,
 				6F171BCF214FF40F0080C9EB /* AccountDetailViewController.swift */,
 				6FB6046A216277EA00BA9BDB /* AccountCampaignsSegmentController.swift */,
 				6F0A52E82117642E00A6C28D /* GoogleMapsViewController.swift */,
@@ -185,6 +191,7 @@
 				6F35E3CA2017445F005BCB88 /* ServerVersionRequest.swift */,
 				6F1C895C2163852400CA2DA6 /* CampaignListRequest.swift */,
 				6FFC685F2136F6D400F2CA6A /* CampaignTargetsRequest.swift */,
+				6F383BED21BC163B00BBAEF3 /* AccountListRequest.swift */,
 				6F1E798620626CC700E8AEDF /* TargetListRequest.swift */,
 				6FB6046C21627A9C00BA9BDB /* AccountCampaignsRequest.swift */,
 				6F4DC55B212733790091D1E7 /* AccountMapRequest.swift */,
@@ -205,11 +212,20 @@
 				6FBBF4AA1FFAC8FA00CAFBE9 /* KDCircularProgress.swift */,
 				6FE55E971FF50E4E00945171 /* ParticipationCell.swift */,
 				6FB604682162729A00BA9BDB /* SimpleQuestCell.swift */,
-				6FB79FC1202729DB003F5BC4 /* TargetCell.swift */,
+				6FB79FC1202729DB003F5BC4 /* AccountCell.swift */,
 				6FFC685D2136C4F900F2CA6A /* QuestTargetCell.swift */,
 				6F628E6C2059A84B002E267A /* ActivityCell.swift */,
 			);
 			path = "View Elements";
+			sourceTree = "<group>";
+		};
+		6F383BF121BC181400BBAEF3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6FE15D4821AEB5AC007002C1 /* AuthenticationController.swift */,
+				6F383BEF21BC17FA00BBAEF3 /* AccountListPresenter.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		6FCE26E6205A93D100701BE3 /* Handler */ = {
@@ -217,6 +233,7 @@
 			children = (
 				6FB1C8C4212ADE2900648687 /* LoginHandler.swift */,
 				6F1E798A20627EEA00E8AEDF /* LocationController.swift */,
+				6F383BF221BC197900BBAEF3 /* AccountListDataHandler.swift */,
 				6F1E7984206267BF00E8AEDF /* TargetListDataHandler.swift */,
 				6FB6046621626FD900BA9BDB /* AccountCampaignsDataHandler.swift */,
 				6F79BF26212F01820075B639 /* QuestTargetListDataHandler.swift */,
@@ -418,6 +435,7 @@
 				6FCE26EA205A94AA00701BE3 /* VisitStruct.swift in Sources */,
 				6F628E6D2059A84B002E267A /* ActivityCell.swift in Sources */,
 				6FCE26E8205A93F900701BE3 /* ActivityRegisterDataHandler.swift in Sources */,
+				6F383BF021BC17FA00BBAEF3 /* AccountListPresenter.swift in Sources */,
 				6F4DC55C212733790091D1E7 /* AccountMapRequest.swift in Sources */,
 				6F03706D2174AD7A00BCE903 /* CheckInViewController.swift in Sources */,
 				6F4DC55A212731C90091D1E7 /* MapDataHandler.swift in Sources */,
@@ -428,7 +446,6 @@
 				6F1447BC21735AAA00B2E1B3 /* ConfigurationHandler.swift in Sources */,
 				6F449007212D72B0002C80ED /* RouteRequest.swift in Sources */,
 				6FE15D4921AEB5AC007002C1 /* AuthenticationController.swift in Sources */,
-				6F0E1DB621BB091E0029EBAC /* CampaignInfoViewController.swift in Sources */,
 				6F79BF25212F01200075B639 /* QuestTargetsSegmentController.swift in Sources */,
 				6FE55E981FF50E4E00945171 /* ParticipationCell.swift in Sources */,
 				6F35E3CD201799F5005BCB88 /* LoginRequest.swift in Sources */,
@@ -440,8 +457,10 @@
 				6FFC685E2136C4F900F2CA6A /* QuestTargetCell.swift in Sources */,
 				6F35E3CF2017A1DE005BCB88 /* NetworkConstants.swift in Sources */,
 				6F1E7985206267BF00E8AEDF /* TargetListDataHandler.swift in Sources */,
+				6F383BF321BC197900BBAEF3 /* AccountListDataHandler.swift in Sources */,
 				6F03706F2174D33600BCE903 /* CheckInHandler.swift in Sources */,
 				6FBBF4AB1FFAC8FA00CAFBE9 /* KDCircularProgress.swift in Sources */,
+				6F5DA90C21BC0E280050F635 /* CampaignInfoViewController.swift in Sources */,
 				6F8F31BF201A7B2700216070 /* ProfileRequest.swift in Sources */,
 				6FCFDD262177782500974AA5 /* CheckInRequest.swift in Sources */,
 				6F1E798720626CC700E8AEDF /* TargetListRequest.swift in Sources */,
@@ -452,7 +471,7 @@
 				6FB6046D21627A9C00BA9BDB /* AccountCampaignsRequest.swift in Sources */,
 				6FDCFDAB201F9741009BF9E2 /* JSONStructs.swift in Sources */,
 				6FCE26EC205A9D4100701BE3 /* ActivityRegisterRequest.swift in Sources */,
-				6FB79FC2202729DB003F5BC4 /* TargetCell.swift in Sources */,
+				6FB79FC2202729DB003F5BC4 /* AccountCell.swift in Sources */,
 				6F0A52E92117642E00A6C28D /* GoogleMapsViewController.swift in Sources */,
 				6F44BECD1FF6616B00591E2B /* QuestDetailViewController.swift in Sources */,
 				6FB1C8C5212ADE2900648687 /* LoginHandler.swift in Sources */,
@@ -463,8 +482,9 @@
 				6FB604692162729A00BA9BDB /* SimpleQuestCell.swift in Sources */,
 				6F54CB022164C2FE00A1A3A9 /* PasswordChangeRequest.swift in Sources */,
 				6F1F29FB2164FDC700CAFAC7 /* PasswordChangeViewController.swift in Sources */,
+				6F383BEE21BC163B00BBAEF3 /* AccountListRequest.swift in Sources */,
 				6F1E798B20627EEA00E8AEDF /* LocationController.swift in Sources */,
-				6FB79FC020272676003F5BC4 /* TargetListViewController.swift in Sources */,
+				6FB79FC020272676003F5BC4 /* AccountListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

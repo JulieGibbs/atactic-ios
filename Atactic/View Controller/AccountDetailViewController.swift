@@ -16,7 +16,7 @@ class AccountDetailViewController: UIViewController {
     @IBOutlet var accountAddressLabel: UILabel!
     @IBOutlet var mapView: GMSMapView!
     
-    var account : Target!
+    var account : AccountStruct!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +42,8 @@ class AccountDetailViewController: UIViewController {
         if segue.identifier == "showAccountCampaignsSegue" {
             if let dc = segue.destination as? AccountCampaignsSegmentController {
                 print("AccountDetailViewController - (Segue) I have access to the Target Segment Controller")
-                print("AccountDetailViewController - (Segue) Will send the account ID: \(account.account.id)")
-                dc.accountId = account.account.id
+                print("AccountDetailViewController - (Segue) Will send the account ID: \(account.id)")
+                dc.accountId = account.id
             }
         }
     }
@@ -52,33 +52,20 @@ class AccountDetailViewController: UIViewController {
     func displayData(){
     
         // Display account data in header
-        accountNameLabel.text = account.account.name
-        accountTypeLabel.text = account.account.type
-        accountAddressLabel.text = account.account.address
+        accountNameLabel.text = account.name
+        accountTypeLabel.text = account.type
+        accountAddressLabel.text = account.address
         
         // Set-up and display mapView
         drawMap()
-        
-        // Display Campaigns
-        displayCampaigns()
     }
     
-    
-    func displayCampaigns(){
-        
-        print("AccountDetailViewController - Account \(account.account.name) is related to \(account.campaigns.count) campaigns ")
-        
-        for p in account.campaigns {
-            print("\(p.campaign.name) \(p.currentProgress)") 
-        }
-        
-    }
     
     
     func drawMap(){
         // Add a single marker to the map view
         let marker = GMSMarker()
-        let markerPosition = CLLocationCoordinate2D(latitude: account.account.latitude, longitude: account.account.longitude)
+        let markerPosition = CLLocationCoordinate2D(latitude: account.latitude, longitude: account.longitude)
         
         marker.position = markerPosition
         // marker.title = account.account.name

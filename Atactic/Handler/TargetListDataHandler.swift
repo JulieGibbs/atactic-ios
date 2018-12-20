@@ -12,10 +12,10 @@ import CoreLocation
 class TargetListDataHandler {
     
     // Reference to the view controller that will display the data
-    let viewController : TargetListViewController
+    let viewController : AccountListViewController
     
     // Initializer
-    init(viewController : TargetListViewController) {
+    init(viewController : AccountListViewController) {
         self.viewController = viewController
         print("TargetListDataHandler initialized")
     }
@@ -25,6 +25,7 @@ class TargetListDataHandler {
     //  decodes the returning JSON response and sends the data back to the View Controller
     //  by calling its setData() or setError() functions.
     //
+    /*
     func getData() {
         
         // Recover user's ID
@@ -39,7 +40,7 @@ class TargetListDataHandler {
         // Execute asnychronous task, decoding the response and returning control to the ViewController
         httpRequestTask.resume()
     }
-    
+    */
     //
     // Build the Http request to the TargetAccounts service
     //
@@ -64,7 +65,7 @@ class TargetListDataHandler {
         return request
     }
     
-    
+    /*
     private func handleServerResponse(data: Data?, response: URLResponse?, error: Error?) {
         
         // Try cast to HTTP Response
@@ -106,7 +107,7 @@ class TargetListDataHandler {
             self.viewController.displayError(message: "No se ha podido conectar con el servidor")
         }
     }
-    
+    */
     
     private func setDistances(location: CLLocation, list : [Target]) -> [Target] {
         var newList : [Target] = []

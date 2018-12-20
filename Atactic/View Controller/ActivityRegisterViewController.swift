@@ -64,12 +64,8 @@ extension ActivityRegisterViewController: UITableViewDataSource {
         
         cell.accountNameLabel.text = visit.account.name
         
-        print("Time reported: \(visit.timeReported)")
-        if let parsedDate = DateUtils.parseDate(dateString: visit.timeReported) {
-            // print("Parsed date: \(parsedDate)")
-            // print(DateUtils.toDateAndTimeString(date: parsedDate))
-            let formattedDateAndTime = DateUtils.toDateAndTimeString(date: parsedDate)
-            cell.activityDateLabel.text = formattedDateAndTime
+        if let parsedDate = DateUtils.parseISODate(isoDateString: visit.timeReported) {
+            cell.activityDateLabel.text = DateUtils.toDateAndTimeString(date: parsedDate)
         }else{
             cell.activityDateLabel.text = visit.timeReported
         }
@@ -77,5 +73,3 @@ extension ActivityRegisterViewController: UITableViewDataSource {
     }
     
 }
-
-

@@ -10,46 +10,48 @@ import Foundation
 
 class DateUtils {
     
-    static let defaultDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    static let defaultDateFormatWithMiliseconds = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    
-    static let defaultLocale = "es"
-    static let defaultTimeZone = "Europe/Madrid"
+    // static let defaultDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     
     static let defaultOutputFormat = "dd/MM/yyyy HH:MM"
+    static let defaultLocale = "es"
+    // static let defaultTimeZone = "Europe/Madrid"
     
     //
     // Parses a Date from a String containing a date and time description.
-    //
-    // Tries to parse with the default format used by Atactic: "yyyy-MM-dd'T'HH:mm:ssZ"
-    // If this doesnt' work, it tries with other common date-time formats.
+    // Can parse formats "yyyy-MM-dd'T'HH:mm:ssZ" and "yyyy-MM-dd'T'HH:mm:ssSSSZ" (including miliseconds)
     // In case it's unable to parse the date, returns nil
     //
+    /*
     static func parseDate(dateString: String) -> Date? {
         
-        print("DateParser - Trying to parse \(dateString)")
+        print("DateParser - Parsing date \(dateString)")
         
         // Remove miliseconds
-        let trimmedIsoString = dateString.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
+        let trimmedDateString = dateString.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
         
         // Instantiate formatter and set default locale
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: defaultLocale)
         formatter.timeZone = TimeZone(identifier: defaultTimeZone)
-        
         formatter.dateFormat = defaultDateFormat
-        if let parsedDate = formatter.date(from: trimmedIsoString) {
-            print("DateParser - Date parsed with format \(defaultDateFormat)")
+        
+        if let parsedDate = formatter.date(from: trimmedDateString) {
             return parsedDate
         } else {
-            formatter.dateFormat = defaultDateFormatWithMiliseconds
-            if let parsedDate = formatter.date(from: trimmedIsoString){
-                print("DateParser - Date parsed with format \(defaultDateFormatWithMiliseconds)")
+
+            // Try with ISO formatter
+            let isoFormatter = ISO8601DateFormatter()
+            
+            isoFormatter.timeZone = TimeZone(identifier: defaultTimeZone)
+            if let parsedDate = isoFormatter.date(from: trimmedDateString){
+                print("DateParser - Date parsed by ISO Formatter")
                 return parsedDate
+            }else{
+                print("DateParser - Unparseable date: \(dateString)")
+                return nil
             }
         }
-        return nil
-    }
+    } */
     
     //
     // Parses a String representation of a Date in ISO8601 format
@@ -62,10 +64,10 @@ class DateUtils {
         // Instantiate ISO formatter
         let isoFormatter = ISO8601DateFormatter()
         if let parsedDate = isoFormatter.date(from: trimmedIsoString){
-            // print("DateUtils - Date parsed with ISO formatter")
+            print("DateParser - Date parsed by ISO Formatter")
             return parsedDate
         } else {
-            print("DateUtils - Unparseable ISO date: \(isoDateString)")
+            print("DateParser - Unparseable date: \(isoDateString)")
             return nil
         }
     }
@@ -100,6 +102,7 @@ class DateUtils {
     // Converts a string like "2018-02-06T20:51:31Z"
     // to a string like "06/02/2018 20:51:31"
     //
+    /*
     static func toFormattedDateAndTime(unformattedTimeStamp: String) -> String {
         
         let dateSubstr = String(unformattedTimeStamp.split(separator: "T")[0])
@@ -116,12 +119,13 @@ class DateUtils {
         timeSubstr.remove(at: timeSubstr.index(before: timeSubstr.endIndex))    // Remove last char
         
         return parsedDateStr + " " + timeSubstr
-    }
+    } */
     
     //
     // Converts to a string like "2018-02-06T20:51:31Z..."
     // to a string like "06/02/2018"
     //
+    /*
     static func toFormattedDate(timestamp: String) -> String {
         let dateSubstr = String(timestamp.split(separator: "T")[0])
         
@@ -132,7 +136,7 @@ class DateUtils {
         printableFormatter.dateFormat = "dd'/'M'/'yyyy"
         
         return printableFormatter.string(from: parsedDate!)
-    }
+    } */
     
     
 }

@@ -15,7 +15,7 @@ class AccountListRequest : HTTPRequest {
     let userIdParam = "uid"
     
     init(userId: Int){
-        let urlStr = NetworkConstants.APIServiceURL.AccountListResource + "?"
+        let urlStr = NetworkConstants.APIServiceURL.AccountResource + "?"
             + userIdParam + "=\(userId)"
         request = URLRequest(url: URL(string: urlStr)!)
         request.httpMethod = "GET"

@@ -12,8 +12,6 @@ class ActivityCell : UITableViewCell {
     
     @IBOutlet var accountNameLabel: UILabel!
     @IBOutlet var activityDateLabel: UILabel!
-    
-    
-    
+    @IBOutlet var commentsLabel: UILabel!
     
 }

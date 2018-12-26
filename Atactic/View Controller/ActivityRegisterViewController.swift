@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActivityRegisterViewController : UIViewController {
+class ActivityRegisterViewController : UIViewController, ActivityListPresenter {
 
     @IBOutlet var tableView: UITableView!
     
@@ -22,21 +22,22 @@ class ActivityRegisterViewController : UIViewController {
         // Instantiate a data handler upon loading this View Controller,
         //  and call the handler's getData() function for it to provide the data to display
         //
-        let dataHandler = ActivityRegisterDataHandler(viewController: self)
-        dataHandler.getData()
+        let recoveredUserId = UserDefaults.standard.integer(forKey: "uid")
+        let dataHandler = ActivityDataHandler(dataPresenter: self)
+        dataHandler.getActivities(userId: recoveredUserId)
     }
     
     //
     // Called from the data handler to set the data to display
     //
-    func setData(listOfActivities: [VisitStruct]) {
+    func displayData(activityList: [VisitStruct]) {
         print("ActivityRegisterViewController - Setting data to display")
-        print("\(listOfActivities.count) activities will be displayed")
-        self.activities = listOfActivities
+        print("ActivityRegisterViewController - \(activityList.count) activities will be displayed")
+        self.activities = activityList
         self.tableView.reloadData()
     }
     
-    func setError(errorMessage: String) {
+    func displayMessage(message: String) {
         // TODO display error
         
     }

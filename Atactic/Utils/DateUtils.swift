@@ -64,7 +64,7 @@ class DateUtils {
         // Instantiate ISO formatter
         let isoFormatter = ISO8601DateFormatter()
         if let parsedDate = isoFormatter.date(from: trimmedIsoString){
-            print("DateParser - Date parsed by ISO Formatter")
+            // print("DateParser - Date parsed by ISO Formatter")
             return parsedDate
         } else {
             print("DateParser - Unparseable date: \(isoDateString)")

@@ -1,19 +1,19 @@
 //
-//  ActivityRegisterRequest.swift
+//  AccountActivity.swift
 //  Atactic
 //
-//  Created by Jaime on 15/3/18.
+//  Created by Jaime Lucea on 25/12/2018.
 //  Copyright © 2018 ATACTIC. All rights reserved.
 //
 
 import Foundation
 
-class ActivityRegisterRequest : HTTPRequest {
+class AccountActivityRequest : HTTPRequest {
     
     var request: URLRequest
     
-    init(userId: Int){
-        let resourceURLString = NetworkConstants.APIServiceURL.ActivityListResource + "?uid=\(userId)"
+    init(userId: Int, accountId: Int){
+        let resourceURLString = NetworkConstants.APIServiceURL.AccountActivityResource + "?uid=\(userId)" + "&acc=\(accountId)"
         let myurl = URL(string: resourceURLString)!
         
         request = URLRequest(url: myurl)

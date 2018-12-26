@@ -14,7 +14,11 @@ class AccountDetailViewController: UIViewController {
     @IBOutlet var accountNameLabel: UILabel!
     @IBOutlet var accountTypeLabel: UILabel!
     @IBOutlet var accountAddressLabel: UILabel!
+    @IBOutlet var relevanceScoreLabel: UILabel!
     @IBOutlet var mapView: GMSMapView!
+    
+    @IBOutlet var campaignsContainerView: UIView!
+    @IBOutlet var activityContainerView: UIView!
     
     var account : AccountStruct!
     
@@ -39,10 +43,12 @@ class AccountDetailViewController: UIViewController {
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // print("QuestDetailViewController - Preparing for segue")
-        if segue.identifier == "showAccountCampaignsSegue" {
+        if (segue.identifier == "showAccountCampaignsSegue") {
             if let dc = segue.destination as? AccountCampaignsSegmentController {
-                print("AccountDetailViewController - (Segue) I have access to the Target Segment Controller")
-                print("AccountDetailViewController - (Segue) Will send the account ID: \(account.id)")
+                dc.accountId = account.id
+            }
+        } else if (segue.identifier == "showAccountActivitySegue") {
+            if let dc = segue.destination as? AccountActivitySegmentController {
                 dc.accountId = account.id
             }
         }
@@ -56,12 +62,32 @@ class AccountDetailViewController: UIViewController {
         accountTypeLabel.text = account.type
         accountAddressLabel.text = account.address
         
+        if let score = account.relevance {
+            relevanceScoreLabel.text = "\(score)"
+        } else {
+            relevanceScoreLabel.isHidden = true
+        }
+        
         // Set-up and display mapView
-        drawMap()
+        // drawMap()
     }
     
+    @IBAction func tabSelected(_ sender: UISegmentedControl) {
+        // print("AccountDetailViewController - Selected tab changed")
+        if sender.selectedSegmentIndex == 0 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.campaignsContainerView.alpha = 1
+                self.activityContainerView.alpha = 0
+            })
+        } else if sender.selectedSegmentIndex == 1 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.campaignsContainerView.alpha = 0
+                self.activityContainerView.alpha = 1
+            })
+        }
+    }
     
-    
+    /*
     func drawMap(){
         // Add a single marker to the map view
         let marker = GMSMarker()
@@ -85,7 +111,7 @@ class AccountDetailViewController: UIViewController {
         } catch  {
             print("AccountDetailViewController - Error instancing map style from file")
         }
-    }
+    } */
     
     
 }

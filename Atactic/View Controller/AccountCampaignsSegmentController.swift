@@ -20,9 +20,7 @@ class AccountCampaignsSegmentController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("AccountCampaignsSegmentController - Did load")
-        print("AccountCampaignsSegmentController - Calling DataHandler for quests for account \(accountId)")
-        
+        print("AccountCampaignsSegmentController - Did load (accountId = \(accountId)")
         let dataHandler = AccountCampaignsDataHandler(viewController: self)
         dataHandler.getData(accountId: accountId)
     }
@@ -34,7 +32,6 @@ class AccountCampaignsSegmentController : UIViewController {
         self.tableView.isHidden = false
         self.tableView.reloadData()
     }
-    
     
     func displayMessage(message: String) {
         self.tableView.isHidden = true
@@ -58,9 +55,6 @@ extension AccountCampaignsSegmentController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        print("AccountCampaignsSegmentController - Table View Row \(indexPath.row)")
-        
         let campaign = campaigns[indexPath.row]
         let qID = "SQCell"
         let cell = self.tableView.dequeueReusableCell(withIdentifier: qID, for: indexPath) as! SimpleQuestCell
@@ -68,7 +62,7 @@ extension AccountCampaignsSegmentController: UITableViewDataSource {
         cell.campaignNameLabel.text = campaign.campaign.name
         
         if let deadline = DateUtils.parseISODate(isoDateString: campaign.campaign.endDate){
-            cell.campaignDeadlineLabel.text = DateUtils.toDateAndTimeString(date: deadline)
+            cell.campaignDeadlineLabel.text = DateUtils.toDateString(date: deadline)
         }else{
             cell.campaignDeadlineLabel.isHidden = true
         }
@@ -80,5 +74,4 @@ extension AccountCampaignsSegmentController: UITableViewDataSource {
     }
     
 }
-
 

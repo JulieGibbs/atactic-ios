@@ -1,22 +1,19 @@
 //
-//  QuestListRequest.swift
+//  ActivityRegisterRequest.swift
 //  Atactic
 //
-//  Created by Jaime on 25/1/18.
+//  Created by Jaime on 15/3/18.
 //  Copyright © 2018 ATACTIC. All rights reserved.
 //
 
 import Foundation
 
-class CampaignListRequest : HTTPRequest {
-    
-    var resourceURLString = NetworkConstants.APIServiceURL.CampaignResource
+class UserActivityRequest : HTTPRequest {
     
     var request: URLRequest
     
     init(userId: Int){
-        
-        resourceURLString += "?uid=\(userId)"
+        let resourceURLString = NetworkConstants.APIServiceURL.ActivityListResource + "?uid=\(userId)"
         let myurl = URL(string: resourceURLString)!
         
         request = URLRequest(url: myurl)

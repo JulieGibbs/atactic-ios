@@ -20,23 +20,28 @@ class NetworkConstants {
     private static let APIResourcesURL = AtacticServerURL + "rsc/"
     
     struct APIServiceURL {
+        
         static let ServerVersionResource = APIResourcesURL + "version"
         static let AuthenticationResource = APIResourcesURL + "auth"
-        static let QuestResource = APIResourcesURL + "campaign"
-        static let UserResource = APIResourcesURL + "user"
-        static let AccountListResource = APIResourcesURL + "account"
+        
+        static let CampaignResource = APIResourcesURL + "campaign"
+        static let AccountCampaignsResource = APIResourcesURL + "campaign/acc"
+        
+        static let AccountResource = APIResourcesURL + "account"
         static let AccountMapResource = APIResourcesURL + "account/map"
         static let TargetAccountsForUser = APIResourcesURL + "account/targets"
         static let CampaignTargets = APIResourcesURL + "account/targets/campaign"
-        static let ActivityListResource = APIResourcesURL + "activity/list"
         static let RouteService = APIResourcesURL + "account/route"
-        static let AccountCampaignsResource = APIResourcesURL + "campaign/acc"
+        static let CheckInEligibleAccountsResource = APIResourcesURL + "account/nearby"
+        
+        static let ActivityListResource = APIResourcesURL + "activity/list"
+        static let AccountActivityResource = APIResourcesURL + "activity/account"
+        static let CheckInResource = APIResourcesURL + "activity/checkin"
+        
+        static let UserResource = APIResourcesURL + "user"
         static let ProfileResource = APIResourcesURL + "user/profile"
         static let PasswordResource = APIResourcesURL + "user/pwd"
         static let TenantConfigurationResource = APIResourcesURL + "user/config"
-        
-        static let CheckInEligibleAccountsResource = APIResourcesURL + "account/nearby"
-        static let CheckInResource = APIResourcesURL + "activity/checkin"
     }
 
 }

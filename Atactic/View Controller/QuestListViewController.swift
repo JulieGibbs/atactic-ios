@@ -179,15 +179,19 @@ extension QuestListViewController: UITableViewDataSource {
         switch (participation.campaign.priority){
             case 1:
                 cell.priorityLabel.layer.borderColor = UIColor.lightGray.cgColor
+                cell.priorityLabel.backgroundColor = UIColor.white
                 cell.priorityLabel.textColor = UIColor.lightGray
             case 2:
                 cell.priorityLabel.layer.borderColor = UIColor.gray.cgColor
+                cell.priorityLabel.backgroundColor = UIColor.white
                 cell.priorityLabel.textColor = UIColor.gray
             case 3:
                 cell.priorityLabel.layer.borderColor = UIColor.darkGray.cgColor
+                cell.priorityLabel.backgroundColor = UIColor.white
                 cell.priorityLabel.textColor = UIColor.darkGray
             case 4:
                 cell.priorityLabel.layer.borderColor = UIColor.black.cgColor
+                cell.priorityLabel.backgroundColor = UIColor.white
                 cell.priorityLabel.textColor = UIColor.black
             case 5:
                 cell.priorityLabel.layer.borderColor = atacticRed.cgColor

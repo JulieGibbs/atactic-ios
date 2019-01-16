@@ -11,12 +11,14 @@ import UIKit
 class ActivityRegisterViewController : UIViewController, ActivityListPresenter {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var loadingIndicatorView: UITableView!
+    @IBOutlet var statusMessageLabel: UILabel!
     
     var activities : [VisitStruct] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ActivityRegisterViewController loaded - Requesting list of visits to DataHandler...")
+        displayLoadingIndicator()
         
         //
         // Instantiate a data handler upon loading this View Controller,
@@ -24,22 +26,34 @@ class ActivityRegisterViewController : UIViewController, ActivityListPresenter {
         //
         let recoveredUserId = UserDefaults.standard.integer(forKey: "uid")
         let dataHandler = ActivityDataHandler(dataPresenter: self)
+        print("ActivityRegisterViewController - Requesting list of visits to DataHandler...")
         dataHandler.getActivities(userId: recoveredUserId)
+    }
+    
+    func displayLoadingIndicator(){
+        loadingIndicatorView.isHidden = false
+        tableView.isHidden = true
     }
     
     //
     // Called from the data handler to set the data to display
     //
     func displayData(activityList: [VisitStruct]) {
+        
+        self.statusMessageLabel.isHidden = true
+        self.loadingIndicatorView.isHidden = true
+        
         print("ActivityRegisterViewController - Setting data to display")
         print("ActivityRegisterViewController - \(activityList.count) activities will be displayed")
         self.activities = activityList
         self.tableView.reloadData()
+        self.tableView.isHidden = false
     }
     
     func displayMessage(message: String) {
-        // TODO display error
-        
+        self.statusMessageLabel.isHidden = false
+        self.tableView.isHidden = true
+        self.loadingIndicatorView.isHidden = true
     }
     
 }

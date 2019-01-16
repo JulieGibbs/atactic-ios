@@ -13,6 +13,7 @@ class AccountCampaignsSegmentController : UIViewController {
     
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     
     var accountId : Int = 0
     var campaigns : [Participation] = []
@@ -20,21 +21,31 @@ class AccountCampaignsSegmentController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        displayLoadingIndicator()
+        
         print("AccountCampaignsSegmentController - Did load (accountId = \(accountId)")
         let dataHandler = AccountCampaignsDataHandler(viewController: self)
         dataHandler.getData(accountId: accountId)
+    }
+    
+    func displayLoadingIndicator(){
+        tableView.isHidden = true
+        messageLabel.isHidden = true
+        loadingIndicator.isHidden = false
     }
     
     func displayData(participations: [Participation]) {
         self.messageLabel.isHidden = true
         campaigns = participations
         
+        self.loadingIndicator.isHidden = true
         self.tableView.isHidden = false
         self.tableView.reloadData()
     }
     
     func displayMessage(message: String) {
         self.tableView.isHidden = true
+        self.loadingIndicator.isHidden = true
         self.messageLabel.text = message
         self.messageLabel.isHidden = false
     }

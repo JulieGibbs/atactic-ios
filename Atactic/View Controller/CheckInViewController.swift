@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CheckInViewController : UIViewController {
+class CheckInViewController : UIViewController, UITextViewDelegate {
     
     @IBOutlet var accountPicker: UIPickerView!
     @IBOutlet var comments: UITextView!
@@ -25,6 +25,8 @@ class CheckInViewController : UIViewController {
         
         accountPicker.dataSource = self
         accountPicker.delegate = self
+        
+        comments.delegate = self
         
         print("CheckInViewController - Requesting eligible accounts to CheckInHandler")
         let handler = CheckInHandler(view: self)
@@ -75,7 +77,16 @@ class CheckInViewController : UIViewController {
         print(message)
     }
     
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        if textView.text.last == "\n" {     //Check if last char is newline
+            textView.text.removeLast()      //Remove newline
+            textView.resignFirstResponder() //Dismiss keyboard
+        }
+    }
+    
 }
+
 
 
 extension CheckInViewController : UIPickerViewDataSource, UIPickerViewDelegate {

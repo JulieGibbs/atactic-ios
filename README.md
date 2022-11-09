@@ -1,4 +1,4 @@
-![ATACTIC Big Banner-2](https://user-images.githubusercontent.com/26114098/200781099-519ad8cc-186a-4731-95b1-252a3859371d.png)
+![ATACTIC Big Banner-3](https://user-images.githubusercontent.com/26114098/200782136-6415ad72-1415-49f2-97a4-c7fd1d41b77a.png)
 
 # ATACTIC for iOS
 
